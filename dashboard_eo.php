@@ -10,7 +10,7 @@
 	<title>Fruitkha</title>
 
 	<!-- favicon -->
-	<link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
+	<link rel="shortcut icon" type="image/png" href="assets/img/logoWmindKuning.png">
 	<!-- google font -->
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
@@ -50,8 +50,8 @@
 					<div class="main-menu-wrap">
 						<!-- logo -->
 						<div class="site-logo">
-							<a href="index.html">
-								<img src="assets/img/logo.png" alt="">
+							<a href="index.php">
+								<img src="assets/img/logoWmindKuning.png" alt="">
 							</a>
 						</div>
 						<!-- logo -->
@@ -61,7 +61,7 @@
 							<ul>
 								<li class="current-list-item"><a href="#">Home</a>
 									<ul class="sub-menu">
-										<li><a href="index.html">Static Home</a></li>
+										<li><a href="index.php">Static Home</a></li>
 										<li><a href="index_2.html">Slider Home</a></li>
 									</ul>
 								</li>
@@ -479,7 +479,7 @@
 					<div class="footer-box pages">
 						<h2 class="widget-title">Pages</h2>
 						<ul>
-							<li><a href="index.html">Home</a></li>
+							<li><a href="index.php">Home</a></li>
 							<li><a href="about.html">About</a></li>
 							<li><a href="services.html">Shop</a></li>
 							<li><a href="news.html">News</a></li>
@@ -491,7 +491,7 @@
 					<div class="footer-box subscribe">
 						<h2 class="widget-title">Subscribe</h2>
 						<p>Subscribe to our mailing list to get the latest updates.</p>
-						<form action="index.html">
+						<form action="index.php">
 							<input type="email" placeholder="Email">
 							<button type="submit"><i class="fas fa-paper-plane"></i></button>
 						</form>
