@@ -114,7 +114,8 @@
 							<p class="subtitle">find your webinar</p>
 							<h1>Aplikasi Event<br> Webinar</h1>
 							<div class="hero-btns">
-								<a href="dashboard_eo.php" class="boxed-btn">Buat Webinar baru</a>
+								<a href="dashboard-eo.php" class="boxed-btn">Buat Webinar baru</a>
+								<a href="contact.html" class="bordered-btn">Contact Us</a>
 							</div>
 						</div>
 					</div>

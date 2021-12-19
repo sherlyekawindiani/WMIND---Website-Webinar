@@ -1,0 +1,221 @@
+/* Halaman Dasboard Pemilik Webinar */
+/* Navbar */
+.navBarEo{
+    background-color: #0E1B3A;
+}
+.navBarUsername {
+    text-align: right;
+}
+
+.panggilUsername{
+    color: white;
+    font-family: 'Lexend Deca', sans-serif;
+    font-size: 15px;
+    margin-bottom: 0px;
+    text-transform: capitalize;
+}
+.txtLogout{
+    color: white;
+    font-family: 'Lexend Deca', sans-serif;
+    font-size: 15px;
+    font-weight: 200;
+}
+/* Akhir navbar */
+
+/* slidebar kiri Organizer */
+.colKiri{
+    height: 800px;
+    background-color: white;
+    width: 300px;
+}
+.sidebarEo{
+    padding-top: 40px;
+    margin-left: -20px;
+    width: 400px;
+}
+.sidebarEo ul li.active{
+    background-color: #FFC224 ;
+    color: white !important;
+}
+.listMenu {
+    margin-left: -20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 5px;
+    padding-left: 5px;
+    width: 200px;
+    height: 50px;
+    font-family: 'Lexend Deca', sans-serif;
+    font-size: 20px;
+    cursor: pointer;
+    
+    
+}
+/* .listMenu a{
+    color: white !important;
+} */
+.listMenu:hover {
+    background-color: #FFC224;
+    width: 200px;
+    height: 50px;
+    
+}
+
+.listMenu a:hover{
+    color: #0E1B3A;
+    text-decoration: none;
+}
+
+.batas{
+    margin-top: 15px;
+}
+.pilihanMenu{
+    margin-left: 10px;
+    color: #0E1B3A;
+}
+
+/* Akhir slidebar kiri Organizer */
+
+/* Card Dashboard */
+.cardDashboard{
+    margin: 40px;
+}
+.cardSelamatDtng {
+    font-family: 'Lexend Deca', sans-serif;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    
+}
+.cardBuatWebinar{
+    font-family: 'Lexend Deca', sans-serif;
+    margin-bottom: 20px;
+    margin-top: -20px;
+    background: transparent;
+    border: none;
+}
+/* .cardOverview{
+    border-radius: 50px;
+} */
+
+.cardTitleUsername{
+    font-weight: 200;
+}
+.cardJumlahData{
+    width: 300px;
+    border-radius: 10px;
+}
+.titleOverview{
+    font-weight: normal;
+    font-size: 20px;
+}
+/* Akhir card dashboard */
+
+/* Gambar Poster */
+.cardGambarPoster{
+    height: 350px;
+    width: 350px;
+    border: none;
+}
+.cardGambarPoster .tempatGambarPoster{
+    position: relative;
+    height: 350px;
+    width: 350px;
+    border-radius: 15px;
+    border: none;
+    background-color: #E6E6E6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; 
+}
+
+.tempatGambarPoster .gambarPoster{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-style: none;
+}
+.tempatGambarPoster .gambarPoster {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-style: none;
+}
+.tempatGambarPoster .iconAwan{
+    font-size: 60px;
+    color: #FFC224 ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.tempatGambarPoster .textRekom, h6{
+    font-size: 15px;
+    color: #0E1B3A;
+    font-weight: normal;
+    text-align: center;
+    padding: 10px;
+}
+
+.tempatGambarPoster #cancelTombol{
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    font-size: 20px;
+    cursor: pointer;
+    color:  #0E1B3A;
+    display: none;
+
+}
+.tempatGambarPoster.active{
+    border : none;
+}
+.tempatGambarPoster.active:hover #cancelTombol{
+    display: block;
+
+}
+.tempatGambarPoster #cancelTombol:hover{
+    display: block;
+    color:  #FFC224 ;
+
+}
+.tempatGambarPoster .fileNama{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    color: #fff;
+    padding: 8px 0;
+    font-size: 15px;
+    display: none;
+    background: #0E1B3A;
+    height: 60px;
+    
+}
+.tempatGambarPoster.active:hover .fileNama{
+    display: block;
+}
+.cardGambarPoster #customBtnUnggah{
+    margin-top: 30px;
+    width: 100%;
+    height: 25px;
+    display: block;
+    border: none;
+    outline: none;
+    background: #0E1B3A;
+    border-radius: 25px;
+    color: #fff;
+    font-size: 20px;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    cursor: pointer;
+
+}
+/* Akhir gambar poster */
+/* Riwayat */
+.tabelThead{
+    background-color: #FFC224;
+    border: none;
+}
+
+/* Akhir Riwayat */
