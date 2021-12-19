@@ -63,11 +63,11 @@
 						<!-- menu start -->
 						<nav class="main-menu navbar font">
 							<ul>
-								<li class="current-list-item"><a href="#">Beranda</a>
 								</li>
-								<li><a href="about.html">Temukan Webinar</a></li>
+								<li><a href="temukan_webinar.php">Temukan Webinar</a></li>
+								<li><a href="news.html">Artikel</a></li>
 								<li><a href="contact.html">Tentang Kami</a></li>
-								<a class="boxed-btn">Login</a>
+								<a class="boxed-btn" href="daftar.php">Login</a>
 								<li>
 									<div class="header-icons">
 										<!-- <a class="shopping-cart" href="cart.html"><i class="fas fa-user-circle"></i></a> -->
@@ -115,7 +115,6 @@
 							<h1>Aplikasi Event<br> Webinar</h1>
 							<div class="hero-btns">
 								<a href="dashboard-eo.php" class="boxed-btn">Buat Webinar baru</a>
-								<a href="contact.html" class="bordered-btn">Contact Us</a>
 							</div>
 						</div>
 					</div>
@@ -478,8 +477,9 @@
 					<div class="footer-box pages">
 						<h2 class="widget-title">Wmind</h2>
 						<ul>
-							<li><a href="index.php">Beranda</a></li>
-							<li><a href="about.html">Temukan Webinar</a></li>
+							
+							<li><a href="temukan_webinar.php">Temukan Webinar</a></li>
+							<li><a href="news.html">Artikel</a></li>
 							<li><a href="services.html">Tentang Kami</a></li>
 						</ul>
 					</div>
