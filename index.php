@@ -7,13 +7,15 @@
 	<meta name="description" content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
 
 	<!-- title -->
-	<title>Fruitkha</title>
+	<title>WMIND</title>
 
 	<!-- favicon -->
-	<link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
+	<link rel="shortcut icon" type="image/png" href="assets/img/logo2.png">
 	<!-- google font -->
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@200;300;400;600&display=swap" rel="stylesheet">
 	<!-- fontawesome -->
 	<link rel="stylesheet" href="assets/css/all.min.css">
 	<!-- bootstrap -->
@@ -28,6 +30,8 @@
 	<link rel="stylesheet" href="assets/css/meanmenu.min.css">
 	<!-- main style -->
 	<link rel="stylesheet" href="assets/css/main.css">
+	<!-- css ela -->
+	<link rel="stylesheet" href="assets/css/css_ela.css">
 	<!-- responsive -->
 	<link rel="stylesheet" href="assets/css/responsive.css">
 
@@ -51,23 +55,22 @@
 						<!-- logo -->
 						<div class="site-logo">
 							<a href="index.php">
-								<img src="assets/img/logo.png" alt="">
+								<img src="assets/img/logo_transparan.png" alt="">
 							</a>
 						</div>
 						<!-- logo -->
 
 						<!-- menu start -->
-						<nav class="main-menu">
+						<nav class="main-menu navbar font">
 							<ul>
 								<li class="current-list-item"><a href="#">Beranda</a>
 								</li>
 								<li><a href="about.html">Temukan Webinar</a></li>
-								<li><a href="news.html">Tentang Kami</a></li>
-								<li><a href="shop.html">Login</a></li>
+								<li><a href="contact.html">Tentang Kami</a></li>
+								<a class="boxed-btn">Login</a>
 								<li>
 									<div class="header-icons">
-										<a class="shopping-cart" href="cart.html"><i class="fas fa-shopping-cart"></i></a>
-										<a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+										<!-- <a class="shopping-cart" href="cart.html"><i class="fas fa-user-circle"></i></a> -->
 									</div>
 								</li>
 							</ul>
@@ -83,7 +86,7 @@
 	<!-- end header -->
 	
 	<!-- search area -->
-	<div class="search-area">
+	<!-- <div class="search-area">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
@@ -97,22 +100,21 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> -->
 	</div>
 	<!-- end search area -->
 
 	<!-- hero area -->
-	<div class="hero-area hero-bg">
+	<div class="posisi jumbo">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-9 offset-lg-2 text-center">
+				<div class="col-lg-9 text-center">
 					<div class="hero-text">
-						<div class="hero-text-tablecell">
-							<p class="subtitle">Fresh & Organic</p>
-							<h1>Delicious Seasonal Fruits</h1>
+						<div class="judul" >
+							<p class="subtitle">find your webinar</p>
+							<h1>Aplikasi Event<br> Webinar</h1>
 							<div class="hero-btns">
 								<a href="dashboard_eo.php" class="boxed-btn">Buat Webinar baru</a>
-								<a href="contact.html" class="bordered-btn">Contact Us</a>
 							</div>
 						</div>
 					</div>
@@ -123,17 +125,17 @@
 	<!-- end hero area -->
 
 	<!-- features list section -->
-	<div class="list-section pt-80 pb-80">
+	<div class="service pt-80 pb-80">
 		<div class="container">
 
 			<div class="row">
 				<div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
 					<div class="list-box d-flex align-items-center">
 						<div class="list-icon">
-							<i class="fas fa-shipping-fast"></i>
+							<i class="fas fa-calendar check" style="color:#0e1b3a"></i>
 						</div>
 						<div class="content">
-							<h3>Free Shipping</h3>
+							<h3>Registrasi Event</h3>
 							<p>When order over $75</p>
 						</div>
 					</div>
@@ -141,10 +143,10 @@
 				<div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
 					<div class="list-box d-flex align-items-center">
 						<div class="list-icon">
-							<i class="fas fa-phone-volume"></i>
+							<i class="fas fa-plus" style="color:#0e1b3a"></i>
 						</div>
 						<div class="content">
-							<h3>24/7 Support</h3>
+							<h3>Buat Event</h3>
 							<p>Get support all day</p>
 						</div>
 					</div>
@@ -152,10 +154,10 @@
 				<div class="col-lg-4 col-md-6">
 					<div class="list-box d-flex justify-content-start align-items-center">
 						<div class="list-icon">
-							<i class="fas fa-sync"></i>
+							<i class="fas fa-business-time" style="color:#0e1b3a"></i>
 						</div>
 						<div class="content">
-							<h3>Refund</h3>
+							<h3>Mudah dan Cepat</h3>
 							<p>Get refund within 3 days!</p>
 						</div>
 					</div>
@@ -172,14 +174,14 @@
 			<div class="row">
 				<div class="col-lg-8 offset-lg-2 text-center">
 					<div class="section-title">	
-						<h3><span class="orange-text">Our</span> Products</h3>
+						<h3><span class="orange-text">Webinar</span> Kami</h3>
 						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, fuga quas itaque eveniet beatae optio.</p>
 					</div>
 				</div>
 			</div>
 
 			<div class="row">
-				<div class="col-lg-4 col-md-6 text-center">
+				<div class="col-lg-3 col-md-6 text-center">
 					<div class="single-product-item">
 						<div class="product-image">
 							<a href="single-product.html"><img src="assets/img/products/product-img-1.jpg" alt=""></a>
@@ -189,7 +191,7 @@
 						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
 					</div>
 				</div>
-				<div class="col-lg-4 col-md-6 text-center">
+				<div class="col-lg-3 col-md-6 text-center">
 					<div class="single-product-item">
 						<div class="product-image">
 							<a href="single-product.html"><img src="assets/img/products/product-img-2.jpg" alt=""></a>
@@ -199,7 +201,17 @@
 						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
 					</div>
 				</div>
-				<div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0 text-center">
+				<div class="col-lg-3 col-md-6 offset-md-3 offset-lg-0 text-center">
+					<div class="single-product-item">
+						<div class="product-image">
+							<a href="single-product.html"><img src="assets/img/products/product-img-3.jpg" alt=""></a>
+						</div>
+						<h3>Lemon</h3>
+						<p class="product-price"><span>Per Kg</span> 35$ </p>
+						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6 offset-md-3 offset-lg-0 text-center">
 					<div class="single-product-item">
 						<div class="product-image">
 							<a href="single-product.html"><img src="assets/img/products/product-img-3.jpg" alt=""></a>
@@ -215,11 +227,11 @@
 	<!-- end product section -->
 
 	<!-- cart banner section -->
-	<section class="cart-banner pt-100 pb-100">
+	<!-- <section class="cart-banner pt-100 pb-100">
     	<div class="container">
-        	<div class="row clearfix">
+        	<div class="row clearfix"> -->
             	<!--Image Column-->
-            	<div class="image-column col-lg-6">
+            	<!-- <div class="image-column col-lg-6">
                 	<div class="image">
                     	<div class="price-box">
                         	<div class="inner-price">
@@ -230,23 +242,23 @@
                         </div>
                     	<img src="assets/img/a.jpg" alt="">
                     </div>
-                </div>
+                </div> -->
                 <!--Content Column-->
-                <div class="content-column col-lg-6">
+                <!-- <div class="content-column col-lg-6">
 					<h3><span class="orange-text">Deal</span> of the month</h3>
                     <h4>Hikan Strwaberry</h4>
-                    <div class="text">Quisquam minus maiores repudiandae nobis, minima saepe id, fugit ullam similique! Beatae, minima quisquam molestias facere ea. Perspiciatis unde omnis iste natus error sit voluptatem accusant</div>
+                    <div class="text">Quisquam minus maiores repudiandae nobis, minima saepe id, fugit ullam similique! Beatae, minima quisquam molestias facere ea. Perspiciatis unde omnis iste natus error sit voluptatem accusant</div> -->
                     <!--Countdown Timer-->
-                    <div class="time-counter"><div class="time-countdown clearfix" data-countdown="2020/2/01"><div class="counter-column"><div class="inner"><span class="count">00</span>Days</div></div> <div class="counter-column"><div class="inner"><span class="count">00</span>Hours</div></div>  <div class="counter-column"><div class="inner"><span class="count">00</span>Mins</div></div>  <div class="counter-column"><div class="inner"><span class="count">00</span>Secs</div></div></div></div>
+                    <!-- <div class="time-counter"><div class="time-countdown clearfix" data-countdown="2020/2/01"><div class="counter-column"><div class="inner"><span class="count">00</span>Days</div></div> <div class="counter-column"><div class="inner"><span class="count">00</span>Hours</div></div>  <div class="counter-column"><div class="inner"><span class="count">00</span>Mins</div></div>  <div class="counter-column"><div class="inner"><span class="count">00</span>Secs</div></div></div></div>
                 	<a href="cart.html" class="cart-btn mt-3"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
                 </div>
             </div>
-        </div>
+        </div> -->
     </section>
     <!-- end cart banner section -->
 
 	<!-- testimonail-section -->
-	<div class="testimonail-section mt-150 mb-150">
+	<!-- <div class="testimonail-section mt-150 mb-150">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-10 offset-lg-1 text-center">
@@ -297,26 +309,46 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 	<!-- end testimonail-section -->
 	
 	<!-- advertisement section -->
 	<div class="abt-section mb-150">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-6 col-md-12">
-					<div class="abt-bg">
-						<a href="https://www.youtube.com/watch?v=DBLlFWYcIGQ" class="video-play-btn popup-youtube"><i class="fas fa-play"></i></a>
-					</div>
-				</div>
+				
 				<div class="col-lg-6 col-md-12">
 					<div class="abt-text">
-						<p class="top-sub">Since Year 1999</p>
-						<h2>We are <span class="orange-text">Fruitkha</span></h2>
-						<p>Etiam vulputate ut augue vel sodales. In sollicitudin neque et massa porttitor vestibulum ac vel nisi. Vestibulum placerat eget dolor sit amet posuere. In ut dolor aliquet, aliquet sapien sed, interdum velit. Nam eu molestie lorem.</p>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente facilis illo repellat veritatis minus, et labore minima mollitia qui ducimus.</p>
-						<a href="about.html" class="boxed-btn mt-4">know more</a>
+						<h3> <span class="orange-text"></span></h3>
+						<div class="card font">
+						<div class="card-body">
+							<h5>Bagaimana cara mempromosikan event saya melalui Wmind?</h5>
+							This is some text within a card body.
+						</div>
+						</div>
+						<div class="card font">
+						<div class="card-body">
+							<h5>Apakah mempromosikan event di Wmind berbayar?</h5>
+							This is some text within a card body.
+						</div>
+						</div>
+						<div class="card font">
+						<div class="card-body">
+							<h5>Bagaimana cara mempromosikan event saya melalui Wmind?</h5>
+							This is some text within a card body.
+						</div>
+						</div>
+						<div class="card font">
+						<div class="card-body">
+							<h5>Bagaimana cara mempromosikan event saya melalui Wmind?</h5>
+							This is some text within a card body.
+						</div>
+						</div>
+						
 					</div>
+				</div>
+				<div class="col-lg-6 col-md-12 gambar-pertanyaan">
+					<img src="assets/img/gambar-question.svg" alt="...">	
 				</div>
 			</div>
 		</div>
@@ -325,16 +357,15 @@
 	
 	<!-- shop banner -->
 	<section class="shop-banner">
-    	<div class="container">
-        	<h3>December sale is on! <br> with big <span class="orange-text">Discount...</span></h3>
-            <div class="sale-percent"><span>Sale! <br> Upto</span>50% <span>off</span></div>
-            <a href="shop.html" class="cart-btn btn-lg">Shop Now</a>
+    	<div class="container font">
+        	<h3>Segera Daftarkan Eventmu! <br> dan <span class="orange-text">Raih Target Paticipant</span></h3>
+            <!-- <a href="shop.html" class="cart-btn btn-lg">Shop Now</a> -->
         </div>
     </section>
 	<!-- end shop banner -->
 
 	<!-- latest news -->
-	<div class="latest-news pt-150 pb-150">
+	<!-- <div class="latest-news pt-150 pb-150">
 		<div class="container">
 
 			<div class="row">
@@ -396,11 +427,11 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 	<!-- end latest news -->
 
 	<!-- logo carousel -->
-	<div class="logo-carousel-section">
+	<!-- <div class="logo-carousel-section">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
@@ -424,49 +455,57 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 	<!-- end logo carousel -->
 
 	<!-- footer -->
 	<div class="footer-area">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-3 col-md-6">
-					<div class="footer-box about-widget">
-						<h2 class="widget-title">About us</h2>
-						<p>Ut enim ad minim veniam perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae.</p>
-					</div>
-				</div>
+				
 				<div class="col-lg-3 col-md-6">
 					<div class="footer-box get-in-touch">
-						<h2 class="widget-title">Get in Touch</h2>
+						<h2 class="widget-title">Alamat</h2>
 						<ul>
-							<li>34/8, East Hukupara, Gifirtok, Sadan.</li>
-							<li>support@fruitkha.com</li>
-							<li>+00 111 222 3333</li>
+							<li>Kangean 1, Klojen, Malang.</li>
+							<li>startup@wmind.com</li>
+							<li>+00 111 222</li>
 						</ul>
 					</div>
 				</div>
 				<div class="col-lg-3 col-md-6">
 					<div class="footer-box pages">
-						<h2 class="widget-title">Pages</h2>
+						<h2 class="widget-title">Wmind</h2>
 						<ul>
-							<li><a href="index.php">Home</a></li>
-							<li><a href="about.html">About</a></li>
-							<li><a href="services.html">Shop</a></li>
-							<li><a href="news.html">News</a></li>
-							<li><a href="contact.html">Contact</a></li>
+							<li><a href="index.php">Beranda</a></li>
+							<li><a href="about.html">Temukan Webinar</a></li>
+							<li><a href="services.html">Tentang Kami</a></li>
 						</ul>
 					</div>
 				</div>
 				<div class="col-lg-3 col-md-6">
-					<div class="footer-box subscribe">
-						<h2 class="widget-title">Subscribe</h2>
-						<p>Subscribe to our mailing list to get the latest updates.</p>
-						<form action="index.php">
-							<input type="email" placeholder="Email">
-							<button type="submit"><i class="fas fa-paper-plane"></i></button>
-						</form>
+					<div class="footer-box about-widget">
+						<h2 class="widget-title">Hubungi Kami</h2>
+						<ul>
+							<li>
+								<div class="row">
+									<img src="assets/img/whatsapp.png" style="width:30px;height:30px;margin-right:10px;margin-left:10px;" alt="">
+									<p>0822-3494-0026<p>
+								</div>	
+							</li>
+							<li>
+								<div class="row">
+									<img src="assets/img/phone-call.png" style="width:30px;height:30px;margin-right:10px;margin-left:10px;" alt="">
+									<p>+00 111 222<p>
+								</div>	
+							</li>
+							<li>
+								<div class="row">
+									<img src="assets/img/email.png" style="width:30px;height:30px;margin-right:10px;margin-left:10px;" alt="">
+									<p>startup@wmind.com<p>
+								</div>	
+							</li>
+						</ul>
 					</div>
 				</div>
 			</div>
@@ -479,19 +518,9 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6 col-md-12">
-					<p>Copyrights &copy; 2019 - <a href="https://imransdesign.com/">Imran Hossain</a>,  All Rights Reserved.</p>
+					<p>Copyrights &copy; 2021 - <a href="https://imransdesign.com/">Wmind</a>,  All Rights Reserved.</p>
 				</div>
-				<div class="col-lg-6 text-right col-md-12">
-					<div class="social-icons">
-						<ul>
-							<li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-							<li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
-							<li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
-							<li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-							<li><a href="#" target="_blank"><i class="fab fa-dribbble"></i></a></li>
-						</ul>
-					</div>
-				</div>
+				
 			</div>
 		</div>
 	</div>

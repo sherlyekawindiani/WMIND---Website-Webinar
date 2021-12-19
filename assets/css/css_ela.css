@@ -1,0 +1,105 @@
+.judul{
+    height: auto;
+    text-align: left;
+    margin-top: 200px;
+    margin-right: 50px;
+    /* vertical-align: middle; */
+  }
+
+.jumbo{
+    background-image: url(../img/jumbotron2.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;   
+}
+.navbar{
+    text-align: right;
+}
+
+.posisi{
+    height: 100%;
+    width: 100%;
+}
+
+.service{
+    background-color: #ffc224;
+}
+
+.tanya{
+    font-size: 30px;
+
+}
+.tanya-warna{
+    background-color: #d33636; 
+}
+ .card{
+     margin-bottom: 15px;
+     border-radius: 15px;
+     border-left-width: 10px;
+     border-color: #ffc224;
+     background-color: #fff6df;
+ }
+ .gambar-pertanyaan{
+     margin-top: 80px;
+     border: 0px;
+    box-shadow: none;
+    border-radius:0px;
+    background-color: rgb(255, 255, 255);
+ }
+ .icon-footer{
+     height: 10px;
+     width: 10p;
+ }
+ .font{
+    font-family: 'Lexend Deca', sans-serif;
+}
+
+ /* login page */
+.warna{
+	background-color: #ffc224;
+	height: 657px;
+}
+.form{
+    border-color: #ffc224;
+}
+.form-judul{
+	margin-top: 100px;
+	margin-left: 50px;
+	margin-right: 150px;
+}
+.form-judul p{
+	margin-top: -10px;
+	margin-bottom: 50px;
+	font-size: 18px;
+}
+.form-control{
+	margin-left: 50px;
+	margin-right: 150px;
+	width: 550px;
+	height: 50px;
+	border-radius: 20px;
+}
+.icon-form{
+    border-color: #ffc224;
+    margin-bottom: 50px;
+    color: #ffc224;
+}
+.box-form{
+    width: 550px;
+    border: 2px solid #aaa;
+    margin: 8px 0;
+    outline: none;
+    padding: 8px;
+    box-sizing: border-box;
+    
+}
+/* .box-form input{
+    position: relative;
+    margin-left: 10px;
+	margin-right: 150px;
+	width: 520px;
+	height: 30px;
+	border-color: #000000;
+} */
+
+
