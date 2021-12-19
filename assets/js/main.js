@@ -86,9 +86,9 @@
         }
 
         // projects filters isotop
-        $(".product-filters li").on('click', function () {
+        $(".produk-filter li").on('click', function () {
             
-            $(".product-filters li").removeClass("active");
+            $(".produk-filter li").removeClass("active");
             $(this).addClass("active");
 
             var selector = $(this).attr('data-filter');
