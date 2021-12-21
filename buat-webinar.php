@@ -89,7 +89,7 @@
 							<p class="card-text">Isilah form dibawah ini dengan teliti</p>
 						</div>
 					</div>
-					<div class="card shadow p-3 mb-5 bg-white rounded" style="width: 100%; margin: 10px; border: none; border-radius: 6px; ">
+					<div class="card shadow p-3 mb-5 bg-white rounded" style="width: 100%; border: none; border-radius: 6px; ">
 						<div class="card-body">
 							<form class="formBuatEvent" method="POST" action="submit-buat-webinar.php" enctype="multipart/form-data">
 								<div class="form-row">
@@ -109,7 +109,7 @@
 												<div class="fileNama">nama file</div>
 											</div>
 										</div>
-										<div class="form-group ">
+										<div class="form-group " style="width: 200px; margin: 20px;	">
 											<input name="id_author" type="hidden" class="form-control" value=" <?php echo $_SESSION['id_user']; ?>" >
 										</div>
 										<div class="form-group batasPilihFile">
@@ -117,13 +117,14 @@
 											<input id="tombolUnggah" name="gambar_poster"  type="file" class="form-control-file" style="height: 40px; width: 290px;"  required="The gambar field is required." >
 										</div>
 									</div>
-									
-
 									<div class="form-group col-md-6" style="margin-left:-100px;">
 										<h5 class="card-title">Informasi Umum</h5>
 										<div class="form-group ">
+											<input name="tgl_buat" type="hidden" class="form-control" value="<?php echo date("l-d-m-Y"); ?>" style="height: 40px; width: 520px;  border-radius: 10px;">
+										</div>
+										<div class="form-group ">
 												<label for="judul_webinar">Judul Webinar</label>
-												<input type="text" name="judul_webinar" style="height: 40px; width: 520px;  border-radius: 10px;"  class="form-control" required="The field is required." id="judul_webinar" >
+												<input type="text" name="judul_webinar" style="height: 40px; width: 520px;  border-radius: 10px;  text-transform: capitalize;"  class="form-control" required="The field is required." id="judul_webinar" >
 										</div>
 										<div class="form-row">
 											<div class="form-group col-md-6 ">
@@ -143,7 +144,7 @@
 										<div class="form-row">
 											<div class="form-group col-md-6">
 												<label for="namaEo">Nama Organizer</label>
-												<input type="text" name="nama_eo" style="height: 40px; width: 260px; border-radius: 10px;"  class="form-control" required="The field is required." id="namaEo" >
+												<input type="text" name="nama_eo" style="height: 40px; width: 260px; border-radius: 10px; text-transform: capitalize;"  class="form-control" required="The field is required." id="namaEo" >
 											</div>
 											<div class="form-group col-md-6">
 												<label for="emailEo" style="margin-left: 30px;">Email Organizer</label>
@@ -244,6 +245,31 @@
 	</div>
 	<!-- end copyright -->
 
+	<!-- PHP -->
+		<!-- Hari diubah kebahasa Indonesia -->
+		<?php
+			function hariIndo ($hariInggris) {
+			switch ($hariInggris) {
+				case 'Sunday':
+				return 'Minggu';
+				case 'Monday':
+				return 'Senin';
+				case 'Tuesday':
+				return 'Selasa';
+				case 'Wednesday':
+				return 'Rabu';
+				case 'Thursday':
+				return 'Kamis';
+				case 'Friday':
+				return 'Jumat';
+				case 'Saturday':
+				return 'Sabtu';
+				default:
+				return 'hari tidak valid';
+			}
+			}
+		?>	
+	<!-- Akhir PHP -->
 	<!-- Javascript ini -->
 			<!-- Form submit -->
 			<!-- <script>

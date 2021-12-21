@@ -36,6 +36,13 @@
 	<link href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@200;400&display=swap" rel="stylesheet">
 </head>
+
+<?php
+error_reporting(0);
+?>
+
+
+
 <body>
 	
 	<!--PreLoader-->
@@ -88,39 +95,73 @@
 							<p class="card-text" style="font-size: 18px;">Menampilkan webinar yang pernah di upload beserta data peserta yang mendaftarkan webinar </p>
 						</div>
 					</div>
-					<div class="card shadow p-3 mb-5 bg-white rounded" style="width: 100%; margin: 10px; border: none; border-radius: 6px; ">
-						<div class="card-body">
-							<table class="table table-bordered" style="border: none;" >
+					<div class="card shadow p-3 mb-5 bg-white rounded" style="width: 100%; border: none; border-radius: 6px;">
+						<div class="card-body" style="padding: 15px">
+							<!-- Search -->
+							<div class="navbar">
+								<div class="container d-flex justify-content-end mb-3 ">
+									<form class="d-flex" action="" method="post" style=" ">
+										<input class="form-control" style="width: 300px;" name="inputCari" type="search" placeholder="Cari nama webinar atau kategori" aria-label="Search">
+										<button class="btn" name="cari" type="submit" style="background-color: #0E1B3A; color: white;"><i class="fas fa-search"></i></button>
+									</form>
+								</div>
+							</div>
+							
+							<!-- Akhir Search -->
+							<table class="table table-bordered tabelRiwayat" >
 								<thead>
 									<tr class="tabelThead">
-										<th scope="col" style="border-top-left-radius: 10px; border: none;">No</th>
-										<th scope="col" style="border: none;">First</th>
-										<th scope="col" style="border: none;">Last</th>
-										<th scope="col" style="border-top-right-radius: 10px; border: none;">Handle</th>
+										<th scope="col" style="border-top-left-radius: 10px; border: none; width: 50px">No</th>
+										<th scope="col" style="border: none; width: 160px">Tanggal Pembuatan</th>
+										<th scope="col" style="border: none; width: 350px">Nama Webinar</th>
+										<th scope="col" style="border: none;">Kategori</th>
+										<th scope="col" style="border-top-right-radius: 10px; border: none; width: 250px;">Aksi</th>
 									</tr>
 								</thead>
+									<?php
+										include "koneksi.php"; //panggil file koneksi
+										$no=1;
+										$cari = $_POST['inputCari'];
+										if($cari != ''){
+											$select= mysqli_query($koneksi, "SELECT * FROM tb_buat_webinar WHERE id_webinar AND judul_webinar LIKE '%".$cari."%' OR kategori_webinar LIKE '%".$cari."%' ");
+										}else{
+											$select= mysqli_query($koneksi, "SELECT * FROM tb_buat_webinar WHERE id_webinar ");
+										}
+										if(mysqli_num_rows($select)){
+											// perulangan untuk nampilkan data dari database
+											while ($data=mysqli_fetch_array ($select)){ 
+									?> 
 								<tbody>
 									<tr>
-									<th scope="row">1</th>
-									<td>Mark</td>
-									<td>Otto</td>
-									<td>@mdo</td>
-									</tr>
-									<tr>
-									<th scope="row">2</th>
-									<td>Jacob</td>
-									<td>Thornton</td>
-									<td>@fat</td>
-									</tr>
-									<tr>
-									<th scope="row">3</th>
-									<td>Larry</td>
-									<td>the Bird</td>
-									<td>@twitter</td>
-									</tr>
+										<th><?php echo $no++;?></th>
+										<td style="text-transform: capitalize;"><?php echo $data['tgl_buat'];?> </td>
+										<td>
+											<a href="#" >
+												<button type="button" class="btn btn-link" style="text-transform: capitalize;  text-align: left;"><?php echo $data['judul_webinar'];?></button>
+											</a>
+										</td>
+										<td><?php echo $data['kategori_webinar'];?> </td>
+										<td>
+											<a href="admin-hapus-kontak.php?id_kontak=<?php echo $data['id_kontak'];?>"
+												onclick="return confirm ('Apakah anda yakin?')" >
+												<button type="button" class="btn btnAksi" >Peserta</button>
+											</a>
+											<a href="admin-hapus-kontak.php?id_kontak=<?php echo $data['id_kontak'];?>"
+												onclick="return confirm ('Apakah anda yakin?')" >
+												<button type="button" class="btn btnAksi" >Edit</button>
+											</a>
+											<a href="admin-hapus-kontak.php?id_kontak=<?php echo $data['id_kontak'];?>"
+												onclick="return confirm ('Apakah anda yakin?')" >
+												<button type="button" class="btn btnAksi" >Hapus</button>
+											</a>
+											
+										</td>
+									</tr>			
 								</tbody>
+								<?php } } else{
+										echo '<tr class="align-middle"><td colspan="5">Tidak ada data</td></tr>';
+									}?>
 							</table>
-							
 
 						</div>
 					</div>
