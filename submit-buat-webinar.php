@@ -31,7 +31,7 @@
                         move_uploaded_file($tmp_name, 'assets/img/gambar-poster/' . $nama_baru);
                         
                         // Memasukkan data (Insert) 
-                        @$query = "INSERT INTO tb_buat_webinar VALUES ('','$gambar_poster','$tgl_buat','$judul_webinar','$kategori_webinar','$nama_eo','$email_eo',
+                        @$query = "INSERT INTO tb_buat_webinar VALUES ('','$nama_baru','$tgl_buat','$judul_webinar','$kategori_webinar','$nama_eo','$email_eo',
                         '$tanggal_mulai','$waktu_mulai','$offline_alamat','$link_streaming','$deskripsi_webinar')";
                         $hasil = mysqli_query($koneksi, $query);
                         if($hasil){
