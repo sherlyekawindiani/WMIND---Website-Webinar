@@ -47,7 +47,7 @@
 
 	<!-- header -->
 	<nav class="navbar navBarEo">
-		<div class="container navBarEo">
+		<div class="container-fluid navBarEo">
 			<a class="navbar-brand" href="index.php">
 				<img src="assets/img/logo_transparan.png" style="width: 70%" alt="">
 			</a>
@@ -59,21 +59,29 @@
 	</nav>
 	<!-- end header -->
 
+	<?php
+    include "koneksi.php"; //panggil file koneksi
+    $id = $_GET['id'];
+    $query = "SELECT * FROM detail_webinar WHERE id='$id'"; //buat query sql
+    $hasil = mysqli_query($koneksi, $query); //jalankan query sql
+    $data = mysqli_fetch_array($hasil);
+    ?>
+
 	<!-- detail webinar -->
 	<div class="single-product mt-100 mb-150">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6">
 					<div class="single-product-img">
-						<img src="assets/img/poster.png" alt="">
+						<img src="assets/img/<?php echo $data['gambar']; ?>" alt="">
 					</div>
 				</div>
 				<div class="col-lg-6">
-                    <h3>Flutter App Development : Fetch Data</h3>
+                    <h3><?php echo $data['judul']; ?></h3>
 					<div class="contact-form-wrap">
 						<div class="contact-form-box">
 							<h4><i class="fas fa-clock"></i> Tanggal & Waktu</h4>
-							<p>14 Desember 2021 <br> 05.00 WIB</p>
+							<p><?php echo $data['tanggal']; ?> <br> <?php echo $data['jam']; ?> WIB</p>
 						</div>
 						<div class="contact-form-box">
 							<h4><i class="fas fa-map-marker-alt"></i> Lokasi</h4>
@@ -81,7 +89,7 @@
 						</div>
 						<div class="contact-form-box">
 							<h4><i class="fas fa-user-friends"></i> Diselenggarakan oleh</h4>
-							<p><img src="assets/img/logoWmindKuning.png" alt=""> Massachusetts Institute of Technology</p>
+							<p><img src="assets/img/<?php echo $data['']; ?>" alt=""> <?php echo $data['penyelenggara']; ?></p>
 						</div>
 						<div class="tombol-daftar">
 							<a href="form_daftar_webinar.php">Daftar</a>
@@ -100,30 +108,20 @@
 				<h3>Deskripsi</h3>
 			</div>
 			<div class="bagian-deskripsi">
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, veniam ut sint temporibus mollitia repellendus veritatis nobis reprehenderit magnam, qui nesciunt numquam eaque magni error libero cum ipsum distinctio voluptatum. Harum aliquam eius quasi sunt dolorum velit iste, ducimus modi, mollitia odio earum fugit recusandae inventore quod rem officiis incidunt? Adipisci sed dignissimos laborum accusantium excepturi modi libero ea, facere itaque necessitatibus minus exercitationem cumque debitis amet corporis, fugit molestiae porro laboriosam voluptas, quibusdam repellat tempora labore quaerat. Repudiandae facilis, commodi fuga reprehenderit vitae consequuntur eum iste? Itaque voluptas repudiandae eaque minima rerum. Rerum animi ipsam nam deleniti molestias, ab, iusto officiis magnam rem veritatis reiciendis vel adipisci, unde enim magni. Et ut sint sapiente, qui, harum molestiae animi quam itaque incidunt libero in expedita fugiat quisquam repellendus, reiciendis eos doloremque praesentium tempore quis. Assumenda commodi ex quo labore temporibus consequuntur quidem molestiae, modi ut accusamus, aperiam et corporis natus. Consequuntur, aliquid. Provident vel voluptatum ad commodi sapiente, in sequi, dolorum quibusdam eaque, quo illum ex fugit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam, minus cumque eaque quis beatae consectetur nulla nemo voluptates tempore temporibus vitae ipsam consequuntur doloribus, reiciendis quae repudiandae illo tenetur explicabo sed reprehenderit fugit, laudantium fugiat assumenda dolorum. Eveniet, dicta nihil. Quia veritatis pariatur nisi quisquam modi ad nostrum voluptas esse magnam deleniti?</p>
+				<p><?php echo $data['deskripsi']; ?></p>
 			</div>
 		</div>
 	</div>
 	<!-- end description -->
 
 	<!-- copyright -->
-	<div class="copyright mt-5">
+	<div class="copyright mt-150">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6 col-md-12">
-					<p>Copyrights &copy; 2019 - <a href="https://imransdesign.com/">Imran Hossain</a>,  All Rights Reserved.</p>
+					<p>Copyrights &copy; 2021 - <a href="https://imransdesign.com/">Wmind</a>,  All Rights Reserved.</p>
 				</div>
-				<div class="col-lg-6 text-right col-md-12">
-					<div class="social-icons">
-						<ul>
-							<li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-							<li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
-							<li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
-							<li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-							<li><a href="#" target="_blank"><i class="fab fa-dribbble"></i></a></li>
-						</ul>
-					</div>
-				</div>
+				
 			</div>
 		</div>
 	</div>
