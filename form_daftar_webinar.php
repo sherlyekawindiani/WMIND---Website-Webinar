@@ -47,42 +47,93 @@
             </div>
         </div>
         <!--PreLoader Ends-->
+
+        <!-- header -->
+        <nav class="navbar navBarEo">
+            <div class="container-fluid navBarEo">
+                <a class="navbar-brand" href="index.php">
+                    <img src="assets/img/logo_transparan.png" style="width: 70%" alt="">
+                </a>
+                <div class="navBarUsername">
+                    <p class="panggilUsername">Sherly eka windiani</p>
+                    <a class="txtLogout" href="#">Logout</a>
+                </div>
+            </div>
+        </nav>
+        <!-- end header -->
         
         <!-- form -->
         <div class="contact-from-section">
             <div class="row">
                 <div class="col-lg-4">
                     <div class="kontak-form-wrap">
-                        <div class="logo-form"><img src="assets/img/logoWmindKuning.png" alt=""></div>
                         <div class="vektor-form"><img src="assets/img/vektor-formDaftar.svg" alt=""></div>
                     </div>
                 </div>
-                <div class="col-lg-8 mb-lg-0">
+
+                <?php
+                include "koneksi.php"; //panggil file koneksi
+                $id = $_GET['id'];
+                $query = "SELECT * FROM detail_webinar WHERE id='$id'"; //buat query sql
+                $hasil = mysqli_query($koneksi, $query); //jalankan query sql
+                $data = mysqli_fetch_array($hasil);
+                ?>
+
+                <div class="col-lg-8 mb-lg-0 mt-5">
                     <div class="form-title">
                         <h2>Form Daftar</h2>
-                        <p>Flutter App Development : Fetch Data</p>
+                        <p><?php echo $data['judul']; ?></p>
                     </div>
                     <div id="form_status"></div>
                     <div class="daftar-form">
-                        <form>
+                        <form action="" method="POST">
                             <input type="text" class="form-control" id="" placeholder="Nama" required>
                             <div class="form-row">
                                 <div class="col-md-8">
-                                    <input type="email" class="form-control" id="" placeholder="Email">
+                                    <input name="" type="email" class="form-control" id="" placeholder="Email">
                                 </div>
                                 <div class="col-md-4 kotak-telepon">
-                                    <input type="tel" class="form-control" id="" placeholder="No Telepon">
+                                    <input name="" type="tel" class="form-control" id="" placeholder="No Telepon">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <select id="inputState" class="form-control">
-                                    <option selected>Profesi</option>
-                                    <option>Siswa</option>
-                                    <option>Mahasiswa</option>
-                                    <option>Umum</option>
+                                <select id="inputState" class="form-control" name="">
+                                    <option selected disabled>Profesi</option>
+                                    <option value="Siswa">Siswa</option>
+                                    <option value="Mahasiswa">Mahasiswa</option>
+                                    <option value="Umum">Umum</option>
                                 </select>
                             </div>
-                            <button type="submit" class="btn"><h4>Daftar</h4></button>
+                            <button name="kirim" type="submit" class="btn"><h4>Daftar</h4></button>
+
+                            <!-- Submit Daftar Webinar -->
+                                <?php
+                                include "koneksi.php";
+                                @$id_daftarWebinar = $_POST['id_daftarWebinar'];
+                                @$nama = $_POST['nama'];
+                                @$email = $_POST['email'];
+                                @$no_telepon = $_POST['no_telepon'];
+                                @$profesi = $_POST['ket_barang'];
+                                @$kirim = $_POST['kirim'];
+                                
+                                // Memasukkan data (Insert) 
+                                @$query = "INSERT INTO barang VALUES ('$id_daftarWebinar','$nama','$email','$no_telepon','$ket_barang','$gambar')";
+
+                                // hasil data array (kirim)
+                                if (isset($_POST['kirim'])) {
+
+                                    $hasil = mysqli_query($koneksi, $query);
+                                    if ($hasil) {
+                                    echo "<script>alert('Berhasil Dibuat');
+                                    document.location=''
+                                    </script>";
+                                    } else {
+                                    echo "<script>alert('Gagal Dibuat');
+                                        document.location=''</script>";
+                                    }
+                                }
+                                ?>
+
                         </form>
                     </div>
                 </div>

@@ -60,7 +60,7 @@
                             <a class="nav-link link-menu mt-2 mb-2" href="admin_user.php"><i class="fas fa-user mr-2"></i>Data User</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link link-menu mt-2 mb-2" href=""><i class="fas fa-users mr-2"></i>Data Peserta</a>
+                            <a class="nav-link link-menu mt-2 mb-2" href="admin_peserta.php"><i class="fas fa-users mr-2"></i>Data Peserta</a>
                         </li>
                         <li class="nav-item active">
                             <a class="nav-link link-menu" href="admin_webinar.php"><i class="fas fa-laptop mr-2"></i>Data Webinar</a>

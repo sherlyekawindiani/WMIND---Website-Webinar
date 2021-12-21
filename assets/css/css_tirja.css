@@ -42,6 +42,10 @@ body .wadah {
     text-align: center;
 }
 
+.produk-filter ul h4 {
+    margin-left: 35px;
+}
+
 .produk-filter ul li {
     display: inline-block;
     width: 100%;
@@ -55,10 +59,16 @@ body .wadah {
     border-radius: 25px;
 }
 
+.produk-filter ul li:hover {
+    border: 2px solid #FFC224;
+    background-color: #FFC224;
+
+}
+
 .produk-filter ul li.active {
-    border: 2px solid #F28123;
-    background-color: #F28123;
-    color: #fff;
+    border: 2px solid #FFC224;
+    background-color: #FFC224;
+
 }
 
 .produk-gambar {
@@ -79,6 +89,10 @@ body .wadah {
     margin-bottom: 10px;
 }
 
+.single-product-item h5:hover {
+    color: #FFC224;
+}
+
 .single-product-item span {
     margin: 15px;
     margin-bottom: 10px;
@@ -88,7 +102,7 @@ body .wadah {
     width: fit-content;
     font-weight: 700;
     font-size: 10px;
-    background-color: #41AEA9;
+    background-color: #FFC224;
     color: #323232;
     border-radius: 5px;
     padding: 2px 2px;
@@ -99,7 +113,7 @@ body .wadah {
     width: fit-content;
     font-weight: 700;
     font-size: 10px;
-    background-color: #71DFEF;
+    background-color: #FFC224;
     color: #323232;
     border-radius: 5px;
     padding: 2px 2px;
@@ -113,19 +127,19 @@ body .wadah {
 ----------------------------------------------------------------------*/
 
 .tombol-daftar a {
-    background-color: #FFC224;
+    background-color: #0E1B3A;
     margin-left: 400px;
-    font-size: 25px;
+    font-size: 20px;
     font-weight: 700;
-    color: black;
+    color: white;
     cursor: pointer;
-    padding: 5px 10px;
-    border-radius: 10px;
+    padding: 10px 20px;
+    border-radius: 50px;
 }
 
 .tombol-daftar a:hover {
     background-color: #eeb421;
-    color: black;
+    color: white;
 }
 
 .logo-tiket {
@@ -191,14 +205,14 @@ body .wadah {
 
 /* ------------------------------------------------------------------- 
 
-# Form Daftar Page
+# Form Daftar Webinar Page
 
 ----------------------------------------------------------------------*/
 
 .kontak-form-wrap {
     background-color: #FFC224;
     padding: 45px 30px;
-    height: 570px;
+    height: 509px;
 }
 
 .kontak-form-box {
@@ -231,15 +245,10 @@ body .wadah {
     margin: 0;
 }
 
-.logo-form {
-    width: 40%;
-    margin-top: -40px;
-}
-
 .vektor-form {
     width: 90%;
     margin-left: 20px;
-    margin-top: 170px;
+    margin-top: 150px;
 }
 
 .daftar-form form input,
@@ -254,20 +263,20 @@ body .wadah {
 }
 
 .daftar-form form button {
-    background-color: #41AEA9;
+    background-color: #0E1B3A;
     border-radius: 20px;
-    width: 20%;
+    width: 15%;
     cursor: pointer;
+    color: white;
 }
 
 .daftar-form form button:hover {
-    background-color: #31948f;
+    background-color: #FFC224;
     color: white;
 }
 
 .daftar-form button h4 {
     color: white;
-
 }
 
 /* ------------------------------------------------------------------- 

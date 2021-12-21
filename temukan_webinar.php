@@ -50,7 +50,7 @@
 
         <!-- header -->
         <nav class="navbar navBarEo">
-            <div class="container navBarEo">
+            <div class="container-fluid navBarEo">
                 <a class="navbar-brand" href="index.php">
                     <img src="assets/img/logo_transparan.png" style="width: 70%" alt="">
                 </a>
@@ -63,11 +63,11 @@
         <!-- end header -->
 
         <!-- awal nav samping -->
-        <div class="row mt-3">
+        <div class="row mt-5">
             <div class="col-md-2">
                 <div class="produk-filter">
                     <ul>
-                        <h4><b>Kategori Topik</b></h4><hr color="black">
+                        <h4><b>Kategori Topik</b></h4><hr color="#FFC224" width="60%" style="margin-left:50px;">
                         <li class="active" data-filter="*">Semua</li>
                         <li data-filter=".IT">IT</li>
                         <li data-filter=".Bisnis">Bisnis</li>
@@ -86,138 +86,39 @@
                 <div class="product-section mb-150">
                     <div class="container">
                         <div class="row product-lists">
-                            <div class="col-lg-3 col-md-6 IT">
-                                <div class="single-product-item">
-                                    <div class="produk-gambar">
-                                        <a href="temukan_webinar_detail.php"><img src="assets/img/poster.png" alt=""></a>
-                                    </div>
-                                    <h5>Flutter App Development : Fetch Data</h5>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="kotak-kategori">
-                                                <p>ini kategori</p>
+                            <?php
+                            include "koneksi.php";
+                            $sql = "SELECT * FROM tb_temukan_webinar";
+                            $datas = mysqli_query($koneksi, $sql);
+                            $i = 1;
+                            foreach ($datas as $data) :
+                            ?>
+                                <div class="col-lg-3 col-md-6 <?php echo $data['kategori']; ?>">
+                                    <div class="single-product-item">
+                                        <div class="produk-gambar">
+                                            <a href="temukan_webinar_detail.php"><img src="assets/img/<?php echo $data['gambar']; ?>" alt=""></a>
+                                        </div>
+                                        <a href="temukan_webinar_detail.php">
+                                            <h5><?php echo $data['judul']; ?></h5>
+                                        </a>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="kotak-kategori">
+                                                    <p><?php echo $data['kategori']; ?></p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="kotak-lokasi">
+                                                    <p><?php echo $data['lokasi']; ?></p>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
-                                            <div class="kotak-lokasi">
-                                                <p>on/off line</p>
-                                            </div>
-                                        </div>
+                                        <span><?php echo $data['tanggal']; ?></span><br>
+                                        <span><?php echo $data['jam']; ?></span>
                                     </div>
-                                    <span>13 Desember 2021</span><br>
-                                    <span>20.42 WIB</span>
                                 </div>
-                            </div>
-                            <div class="col-lg-3 col-md-6 Bisnis">
-                                <div class="single-product-item">
-                                    <div class="produk-gambar">
-                                        <a href="temukan_webinar_detail.php"><img src="assets/img/poster.png" alt=""></a>
-                                    </div>
-                                    <h5>Flutter App Development : Fetch Data</h5>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="kotak-kategori">
-                                                <p>ini kategori</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="kotak-lokasi">
-                                                <p>on/off line</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <span>13 Desember 2021</span><br>
-                                    <span>20.42 WIB</span>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-6 Pendidikan">
-                                <div class="single-product-item">
-                                    <div class="produk-gambar">
-                                        <a href="temukan_webinar_detail.php"><img src="assets/img/poster.png" alt=""></a>
-                                    </div>
-                                    <h5>Flutter App Development : Fetch Data</h5>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="kotak-kategori">
-                                                <p>ini kategori</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="kotak-lokasi">
-                                                <p>on/off line</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <span>13 Desember 2021</span><br>
-                                    <span>20.42 WIB</span>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-6 Pengembangan-diri">
-                                <div class="single-product-item">
-                                    <div class="produk-gambar">
-                                        <a href="temukan_webinar_detail.php"><img src="assets/img/poster.png" alt=""></a>
-                                    </div>
-                                    <h5>Flutter App Development : Fetch Data</h5>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="kotak-kategori">
-                                                <p>ini kategori</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="kotak-lokasi">
-                                                <p>on/off line</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <span>13 Desember 2021</span><br>
-                                    <span>20.42 WIB</span>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-6 Desain">
-                                <div class="single-product-item">
-                                    <div class="produk-gambar">
-                                        <a href="temukan_webinar_detail.php"><img src="assets/img/poster-2.jpeg" alt=""></a>
-                                    </div>
-                                    <h5>Flutter App Development : Fetch Data</h5>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="kotak-kategori">
-                                                <p>ini kategori</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="kotak-lokasi">
-                                                <p>on/off line</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <span>13 Desember 2021</span><br>
-                                    <span>20.42 WIB</span>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-6 Lifestyle">
-                                <div class="single-product-item">
-                                    <div class="produk-gambar">
-                                        <a href="temukan_webinar_detail.php"><img src="assets/img/poster.png" alt=""></a>
-                                    </div>
-                                    <h5>Flutter App Development : Fetch Data</h5>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="kotak-kategori">
-                                                <p>ini kategori</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="kotak-lokasi">
-                                                <p>on/off line</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <span>13 Desember 2021</span><br>
-                                    <span>20.42 WIB</span>
-                                </div>
-                            </div>
+                            <?php $i++;
+                            endforeach; ?>
                         </div>
 
                         <div class="row">
@@ -245,19 +146,9 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6 col-md-12">
-					<p>Copyrights &copy; 2019 - <a href="https://imransdesign.com/">Imran Hossain</a>,  All Rights Reserved.</p>
+					<p>Copyrights &copy; 2021 - <a href="https://imransdesign.com/">Wmind</a>,  All Rights Reserved.</p>
 				</div>
-				<div class="col-lg-6 text-right col-md-12">
-					<div class="social-icons">
-						<ul>
-							<li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-							<li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
-							<li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
-							<li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-							<li><a href="#" target="_blank"><i class="fab fa-dribbble"></i></a></li>
-						</ul>
-					</div>
-				</div>
+				
 			</div>
 		</div>
 	</div>

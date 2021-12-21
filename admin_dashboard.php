@@ -12,7 +12,7 @@
     <title>Dashborad Admin</title>
 
     <!-- favicon -->
-    <link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
+    <link rel="shortcut icon" type="image/png" href="">
     <!-- google font -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
@@ -87,8 +87,10 @@
                             <div class="col-md-4">
                                 <div class="kotak-data">
                                     <div class="row">
-                                        <div class="col-md-3 kotak-ikon">
-                                            <i class="fas fa-user"></i>
+                                        <div class="col-md-3">
+                                            <div class="kotak-ikon mt-4">
+                                                <i class="fas fa-user"></i>
+                                            </div>
                                         </div>
                                         <div class="col-md-9 kotak-teks">
                                             <span>User</span>
@@ -101,7 +103,7 @@
                                 <div class="kotak-data">
                                     <div class="row">
                                         <div class="col-md-3">
-                                            <div class="kotak-ikon">
+                                            <div class="kotak-ikon mt-4">
                                                 <i class="fas fa-users"></i>
                                             </div>
                                         </div>
@@ -116,7 +118,7 @@
                                 <div class="kotak-data">
                                     <div class="row">
                                         <div class="col-md-3">
-                                            <div class="kotak-ikon">
+                                            <div class="kotak-ikon mt-4">
                                                 <i class="fas fa-laptop"></i>
                                             </div>
                                         </div>
