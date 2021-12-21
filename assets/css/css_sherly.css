@@ -64,6 +64,7 @@
 .listMenu a:hover{
     color: #0E1B3A;
     text-decoration: none;
+    text-align: left;
 }
 
 .batas{
@@ -213,9 +214,22 @@
 }
 /* Akhir gambar poster */
 /* Riwayat */
+.tabelRiwayat{
+    border: none;
+
+}
 .tabelThead{
     background-color: #FFC224;
     border: none;
+}
+.btnAksi {
+    background-color: #0E1B3A;
+    color: white;
+}
+.btnAksi:hover{
+    background-color: #FFC224;
+    color: #0E1B3A;
+    
 }
 
 /* Akhir Riwayat */
