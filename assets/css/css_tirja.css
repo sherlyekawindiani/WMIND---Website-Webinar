@@ -142,18 +142,6 @@ body .wadah {
     color: white;
 }
 
-.logo-tiket {
-    font-size: 30px;
-}
-
-.judul-tiket {
-    margin-right: 500px;
-}
-
-.judul-tiket p {
-    margin-top: -20px;
-}
-
 .contact-form-box img {
     border-radius: 50%;
     width: 50px;
@@ -201,6 +189,10 @@ body .wadah {
 .bagian-deskripsi {
     margin: 30px;
     margin-top: -50px;
+}
+
+.bagian-deskripsi p {
+    font-size: 18px;
 }
 
 /* ------------------------------------------------------------------- 
@@ -284,34 +276,26 @@ body .wadah {
 # Dashboard Admin Page
 
 ----------------------------------------------------------------------*/
-.menu-samping {
-    background-color: #0E1B3A;
-    height: 577px;
-}
 
 .menu-samping ul li a {
     font-size: 16px;
 }
 
-.menu-samping ul img {
-    width: 50%;
-    margin-left: 45px;
-}
-
 .menu-samping ul li.active {
-    background-color: #1f3c80;
+    background-color: #FFC224;
     border-radius: 10px;
-    color: white;
+
 }
 
 .link-menu {
     margin-right: 20px;
-    color: white;
+    color: black;
+
 }
 
-.link-menu:hover {
-    background-color: #1f3c80;
-    color: white;
+.menu-samping ul li:hover {
+    background-color: #FFC224;
+    color: black;
     border-radius: 10px;
 }
 
