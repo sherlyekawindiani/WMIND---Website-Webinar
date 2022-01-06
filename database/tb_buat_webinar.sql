@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 21 Des 2021 pada 15.15
+-- Waktu pembuatan: 06 Jan 2022 pada 05.36
 -- Versi server: 10.4.13-MariaDB
 -- Versi PHP: 7.4.8
 
@@ -35,10 +35,9 @@ CREATE TABLE `tb_buat_webinar` (
   `kategori_webinar` varchar(50) NOT NULL,
   `nama_eo` varchar(225) NOT NULL,
   `email_eo` varchar(225) NOT NULL,
-  `tanggal_mulai` date NOT NULL,
-  `waktu_mulai` time NOT NULL,
-  `offline_alamat` text NOT NULL,
-  `link_streaming` varchar(225) NOT NULL,
+  `tanggal_mulai` varchar(100) NOT NULL,
+  `waktu_mulai` varchar(20) NOT NULL,
+  `link_streaming` varchar(150) DEFAULT NULL,
   `deskripsi_webinar` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -46,9 +45,10 @@ CREATE TABLE `tb_buat_webinar` (
 -- Dumping data untuk tabel `tb_buat_webinar`
 --
 
-INSERT INTO `tb_buat_webinar` (`id_webinar`, `gambar_poster`, `tgl_buat`, `judul_webinar`, `kategori_webinar`, `nama_eo`, `email_eo`, `tanggal_mulai`, `waktu_mulai`, `offline_alamat`, `link_streaming`, `deskripsi_webinar`) VALUES
-(4, '61c03b59aa508.png', 'Monday-20-12-2021', 'tips dan tricks pemasaran digital', 'Bisnis', 'utter academy', 'utteracademy@gmail.com', '2021-12-16', '18:16:00', ' ', 'https://meet.google.com/cdq-bfqx-khs', 'deskripsi'),
-(11, '61c1e0f8bc82f.jpg', 'Tuesday-21-12-2021', 'digitalisasi dan menciptakan bisnis yang tahan terhadap situasi pandemi', 'Bisnis', 'utter academy', 'utteracademy@gmail.com', '2021-12-22', '00:15:00', ' ', 'https://meet.google.com/cdq-bfqx-khs', 'detailll');
+INSERT INTO `tb_buat_webinar` (`id_webinar`, `gambar_poster`, `tgl_buat`, `judul_webinar`, `kategori_webinar`, `nama_eo`, `email_eo`, `tanggal_mulai`, `waktu_mulai`, `link_streaming`, `deskripsi_webinar`) VALUES
+(11, '61c1e0f8bc82f.jpg', 'Tuesday-21-12-2021', 'digitalisasi dan menciptakan bisnis yang tahan terhadap situasi pandemi kkkkk', 'Desain', 'utter academy', 'utteracademy@gmail.com', '2021-12-22', '00:15:00', 'https://meet.google.com/cdq-bfqx-khs', 'detailll'),
+(16, '61cacebe8ddb1.jpg', 'Tuesday-28-12-2021', 'Webinar flutter iniii oooo', 'Lifestyle', 'utter academy', 'utteracademy@gmail.com', '2021-12-28', '18:48', 'https://meet.google.com/cdq-bfqx-khs', 'jjjjjjjj'),
+(19, '61d51ce7783e8.png', 'Wednesday-05-01-2022', 'tips dan tricks pemasaran digital lllllllll', 'Bisnis', 'utter academy', 'utteracademy@gmail.com', '2022-01-05', '15:24', 'https://meet.google.com/cdq-bfqx-khs', 'iiii');
 
 --
 -- Indexes for dumped tables
@@ -68,7 +68,7 @@ ALTER TABLE `tb_buat_webinar`
 -- AUTO_INCREMENT untuk tabel `tb_buat_webinar`
 --
 ALTER TABLE `tb_buat_webinar`
-  MODIFY `id_webinar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_webinar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
