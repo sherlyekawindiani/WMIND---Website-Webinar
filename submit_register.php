@@ -6,9 +6,9 @@
 <?php 
 $email 	= $_POST['email'];
 $username 	= $_POST['username'];
+$level = $_POST['level'];
 $password1 = $_POST['password1'];
 $password2 = $_POST['password2'];
-$level = $_POST['level'];
 
 // cek keamanan password
 if ($password1 == $password2) {
@@ -22,7 +22,7 @@ if ($password1 == $password2) {
 	$passmd = md5($pengacak . md5($password1));
 
 	// menyimpan username dan password terenkripsi ke database
-	$query="INSERT INTO tb_user2 VALUES ('','$email','$username','$passmd','$level')";
+	$query="INSERT INTO tb_user VALUES ('','$email','$username','$level','$passmd')";
 	$hasil = mysqli_query($koneksi, $query);
 
 	// menampilkan status pendaftaran

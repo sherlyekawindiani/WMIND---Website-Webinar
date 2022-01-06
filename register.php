@@ -129,15 +129,15 @@ include "koneksi.php";
                                         </div>
                             </div>
 							<div class="coba jarak-form">
-								<input type="password1" placeholder="Password" id="pass" name="password" autocomplete="off" data-val="true" required="The Password field is required.">
+								<input type="password" placeholder="Password" id="pass" name="password1" autocomplete="off" data-val="true" required="The Password field is required.">
 								<!-- <i class="fas fa-eye-slash" id="hide" onclick="myFunction()"></i> -->
 								<span id="mybutton" onclick="change()"><i class="fas fa-eye" id="show"></i></span>
 								<div id="toggle" onclick="showHide();"></div>
 							</div>
 							<div class="coba jarak-form">
-								<input type="password2" placeholder="Konfirmasi Password" id="pass" name="password" autocomplete="off" data-val="true" required="The Password field is required.">
+								<input type="password" placeholder="Konfirmasi Password" id="pass" name="password2" autocomplete="off" data-val="true" required="The Password field is required.">
 								<!-- <i class="fas fa-eye-slash" id="hide" onclick="myFunction()"></i> -->
-								<span id="mybutton" onclick="change()"><i class="fas fa-eye" id="show"></i></span>
+								<span id="mybutton" onclick="change2()"><i class="fas fa-eye" id="show"></i></span>
 								<div id="toggle" onclick="showHide();"></div>
 							</div>
 							<div>
@@ -154,7 +154,7 @@ include "koneksi.php";
 				{
 					var x = document.getElementById('pass').type;
 		
-					if (x == 'password')
+					if (x == 'password') 
 					{
 					document.getElementById('pass').type = 'text';
 					document.getElementById('mybutton').innerHTML = '<i class="fas fa-eye-slash"></i>';
@@ -165,7 +165,9 @@ include "koneksi.php";
 					document.getElementById('mybutton').innerHTML = '<i class="fas fa-eye"></i>';
 					}
 				}
+
 				</script>
+
 
 				<!-- VALIDASI REGISTER -->
 				<script>
