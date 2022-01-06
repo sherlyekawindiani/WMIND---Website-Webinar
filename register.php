@@ -124,7 +124,7 @@ include "koneksi.php";
                                             <select  data-val="true" required="The daftar sebagai field is required." class="form-select"  name="level"  aria-label="Default select example">
                                                 <option value="">Daftar sebagai</option>
                                                 <option value="peserta webinar">Peserta Webinar</option>
-                                                <option value="upload webinar">Upload Webinar</option>
+                                                <option value="upload webinar">upl Webinar</option>
                                             </select>
                                         </div>
                             </div>
