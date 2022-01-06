@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 06, 2022 at 05:35 AM
+-- Generation Time: Jan 06, 2022 at 07:00 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -24,34 +24,35 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_user2`
+-- Table structure for table `tb_user`
 --
 
-CREATE TABLE `tb_user2` (
+CREATE TABLE `tb_user` (
   `id_user` int(11) NOT NULL,
   `email` varchar(225) NOT NULL,
   `username` varchar(225) NOT NULL,
-  `password` varchar(100) NOT NULL,
-  `level` varchar(20) NOT NULL
+  `level` varchar(20) NOT NULL,
+  `password` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tb_user2`
+-- Dumping data for table `tb_user`
 --
 
-INSERT INTO `tb_user2` (`id_user`, `email`, `username`, `password`, `level`) VALUES
-(1, 'elaela', 'faidatulelaa@gmail.com', 'peserta webinar', 'ecce5320263d7004f404'),
-(3, 'serlieka', 'sherlyeka@gmail.com', 'upload webinar', 'ecce5320263d7004f404'),
-(4, 'ela', 'agustus@utter.academy', 'peserta webinar', 'ecce5320263d7004f404');
+INSERT INTO `tb_user` (`id_user`, `email`, `username`, `level`, `password`) VALUES
+(9, 'faidatulelaa@gmail.com', 'ela', 'peserta webinar', 'ecce5320263d7004f404de7888c0f9e6'),
+(10, 'agustus@utter.academy', 'elaela', 'upload webinar', 'ecce5320263d7004f404de7888c0f9e6'),
+(11, 'utter@agustus2com', 'serlieka', 'peserta webinar', 'ecce5320263d7004f404de7888c0f9e6'),
+(12, 'serliserli@gmail.com', 'fdtlll', 'peserta webinar', 'e9af23dd5a45126ff689eba7bb2146bb');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `tb_user2`
+-- Indexes for table `tb_user`
 --
-ALTER TABLE `tb_user2`
+ALTER TABLE `tb_user`
   ADD PRIMARY KEY (`id_user`);
 
 --
@@ -59,10 +60,10 @@ ALTER TABLE `tb_user2`
 --
 
 --
--- AUTO_INCREMENT for table `tb_user2`
+-- AUTO_INCREMENT for table `tb_user`
 --
-ALTER TABLE `tb_user2`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+ALTER TABLE `tb_user`
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
