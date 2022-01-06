@@ -9,7 +9,7 @@ $email = $_POST['email'];
 $password = $_POST['password'];
 
 // mencari password terenkripsi berdasarkan email
-$query = "SELECT * FROM tb_user2 WHERE email = '$email'";
+$query = "SELECT * FROM tb_user WHERE email = '$email'";
 $hasil = mysqli_query($koneksi,$query);
 $data = mysqli_fetch_array($hasil);
 

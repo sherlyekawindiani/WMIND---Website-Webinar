@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 12 Des 2021 pada 15.20
--- Versi server: 10.4.13-MariaDB
--- Versi PHP: 7.4.8
+-- Generation Time: Jan 06, 2022 at 05:35 AM
+-- Server version: 10.4.13-MariaDB
+-- PHP Version: 7.4.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,10 +24,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_user`
+-- Table structure for table `tb_user2`
 --
 
-CREATE TABLE `tb_user` (
+CREATE TABLE `tb_user2` (
   `id_user` int(11) NOT NULL,
   `email` varchar(225) NOT NULL,
   `username` varchar(225) NOT NULL,
@@ -36,24 +36,33 @@ CREATE TABLE `tb_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Dumping data for table `tb_user2`
+--
+
+INSERT INTO `tb_user2` (`id_user`, `email`, `username`, `password`, `level`) VALUES
+(1, 'elaela', 'faidatulelaa@gmail.com', 'peserta webinar', 'ecce5320263d7004f404'),
+(3, 'serlieka', 'sherlyeka@gmail.com', 'upload webinar', 'ecce5320263d7004f404'),
+(4, 'ela', 'agustus@utter.academy', 'peserta webinar', 'ecce5320263d7004f404');
+
+--
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `tb_user`
+-- Indexes for table `tb_user2`
 --
-ALTER TABLE `tb_user`
+ALTER TABLE `tb_user2`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `tb_user`
+-- AUTO_INCREMENT for table `tb_user2`
 --
-ALTER TABLE `tb_user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `tb_user2`
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
