@@ -45,8 +45,8 @@
 <?php
     error_reporting(0);
     include "koneksi.php"; //panggil file koneksi
-    $id_webinar=$_GET['id_webinar'];
-    $query="SELECT*FROM tb_buat_webinar WHERE id_webinar ='$id_webinar'"; //buat query sql
+    $id_peserta=$_GET['id_peserta'];
+    $query="SELECT*FROM tb_daftar_peserta WHERE id_peserta ='$id_peserta'"; //buat query sql
     $hasilDetail=mysqli_query($koneksi,$query); //jalankan query sql
     $dataDetail=mysqli_fetch_array($hasilDetail);
 ?>
@@ -109,7 +109,7 @@
 									<nav class="navbar navbar-expand-lg">
 										<div class="collapse navbar-collapse" >
 											<div class="navbar-nav">
-												<a class="nav-item nav-link navLinkDetail mr-2" href="detail-webinar-eo.php?id_webinar=<?php echo $data['id_webinar'];?>" ><i class="fas fa-info-circle mr-2"></i>Informasi Webinar</a>
+												<a class="nav-item nav-link navLinkDetail mr-2" href="detail-webinar-eo.php?id_peserta=<?php echo $data['id_peserta'];?>" ><i class="fas fa-info-circle mr-2"></i>Informasi Webinar</a>
 												<a class="nav-item nav-link navLinkDetail ml-3 active" href="data-peserta-eo.php"><i class="fas fa-users mr-2"></i>Data Peserta</a>
 											</div>
 										</div>
@@ -127,8 +127,8 @@
 								<thead>
 									<tr class="tabelThead">
 										<th scope="col" style="border-top-left-radius: 10px; border: none; width: 50px">No</th>
-										<th scope="col" style="border: none; width: 160px">Tanggal Daftar</th>
-										<th scope="col" style="border: none; width: 350px">Nama Lengkap</th>
+										<th scope="col" style="border: none; width: 200px">Tanggal Daftar</th>
+										<th scope="col" style="border: none; width: 300px">Nama Lengkap</th>
 										<th scope="col" style="border: none; width: 200px ">Email</th>
                                         <th scope="col" style="border: none; width: 200px ">Nomor Telepon</th>
 										<th scope="col" style="border-top-right-radius: 10px; border: none; width: 100px;">Profesi</th>
@@ -139,9 +139,9 @@
 										$no=1;
 										$cari = $_POST['inputCari'];
 										if($cari != ''){
-											$select= mysqli_query($koneksi, "SELECT * FROM tb_buat_webinar WHERE id_webinar AND judul_webinar LIKE '%".$cari."%' OR kategori_webinar LIKE '%".$cari."%' ");
+											$select= mysqli_query($koneksi, "SELECT * FROM tb_daftar_peserta WHERE id_peserta AND nama_peserta LIKE '%".$cari."%' OR profesi_peserta LIKE '%".$cari."%' ");
 										}else{
-											$select= mysqli_query($koneksi, "SELECT * FROM tb_buat_webinar WHERE id_webinar ");
+											$select= mysqli_query($koneksi, "SELECT * FROM tb_daftar_peserta WHERE id_peserta ");
 										}
 										if(mysqli_num_rows($select)){
 											// perulangan untuk nampilkan data dari database
@@ -150,15 +150,11 @@
 								<tbody>
 									<tr>
 										<th><?php echo $no++;?></th>
-										<td style="text-transform: capitalize;"><?php echo $data['tgl_buat'];?> </td>
-										<td>
-											<a href="detail-webinar-eo.php?id_webinar=<?php echo $data['id_webinar'];?>" >
-												<button type="button" class="btn btn-link" style="text-transform: capitalize;  text-align: left;"><?php echo $data['judul_webinar'];?></button>
-											</a>
-										</td>
-										<td><?php echo $data['kategori_webinar'];?> </td>
-                                        <td><?php echo $data['kategori_webinar'];?> </td>
-                                        <td><?php echo $data['kategori_webinar'];?> </td>
+										<td style="text-transform: capitalize;"><?php echo $data['tgl_daftar'];?> </td>
+										<td><?php echo $data['nama_peserta'];?> </td>
+                                        <td><?php echo $data['email_peserta'];?> </td>
+                                        <td><?php echo $data['notelp_peserta'];?> </td>
+										<td><?php echo $data['profesi_peserta'];?> </td>
 										
 									</tr>			
 								</tbody>
