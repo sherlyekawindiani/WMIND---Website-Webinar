@@ -64,7 +64,7 @@
 						<nav class="main-menu navbar font">
 							<ul>
 								</li>
-								<li><a href="temukan_webinar.php">Temukan Webinar</a></li>
+								<li><a href="temukan-webinar.php">Temukan Webinar</a></li>
 								<li><a href="news.html">Artikel</a></li>
 								<li><a href="contact2.php">Tentang Kami</a></li>
 								<a class="boxed-btn" href="register.php">Login</a>
