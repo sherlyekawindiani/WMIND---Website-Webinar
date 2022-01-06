@@ -36,8 +36,22 @@
 	<link href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@200;400&display=swap" rel="stylesheet">
 </head>
+
+<?php
+
+
+?>
+
+<?php
+    error_reporting(0);
+    include "koneksi.php"; //panggil file koneksi
+    $id_webinar=$_GET['id_webinar'];
+    $query="SELECT*FROM tb_buat_webinar WHERE id_webinar ='$id_webinar'"; //buat query sql
+    $hasilDetail=mysqli_query($koneksi,$query); //jalankan query sql
+    $dataDetail=mysqli_fetch_array($hasilDetail);
+?>
+
 <body>
-	
 	<!--PreLoader-->
     <div class="loader">
         <div class="loader-inner">
@@ -45,7 +59,6 @@
         </div>
     </div>
     <!--PreLoader Ends-->
-
 	<!-- header -->
     <nav class="navbar navBarEo">
         <div class="container-fluid navBarEo">
@@ -62,96 +75,103 @@
     <!-- end header -->
 	<!-- body -->
 	<div class="container-fluid">
-		<div class="row">
+		<div class="row" >
 			<div class="col-md-2 colKiri">
 				<div class="sidebarEo">
-					<ul style='list-style-type: none;'> 	
-						<li class="listMenu active" >
+				    <ul style='list-style-type: none;'> 	
+						<li class="listMenu" >
 							<a class="pilihanMenu" href="dashboard-eo.php"><i class="fas fa-home"></i> Dashboard</a>
 						</li>
 						<div class="batas"></div>
-						<li class="listMenu ">
-							<a class="pilihanMenu" href="buat-webinar-eo.php"><i class="fas fa-plus-square"></i> Buat Webinar</a>
+						<li class="listMenu">
+							<a class="pilihanMenu" href="buat-webinar-eo
+							.php"><i class="fas fa-plus-square"></i> Buat Webinar</a>
 						</li>
 						<div class="batas"></div>
-						<li class="listMenu ">
+						<li class="listMenu active ">
 							<a class="pilihanMenu" href="riwayat-webinar-eo.php"><i class="fas fa-history" ></i> Riwayat</a>
 						</li>
 					</ul>
 				</div>
 			</div>
-			<div class="col-md-10" style="background-color: #F0F2F5;">
+			<div class="col-md-10" style="background-color: #F0F2F5; height: 100%;">
 				<div class="cardDashboard">
-					<div class="card cardSelamatDtng">
-						<div class="card-body">
-							<h2 class="card-title">Selamat Datang </h2>
-							<h4 class="card-title cardTitleUsername">Sherly Eka Windiani</h4>
-							<p class="card-text">Uplond webinar mu dan dapatkan partisipan sebanyak mungkin </p>
+					<div class="card detailRiwayat">
+						<div class="card-body row petunjukDetail">
+							<h6 class="card-title"><a href="riwayat-webinar-eo.php">Riwayat Webinar </a><i class="fas fa-angle-right ikonAngleRight" ></i></h6>
+                            <h6 class="card-title judulDetail"><?php echo $dataDetail['judul_webinar'];?> </h6>
 						</div>
 					</div>
-					<div class="row cardOverview">
-						<div class="col-md-6">
-							<div class="card cardJumlahData">
-								<div class="card-body ">
-									<div class="row">
-										<div class="col-md-6" >
-											<div style="text-align: right; border-radius: 50px; width: 50px; height: 50px; background-color: #FFC224; display: flex; align-items: center; ">
-												<i class="fas fa-users" 
-												style="font-size: 30px; color: white; margin-left: 6px; ">
-												</i> 
+					<div class="card shadow p-3 mb-5 bg-white rounded" style="width: 100%; border: none; border-radius: 6px; ">
+						<div class="card-body" style="margin: 20px; padding: 10px;" >
+							<div class="d-flex justify-content-center ">
+								<div class="card cardPilihanDetail">
+									<nav class="navbar navbar-expand-lg">
+										<div class="collapse navbar-collapse" >
+											<div class="navbar-nav">
+												<a class="nav-item nav-link navLinkDetail mr-2" href="detail-webinar-eo.php?id_webinar=<?php echo $data['id_webinar'];?>" ><i class="fas fa-info-circle mr-2"></i>Informasi Webinar</a>
+												<a class="nav-item nav-link navLinkDetail ml-3 active" href="data-peserta-eo.php"><i class="fas fa-users mr-2"></i>Data Peserta</a>
 											</div>
 										</div>
-										<div class="col-md-6" style="margin-left:-90px; ">
-											<div  class="card" style="border:transparent; width: 200px">
-												<h5 class="card-title titleOverview">Semua Peserta</h5>
-												<h3 class="card-text">
-													<?php
-														include "koneksi.php"; //panggil file koneksi
-														$query="SELECT*FROM tb_buat_webinar WHERE id_webinar"; //buat query sql
-														$hasil=mysqli_query($koneksi,$query); //jalankan query sql
-														$jum=mysqli_num_rows($hasil) ; //menghasilkan banyak rows/baris data
-														echo " ".$jum."<br>";
-													?> 	
-												</h3>
-											</div>
-											
-										</div>
-									</div>
+									</nav>
 								</div>
 							</div>
-						</div>
-						<div class="col-md-6" style="margin-left: -200px">
-							<div class="card cardJumlahData">
-								<div class="card-body ">
-									<div class="row">
-										<div class="col-md-6" >
-											<div style="text-align: right; border-radius: 50px; width: 50px; height: 50px; background-color: #FFC224; display: flex; align-items: center; ">
-												<i class="fas fa-history"  
-												style="font-size: 30px; color: white; margin-left: 10px; ">
-												</i> 
-											</div>
-										</div>
-										<div class="col-md-6" style="margin-left:-90px; ">
-											<div  class="card" style="border:transparent; width: 200px">
-												<h5 class="card-title titleOverview">Riwayat webinar</h5>
-												<h3 class="card-text">
-													<?php
-														include "koneksi.php"; //panggil file koneksi
-														$query="SELECT*FROM tb_buat_webinar WHERE id_webinar"; //buat query sql
-														$hasil=mysqli_query($koneksi,$query); //jalankan query sql
-														$jum=mysqli_num_rows($hasil) ; //menghasilkan banyak rows/baris data
-														echo " ".$jum."<br>";
-													?> 			
-												</h3>
-											</div>
-											
-										</div>
-									</div>
-								</div>
+                            <!-- Download data peserta -->
+							<div class="navbar">
+								<div class="container d-flex justify-content-end mb-3 ">
+                                    <a href="#" class="btn btn-dark unduhDataPeserta"><i class="fas fa-download"></i> Unduh data peserta</a>
+                                </div>
 							</div>
-						</div>
+							<!-- Akhir Download data peserta  -->
+                            <table class="table table-bordered tabelRiwayat" >
+								<thead>
+									<tr class="tabelThead">
+										<th scope="col" style="border-top-left-radius: 10px; border: none; width: 50px">No</th>
+										<th scope="col" style="border: none; width: 160px">Tanggal Daftar</th>
+										<th scope="col" style="border: none; width: 350px">Nama Lengkap</th>
+										<th scope="col" style="border: none; width: 200px ">Email</th>
+                                        <th scope="col" style="border: none; width: 200px ">Nomor Telepon</th>
+										<th scope="col" style="border-top-right-radius: 10px; border: none; width: 100px;">Profesi</th>
+									</tr>
+								</thead>
+									<?php
+										include "koneksi.php"; //panggil file koneksi
+										$no=1;
+										$cari = $_POST['inputCari'];
+										if($cari != ''){
+											$select= mysqli_query($koneksi, "SELECT * FROM tb_buat_webinar WHERE id_webinar AND judul_webinar LIKE '%".$cari."%' OR kategori_webinar LIKE '%".$cari."%' ");
+										}else{
+											$select= mysqli_query($koneksi, "SELECT * FROM tb_buat_webinar WHERE id_webinar ");
+										}
+										if(mysqli_num_rows($select)){
+											// perulangan untuk nampilkan data dari database
+											while ($data=mysqli_fetch_array ($select)){ 
+									?> 
+								<tbody>
+									<tr>
+										<th><?php echo $no++;?></th>
+										<td style="text-transform: capitalize;"><?php echo $data['tgl_buat'];?> </td>
+										<td>
+											<a href="detail-webinar-eo.php?id_webinar=<?php echo $data['id_webinar'];?>" >
+												<button type="button" class="btn btn-link" style="text-transform: capitalize;  text-align: left;"><?php echo $data['judul_webinar'];?></button>
+											</a>
+										</td>
+										<td><?php echo $data['kategori_webinar'];?> </td>
+                                        <td><?php echo $data['kategori_webinar'];?> </td>
+                                        <td><?php echo $data['kategori_webinar'];?> </td>
+										
+									</tr>			
+								</tbody>
+								<?php } } else{
+										echo '<tr class="align-middle"><td colspan="5">Tidak ada data</td></tr>';
+									}?>
+							</table>
 
+
+						</div>
 					</div>
+					
+
 				</div>
 
 			</div>
@@ -183,6 +203,10 @@
 		</div>
 	</div>
 	<!-- end copyright -->
+
+	<!-- Javascript ini -->
+
+	<!-- Akhir javascript -->
 	
 	<!-- jquery -->
 	<script src="assets/js/jquery-1.11.3.min.js"></script>

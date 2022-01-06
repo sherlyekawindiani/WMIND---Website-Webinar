@@ -78,11 +78,12 @@ error_reporting(0);
 						</li>
 						<div class="batas"></div>
 						<li class="listMenu">
-							<a class="pilihanMenu" href="buat-webinar.php"><i class="fas fa-plus-square"></i> Buat Webinar</a>
+							<a class="pilihanMenu" href="buat-webinar-eo
+							.php"><i class="fas fa-plus-square"></i> Buat Webinar</a>
 						</li>
 						<div class="batas"></div>
 						<li class="listMenu active ">
-							<a class="pilihanMenu" href="riwayat-webinar.php"><i class="fas fa-history" ></i> Riwayat</a>
+							<a class="pilihanMenu" href="riwayat-webinar-eo.php"><i class="fas fa-history" ></i> Riwayat</a>
 						</li>
 					</ul>
 				</div>
@@ -106,16 +107,16 @@ error_reporting(0);
 									</form>
 								</div>
 							</div>
-							
 							<!-- Akhir Search -->
+							
 							<table class="table table-bordered tabelRiwayat" >
 								<thead>
 									<tr class="tabelThead">
 										<th scope="col" style="border-top-left-radius: 10px; border: none; width: 50px">No</th>
 										<th scope="col" style="border: none; width: 160px">Tanggal Pembuatan</th>
-										<th scope="col" style="border: none; width: 350px">Nama Webinar</th>
+										<th scope="col" style="border: none; width: 450px">Nama Webinar</th>
 										<th scope="col" style="border: none;">Kategori</th>
-										<th scope="col" style="border-top-right-radius: 10px; border: none; width: 250px;">Aksi</th>
+										<th scope="col" style="border-top-right-radius: 10px; border: none; width: 150px;">Aksi</th>
 									</tr>
 								</thead>
 									<?php
@@ -136,23 +137,15 @@ error_reporting(0);
 										<th><?php echo $no++;?></th>
 										<td style="text-transform: capitalize;"><?php echo $data['tgl_buat'];?> </td>
 										<td>
-											<a href="#" >
+											<a href="detail-webinar-eo.php?id_webinar=<?php echo $data['id_webinar'];?>" >
 												<button type="button" class="btn btn-link" style="text-transform: capitalize;  text-align: left;"><?php echo $data['judul_webinar'];?></button>
 											</a>
 										</td>
 										<td><?php echo $data['kategori_webinar'];?> </td>
 										<td>
-											<a href="admin-hapus-kontak.php?id_kontak=<?php echo $data['id_kontak'];?>"
+											<a href="delete-webinar-eo.php?id_webinar=<?php echo $data['id_webinar'];?>"
 												onclick="return confirm ('Apakah anda yakin?')" >
-												<button type="button" class="btn btnAksi" >Peserta</button>
-											</a>
-											<a href="admin-hapus-kontak.php?id_kontak=<?php echo $data['id_kontak'];?>"
-												onclick="return confirm ('Apakah anda yakin?')" >
-												<button type="button" class="btn btnAksi" >Edit</button>
-											</a>
-											<a href="admin-hapus-kontak.php?id_kontak=<?php echo $data['id_kontak'];?>"
-												onclick="return confirm ('Apakah anda yakin?')" >
-												<button type="button" class="btn btnAksi" >Hapus</button>
+												<button type="button" class="btn btn-dark btnAksi">Hapus</button>
 											</a>
 											
 										</td>

@@ -9,8 +9,8 @@
             @$email_eo            = $_POST['email_eo'];
             @$tanggal_mulai       = $_POST['tanggal_mulai'];
             @$waktu_mulai         = $_POST['waktu_mulai'];
-            @$offline_alamat      = $_POST['offline_alamat'];
             @$link_streaming      = $_POST['link_streaming'];
+            // @$offline_alamat      = $_POST['offline_alamat'];
             @$deskripsi_webinar   = $_POST['deskripsi_webinar'];
             @$kirim               = $_POST['kirim'];
 
@@ -32,25 +32,25 @@
                         
                         // Memasukkan data (Insert) 
                         @$query = "INSERT INTO tb_buat_webinar VALUES ('','$nama_baru','$tgl_buat','$judul_webinar','$kategori_webinar','$nama_eo','$email_eo',
-                        '$tanggal_mulai','$waktu_mulai','$offline_alamat','$link_streaming','$deskripsi_webinar')";
+                        '$tanggal_mulai','$waktu_mulai','$link_streaming','$deskripsi_webinar')";
                         $hasil = mysqli_query($koneksi, $query);
                         if($hasil){
                             echo "<script>alert('Berhasil Upload');
-                            document.location='dashboard-eo.php'</script>";
+                            document.location='riwayat-webinar-eo.php'</script>";
                             
                         }else{
                             echo "<script>alert('Gagal Upload');
-                            document.location='buat-webinar.php'</script>";
+                            document.location='buat-webinar-eo.php'</script>";
                         }
 
                     }else{
                         echo "<script>alert('Ukuran file gambar lebih dari 2MB');
-                        document.location='buat-webinar.php'</script>";
+                        document.location='buat-webinar-eo.php'</script>";
                     }
 
                 }else{
                     echo "<script>alert('Ekstensi file tidak diperbolehkan');
-                    document.location='buat-webinar.php'</script>";
+                    document.location='buat-webinar-eo.php'</script>";
                 }
             }
 		
