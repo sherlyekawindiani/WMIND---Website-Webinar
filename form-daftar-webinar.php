@@ -81,8 +81,11 @@
                                     <input type="text" name="email_peserta" placeholder="Email">
                                 </div>
                                 <div class="col-md-4 kotak-telepon">
-                                    <input type="text" name="notelp_peserta" placeholder="No Telepon" id="notelp" onkeyup="checkPass(); return false;" >
-                                    <span id="notelp-error"></span>
+                                    <div class="form-group">
+                                        <input type="text" name="notelp_peserta" placeholder="No Telepon" id="notelp" onkeyup="checkPass(); return false;">
+                                        <small id="notelp-error" class="form-text" style="margin-top:-25px;"></small>
+                                    </div>
+                                    
                                 </div>
                             </div>
                             <div class="form-group">
@@ -104,67 +107,58 @@
     </div>
 
     <script>
-        // function checklength(el){
-        //     if(el.value.length <= 10){
-        //         document.getElementById("notelp").innerHTML = "notelp harus lebih dari 10 karakter";
-        //     }
-        // }
-        // function validasi_input(form){
-        //     var mincar = 10;
-        //     if (form.notelp_peserta.value.length < mincar){
-        //         alert("Panjang Username Minimal 8 Karater!");
-        //         form.notelp_peserta.focus();
-        //         return (false);
-        //     }
-        //     return (true);
-        // };
-        // var notelp = document.getElementById('notelp'),
-        //     notelpError = document.getElementById('notelp_error');
-        // notelp.addEventListener('input', function() {
-        //     var mincar = 10;
-        //     if (!notelp.value.length < mincar){
-        //         notelpError.innerHTML = 'notelp harus lebih dari 10';
-        //         notelpError.style.display = 'inherit';
-        //         return (false);
-        //     }
-        //     return (true);
-        // });
         function checkPass()
         {
             var notelp = document.getElementById('notelp');
             var message = document.getElementById('notelp-error');
             var goodColor = "#66cc66";
             var badColor = "#ff6666";
-            
-            if(notelp.value.length > 10)
+
+            if(notelp.value.length > 15)
             {
-                message.style.color = goodColor;
-                message.innerHTML = "character number ok!"
+                message.style.color = badColor;
+                message.innerHTML = "tidak valid"
+            }
+            else if(notelp.value.length < 10){
+                message.style.color = badColor;
+                message.innerHTML = "tidak valid"
             }
             else
             {
-                message.style.color = badColor;
-                message.innerHTML = "you have to enter at least 10 digit!"
+                // message.style.color = goodColor;
+                message.innerHTML = ""
                 return;
             }
+            
+            // if(notelp.value.length > 10)
+            // {
+            //     message.style.color = goodColor;
+            //     message.innerHTML = "character number ok!"
+            // }
+            // else
+            // {
+            //     message.style.color = badColor;
+            //     message.innerHTML = "you have to enter at least 10 digit!"
+            //     return;
+            // }
 
-            if(notelp.value.length > 15){
-                message.style.color = badColor;
-                message.innerHTML = "you have to enter at least 15 digit!"
-            }
-            else{
-                message.style.color = goodColor;
-                message.innerHTML = "character number ok!"
-                return;
-            }
+            // if(notelp.value.length > 15){
+            //     message.style.color = badColor;
+            //     message.innerHTML = "you have to enter at least 15 digit!"
+            // }
+            // else{
+            //     message.style.color = goodColor;
+            //     message.innerHTML = "character number ok!"
+            //     return;
+            // }
 
-            if(notelp.value.length == 0){
-                message.style.display = 'none';
-            }
-            else{
-                message.style.display = 'block';
-                return;
-            }
+            // if(notelp.value.length == 0){
+            //     message.style.display = 'none';
+            // }
+            // else{
+            //     message.style.display = 'block';
+            //     return;
+            // }
         }
     </script>
 

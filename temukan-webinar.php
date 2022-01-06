@@ -97,10 +97,30 @@
                                     <div class="single-product-item">
                                         <div class="produk-gambar">
                                             <a href="temukan-webinar-detail.php?id_webinar=<?php echo $data['id_webinar']?>"><img src="assets/img/gambar-poster/<?php echo $data['gambar_poster']; ?>" alt=""></a>
-                                        </div>
+                                        </div> 
                                         <a href="temukan-webinar-detail.php?id_webinar=<?php echo $data['id_webinar']?>">
-                                            <h5><?php echo $data['judul_webinar'] ?></h5>
-                                            
+                                            <h5>
+                                            <?php
+                                                $title = $data['judul_webinar'];
+                                                $arr = explode(" ", $title);
+                                                $limit = 4;
+                                                $new = [];
+
+                                                if (count($arr) > $limit) {
+                                                    for($i = 0; $i < $limit; $i++) {
+                                                        array_push($new, $arr[$i]);
+                                                    }
+                                                }
+
+                                                if($new) {
+                                                    $new = implode(" ", $new);
+                                                    print_r($new); echo '...';
+                                                }
+                                                else {
+                                                    print_r($title);  // Output : Rasang Beam Steal Valve
+                                                }
+                                            ?>
+                                            </h5>
                                         </a>
                                         <div class="row">
                                             <div class="col-md-6">
@@ -142,7 +162,7 @@
         </div>
         
         <!-- copyright -->
-        <div class="copyright mt-150">
+        <div class="copyright mt-150" style="background-color: #0E1B3A;">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6 col-md-12">

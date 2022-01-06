@@ -80,15 +80,15 @@
                     <h3><?php echo $data['judul_webinar']; ?></h3>
 					<div class="contact-form-wrap">
 						<div class="contact-form-box">
-							<h4><i class="fas fa-clock"></i> Tanggal & Waktu</h4>
+							<h4><i class="fas fa-clock" style="color: #FFC224;"></i> Tanggal & Waktu</h4>
 							<p><?php echo $data['tanggal_mulai']; ?> <br> <?php echo $data['waktu_mulai']; ?> WIB</p>
 						</div>
 						<div class="contact-form-box">
-							<h4><i class="fas fa-map-marker-alt"></i> Lokasi</h4>
+							<h4><i class="fas fa-map-marker-alt" style="color: #FFC224;"></i> Lokasi</h4>
 							<p>1, Kangean <br> Klojen, Malang. <br> Indonesia</p>
 						</div>
 						<div class="contact-form-box">
-							<h4><i class="fas fa-user-friends"></i> Diselenggarakan oleh</h4>
+							<h4><i class="fas fa-user-friends" style="color: #FFC224;"></i> Diselenggarakan oleh</h4>
 							<p><?php echo $data['nama_eo']; ?></p>
 						</div>
 						<div class="tombol-daftar">
@@ -115,7 +115,7 @@
 	<!-- end description -->
 
 	<!-- copyright -->
-	<div class="copyright">
+	<div class="copyright" style="background-color: #0E1B3A;">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6 col-md-12">
