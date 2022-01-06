@@ -36,8 +36,21 @@
 	<link href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@200;400&display=swap" rel="stylesheet">
 </head>
+
+<?php
+
+
+?>
+
+<?php
+    include "koneksi.php"; //panggil file koneksi
+    $id_webinar=$_GET['id_webinar'];
+    $query="SELECT*FROM tb_buat_webinar WHERE id_webinar ='$id_webinar'"; //buat query sql
+    $hasilDetail=mysqli_query($koneksi,$query); //jalankan query sql
+    $dataDetail=mysqli_fetch_array($hasilDetail);
+?>
+
 <body>
-	
 	<!--PreLoader-->
     <div class="loader">
         <div class="loader-inner">
@@ -45,7 +58,6 @@
         </div>
     </div>
     <!--PreLoader Ends-->
-
 	<!-- header -->
     <nav class="navbar navBarEo">
         <div class="container-fluid navBarEo">
@@ -62,7 +74,7 @@
     <!-- end header -->
 	<!-- body -->
 	<div class="container-fluid">
-		<div class="row">
+		<div class="row" >
 			<div class="col-md-2 colKiri">
 				<div class="sidebarEo">
 				    <ul style='list-style-type: none;'> 	
@@ -70,33 +82,34 @@
 							<a class="pilihanMenu" href="dashboard-eo.php"><i class="fas fa-home"></i> Dashboard</a>
 						</li>
 						<div class="batas"></div>
-						<li class="listMenu active">
-							<a class="pilihanMenu" href="buat-webinar.php"><i class="fas fa-plus-square"></i> Buat Webinar</a>
+						<li class="listMenu">
+							<a class="pilihanMenu" href="buat-webinar-eo
+							.php"><i class="fas fa-plus-square"></i> Buat Webinar</a>
 						</li>
 						<div class="batas"></div>
-						<li class="listMenu ">
-							<a class="pilihanMenu" href="riwayat-webinar.php"><i class="fas fa-history" ></i> Riwayat</a>
+						<li class="listMenu active ">
+							<a class="pilihanMenu" href="riwayat-webinar-eo.php"><i class="fas fa-history" ></i> Riwayat</a>
 						</li>
 					</ul>
 				</div>
 			</div>
-			<div class="col-md-10" style="background-color: #F0F2F5;">
+			<div class="col-md-10" style="background-color: #F0F2F5; height: 100%;">
 				<div class="cardDashboard">
-					<div class="card cardBuatWebinar">
-						<div class="card-body">
-							<h2 class="card-title">Buat Webinar</h2>
-							<h4>Uplond Webinar sekarang dan jangkau partisipan sebanyak mungkin</h4>
-							<p class="card-text">Isilah form dibawah ini dengan teliti</p>
+					<div class="card detailRiwayat">
+						<div class="card-body row petunjukDetail">
+							<h6 class="card-title"><a href="riwayat-webinar-eo.php">Riwayat Webinar </a><i class="fas fa-angle-right ikonAngleRight" ></i></h6>
+							<h6 class="card-title active">Edit Webinar</h6>
+                            
 						</div>
 					</div>
 					<div class="card shadow p-3 mb-5 bg-white rounded" style="width: 100%; border: none; border-radius: 6px; ">
 						<div class="card-body">
-							<form class="formBuatEvent" method="POST" action="submit-buat-webinar.php" enctype="multipart/form-data">
+							<form class="formBuatEvent" method="POST" action="submit-edit-webinar-eo.php" enctype="multipart/form-data">
 								<div class="form-row">
 									<div class="form-group col-md-6">
 										<div class="cardGambarPoster">
 											<div class="tempatGambarPoster">
-													<img  class="gambarPoster" src="" alt="">
+													<img  class="gambarPoster" src="assets/img/gambar-poster/<?php echo $dataDetail['gambar_poster'];?>" alt="">
 												<div class="contentGambar">
 													<div class="iconAwan"><i class="fas fa-cloud-upload-alt"> </i></div>
 													<div class="textRekom">
@@ -109,28 +122,30 @@
 												<div class="fileNama">nama file</div>
 											</div>
 										</div>
-										<div class="form-group " style="width: 200px; margin: 20px;	">
+										<!-- <div class="form-group " style="width: 200px; margin: 20px;	">
 											<input name="id_author" type="hidden" class="form-control" value=" <?php echo $_SESSION['id_user']; ?>" >
-										</div>
-										<div class="form-group batasPilihFile">
-											<label for="tombolUnggah">Unggah gambar/poster/benner</label>
-											<input id="tombolUnggah" name="gambar_poster"  type="file" class="form-control-file" style="height: 40px; width: 290px;"  required="The gambar field is required." >
-										</div>
+										</div> -->
+										
+										
 									</div>
 									<div class="form-group col-md-6" style="margin-left:-100px;">
-										<h5 class="card-title">Informasi Umum</h5>
+										<h5 class="card-title mb-3">Informasi Umum</h5>
 										<div class="form-group ">
-											<input name="tgl_buat" type="hidden" class="form-control" value="<?php echo date("l-d-m-Y"); ?>" style="height: 40px; width: 520px;  border-radius: 10px;">
+											<input type="text" readonly name="id_webinar" value="<?php echo $dataDetail['id_webinar'];?>" style="height: 40px; width: 200px;  border-radius: 10px;  text-transform: capitalize;"  class="form-control" required="The field is required." id="judul_webinar" >
 										</div>
 										<div class="form-group ">
-												<label for="judul_webinar">Judul Webinar</label>
-												<input type="text" name="judul_webinar" style="height: 40px; width: 520px;  border-radius: 10px;  text-transform: capitalize;"  class="form-control" required="The field is required." id="judul_webinar" >
+											<!-- <label for="pilihKategori">Tanggal Pembuatan</label> -->
+											<input name="tgl_buat" readonly type="text"  class="form-control" value="<?php echo $dataDetail['tgl_buat'];?>" style="height: 40px; width: 520px;  border-radius: 10px;">
+										</div>
+										<div class="form-group ">
+											<label for="pilihKategori">Judul Webinar</label>
+											<input name="judul_webinar" type="text"  class="form-control" value="<?php echo $dataDetail['judul_webinar'];?>" style="height: 40px; width: 520px;  border-radius: 10px;">
 										</div>
 										<div class="form-row">
 											<div class="form-group col-md-6 ">
 												<label for="pilihKategori">Kategori Webinar</label>
 												<select id="pilihKategori" name="kategori_webinar" style="height: 40px; width: 520px; border-radius: 10px;"  required="The pilih kategori field is required." class="form-control" >
-													<option selected>--</option>
+													<option selected><?php echo $dataDetail['kategori_webinar'];?></option>
 													<option value="IT">IT</option>
 													<option value="Bisnis">Bisnis</option>
 													<option value="Pendidikan">Pendidikan</option>
@@ -144,27 +159,27 @@
 										<div class="form-row">
 											<div class="form-group col-md-6">
 												<label for="namaEo">Nama Organizer</label>
-												<input type="text" name="nama_eo" style="height: 40px; width: 260px; border-radius: 10px; text-transform: capitalize;"  class="form-control" required="The field is required." id="namaEo" >
+												<input type="text" readonly name="nama_eo"  value="<?php echo $dataDetail['nama_eo'];?>" style="height: 40px; width: 260px; border-radius: 10px; text-transform: capitalize;"  class="form-control" required="The field is required." id="namaEo" >
 											</div>
 											<div class="form-group col-md-6">
 												<label for="emailEo" style="margin-left: 30px;">Email Organizer</label>
-												<input type="email" name="email_eo" style="height: 40px; width: 260px; margin-left: 30px;  border-radius: 10px;"  class="form-control" required="The field is required." id="emailEo" >
+												<input type="email" readonly name="email_eo"  value="<?php echo $dataDetail['email_eo'];?>" style="height: 40px; width: 260px; margin-left: 30px;  border-radius: 10px;"  class="form-control" required="The field is required." id="emailEo" >
 											</div>
 										</div>
 										<hr style="width: 530px;">
-										<h5 class="card-title" style="margin-top: 15px">Jadwal</h5>	
+										<h5 class="card-title  mt-4 mb-3">Jadwal</h5>	
 										<div class="form-row">
 											<div class="form-group col-md-6 ">
 												<label for="tanggal mulai">Tanggal dimulai</label>
-												<input type="date" name="tanggal_mulai" style="height: 40px; width: 260px; border-radius: 10px;"  class="form-control" id="tanggal mulai" required="The tanggal mulai field is required.">
+												<input type="date"readonly name="tanggal_mulai"  value="<?php echo $dataDetail['tanggal_mulai'];?>" style="height: 40px; width: 260px; border-radius: 10px;"  class="form-control" id="tanggal mulai" required="The tanggal mulai field is required.">
 											</div>
 											<div class="form-group col-md-6 ">
 												<label for="waktuMulai" style="margin-left: 30px;">Waktu dimulai</label>
-												<input type="time" name="waktu_mulai" style="height: 40px; width: 260px; margin-left: 30px;  border-radius: 10px;"  class="form-control" id="waktuMulai" required="The waktu mulai field is required.">
+												<input type="time" readonly name="waktu_mulai"  value="<?php echo $dataDetail['waktu_mulai'];?>" style="height: 40px; width: 260px; margin-left: 30px;  border-radius: 10px;"  class="form-control" id="waktuMulai" required="The waktu mulai field is required.">
 											</div>
 										</div>
 										<hr style="width: 530px;">
-										<h5 class="card-title" style="margin-top: 15px">Lokasi</h5>
+										<!-- <h5 class="card-title  mt-4 mb-3">Lokasi</h5>
 										<div class="form-row">
 											<div class="form-check form-check-inline">
 												<input class="form-check-input" type="radio" onclick="lokasiCheck();" name="lokasi" value="Online" id="onlineCheck" style="height: 40px; width: 17px; border-radius: 10px;" >
@@ -174,40 +189,24 @@
 												<input class="form-check-input" type="radio" onclick="lokasiCheck();" name="lokasi" value="Offline" id="offlineCheck" style="height: 40px; width: 17px; margin-left: 10px; border-radius: 10px;" >
 												<label class="form-check-label" for="inlineRadio1">Offline</label>
 											</div>
-										</div>
-										<div class="form-group" id="input_offline" >
-											<label for="offline" style="margin-top: 10px;">Alamat Offline</label>
-											<textarea type="text" name="offline_alamat" style="height: 53px; width: 350px; border-radius: 10px;"  class="form-control" required="The field is required."  > </textarea>
-											
-										</div>
+										</div> -->
 										<div class="form-group"  id="input_online" >
 											<label for="link" style="margin-top: 10px;">Link Streaming</label>
-											<input type="text" name="link_streaming"style="height: 40px; width: 350px;  border-radius: 10px;"  class="form-control" required="The field is required." >
+											<input type="text" readonly name="link_streaming" value="<?php echo $dataDetail['link_streaming'];?>" style="height: 40px; width: 350px;  border-radius: 10px;"  class="form-control" required="The field is required." >
 										</div>
+										<!-- <div class="form-group" id="input_offline" >
+											<label for="offline" style="margin-top: 10px;">Alamat Offline</label>
+											<input type="text" name="offline_alamat" style="height: 53px; width: 350px; border-radius: 10px;"  class="form-control" required="The field is required.">
+										</div> -->
 										<hr style="width: 530px;">
 										<h5 class="card-title" style="margin-top: 20px;">Detail Webinar</h5>
 										<div class="form-group ">
 											<label for="deskripsiEvent">Deskripsi Webinar</label>
-											<textarea name="deskripsi_webinar" type="text" style="height: 270px; width: 460px; border-radius: 10px;" class="form-control" id="deskripsiEvent" required="The deskripsi field is required."></textarea>
+											<textarea name="deskripsi_webinar" type="text" style="height: 270px; width: 460px; border-radius: 10px;" class="form-control" id="deskripsiEvent" required="The deskripsi field is required."><?php echo $dataDetail['deskripsi_webinar'];?></textarea>
 										</div>
-										<button type="submit" name="kirim" class="btn btn-primary tombolPublikasi">Publikasi</button>
+										<button type="submit" name="kirim" class="btn btn-primary buttonSemua float-right mt-3">Publikasi</button>
 									</div>
 								</div>
-								
-								
-								
-							
-								<!--Submit Buat Event -->
-								<?php
-								// upload gambar
-
-								// Memasukkan data (Insert) 
-								
-
-								// hasil data array (kirim)
-
-								?>
-								<!-- Akhir Buat Event -->
 							</form>
 						</div>
 					</div>
@@ -245,95 +244,7 @@
 	</div>
 	<!-- end copyright -->
 
-	<!-- PHP -->
-		<!-- Hari diubah kebahasa Indonesia -->
-		<?php
-			function hariIndo ($hariInggris) {
-			switch ($hariInggris) {
-				case 'Sunday':
-				return 'Minggu';
-				case 'Monday':
-				return 'Senin';
-				case 'Tuesday':
-				return 'Selasa';
-				case 'Wednesday':
-				return 'Rabu';
-				case 'Thursday':
-				return 'Kamis';
-				case 'Friday':
-				return 'Jumat';
-				case 'Saturday':
-				return 'Sabtu';
-				default:
-				return 'hari tidak valid';
-			}
-			}
-		?>	
-	<!-- Akhir PHP -->
 	<!-- Javascript ini -->
-			<!-- Form submit -->
-			<!-- <script>
-				function myFunction() {
-				alert("Formulir telah dikirimkan");
-				}
-			</script> -->
-			<!-- Radio Button online offline -->
-			<script>
-				window.onload = function() {
-					document.getElementById('input_online').style.display = 'none';
-					document.getElementById('input_offline').style.display = 'none';
-				}
-				function lokasiCheck() {
-					if (document.getElementById('onlineCheck').checked) {
-						document.getElementById('input_online').style.display = 'block';
-						document.getElementById('input_offline').style.display = 'none';
-					} 
-					else if(document.getElementById('offlineCheck').checked) {
-						document.getElementById('input_offline').style.display = 'block';
-						document.getElementById('input_online').style.display = 'none';
-						
-						}
-				}
-			</script>
-			<!-- JS unggah gambar poster bener -->
-			<script >
-				const tempatGambarPoster = document.querySelector(".tempatGambarPoster");
-				const fileName = document.querySelector(".fileNama");
-				const cancelBtn= document.querySelector("#cancelTombol");
-				const defaultBtn = document.querySelector("#tombolUnggah");
-				const customBtn = document.querySelector("#customBtnUnggah");
-				const img = document.querySelector(".gambarPoster");
-				function defaultBtnActive(){
-					defaultBtn.click();
-					
-				}
-				defaultBtn.addEventListener("change", function(){
-					const file = this.files[0];
-					if(file){
-						const reader = new FileReader();
-						reader.onload = function(){
-							const result = reader.result;
-							img.src = result;
-							tempatGambarPoster.classList.add("active");
-
-						}
-						cancelBtn.addEventListener("click", function(){
-							img.src = "";
-							tempatGambarPoster.classList.remove("active");
-						});
-						reader.readAsDataURL(file);
-
-					}
-					if(this.value){
-						let valueStore = this.value;
-						fileName.textContent = valueStore ;
-
-
-					}
-				});
-    		</script>
-        <!-- Akhir JS unggah poster bener -->
-			
 
 	<!-- Akhir javascript -->
 	
