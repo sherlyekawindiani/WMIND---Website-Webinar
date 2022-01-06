@@ -99,7 +99,28 @@
 					<div class="card detailRiwayat">
 						<div class="card-body row petunjukDetail">
 							<h6 class="card-title"><a href="riwayat-webinar-eo.php">Riwayat Webinar </a><i class="fas fa-angle-right ikonAngleRight" ></i></h6>
-                            <h6 class="card-title active"><?php echo $dataDetail['judul_webinar'];?> </h6>
+                            <h6 class="card-title active">
+								<?php
+									$title = $dataDetail['judul_webinar'];
+									$arr = explode(" ", $title);
+									$limit = 4;
+									$new = [];
+
+									if (count($arr) > $limit) {
+										for($i = 0; $i < $limit; $i++) {
+											array_push($new, $arr[$i]);
+										}
+									}
+
+									if($new) {
+										$new = implode(" ", $new);
+										print_r($new); echo '...';
+									}
+									else {
+										print_r($title);  // Output : Rasang Beam Steal Valve
+									}
+								?>
+							</h6>
 						</div>
 					</div>
 					<div class="card shadow p-3 mb-5 bg-white rounded" style="width: 100%; border: none; border-radius: 6px; ">

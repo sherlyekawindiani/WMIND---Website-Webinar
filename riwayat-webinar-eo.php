@@ -113,7 +113,7 @@ error_reporting(0);
 								<thead>
 									<tr class="tabelThead">
 										<th scope="col" style="border-top-left-radius: 10px; border: none; width: 50px">No</th>
-										<th scope="col" style="border: none; width: 160px">Tanggal Pembuatan</th>
+										<th scope="col" style="border: none; width: 200px">Tanggal Pembuatan</th>
 										<th scope="col" style="border: none; width: 450px">Nama Webinar</th>
 										<th scope="col" style="border: none;">Kategori</th>
 										<th scope="col" style="border-top-right-radius: 10px; border: none; width: 150px;">Aksi</th>
@@ -138,7 +138,28 @@ error_reporting(0);
 										<td style="text-transform: capitalize;"><?php echo $data['tgl_buat'];?> </td>
 										<td>
 											<a href="detail-webinar-eo.php?id_webinar=<?php echo $data['id_webinar'];?>" >
-												<button type="button" class="btn btn-link" style="text-transform: capitalize;  text-align: left;"><?php echo $data['judul_webinar'];?></button>
+												<button type="button" class="btn btn-link" style="text-transform: capitalize;  text-align: left;">
+														<?php
+														$title = $data['judul_webinar'];
+														$arr = explode(" ", $title);
+														$limit = 4;
+														$new = [];
+
+														if (count($arr) > $limit) {
+															for($i = 0; $i < $limit; $i++) {
+																array_push($new, $arr[$i]);
+															}
+														}
+
+														if($new) {
+															$new = implode(" ", $new);
+															print_r($new); echo '...';
+														}
+														else {
+															print_r($title);  // Output : Rasang Beam Steal Valve
+														}
+													?>
+												</button>
 											</a>
 										</td>
 										<td><?php echo $data['kategori_webinar'];?> </td>
