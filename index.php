@@ -47,7 +47,7 @@
     <!--PreLoader Ends-->
 	
 	<!-- header -->
-	<div class="top-header-area" id="sticker">
+	<div class="top-header-area" id="sticker" style="background-color: #0E1B3A">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 col-sm-12 text-center">
@@ -66,8 +66,8 @@
 								</li>
 								<li><a href="temukan_webinar.php">Temukan Webinar</a></li>
 								<li><a href="news.html">Artikel</a></li>
-								<li><a href="contact.html">Tentang Kami</a></li>
-								<a class="boxed-btn" href="daftar.php">Login</a>
+								<li><a href="contact2.php">Tentang Kami</a></li>
+								<a class="boxed-btn" href="register.php">Login</a>
 								<li>
 									<div class="header-icons">
 										<!-- <a class="shopping-cart" href="cart.html"><i class="fas fa-user-circle"></i></a> -->
@@ -320,25 +320,25 @@
 				<div class="col-lg-6 col-md-12">
 					<div class="abt-text">
 						<h3> <span class="orange-text"></span></h3>
-						<div class="card font">
+						<div class="card card-index font">
 						<div class="card-body">
 							<h5>Bagaimana cara mempromosikan event saya melalui Wmind?</h5>
 							This is some text within a card body.
 						</div>
 						</div>
-						<div class="card font">
+						<div class="card card-index font">
 						<div class="card-body">
 							<h5>Apakah mempromosikan event di Wmind berbayar?</h5>
 							This is some text within a card body.
 						</div>
 						</div>
-						<div class="card font">
+						<div class="card card-index font">
 						<div class="card-body">
 							<h5>Bagaimana cara mempromosikan event saya melalui Wmind?</h5>
 							This is some text within a card body.
 						</div>
 						</div>
-						<div class="card font">
+						<div class="card card-index font">
 						<div class="card-body">
 							<h5>Bagaimana cara mempromosikan event saya melalui Wmind?</h5>
 							This is some text within a card body.
@@ -459,7 +459,7 @@
 	<!-- end logo carousel -->
 
 	<!-- footer -->
-	<div class="footer-area">
+	<div class="footer-area" style="background-color: #0E1B3A">
 		<div class="container">
 			<div class="row">
 				
@@ -515,7 +515,7 @@
 	<!-- end footer -->
 	
 	<!-- copyright -->
-	<div class="copyright">
+	<div class="copyright" style="background-color: #0E1B3A">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6 col-md-12">

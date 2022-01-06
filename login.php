@@ -42,7 +42,7 @@
 		.coba{
 			margin-left: 50px;
 			border: 1px grey;
-			width: 80%;
+			width: 60%;
 			height: 50px;
 			border-radius: 13px;
 			padding: 10px;
@@ -73,19 +73,33 @@
 		.jarak-form{
 			margin-bottom: 20px;
 		}
+		.btn{
+			width: 60%;
+			height: 50px;
+			margin-left: 50px;
+			border-radius: 13px;
+			box-shadow: 0 6px 5px rgba(0,0,0,0.3);
+			box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+			transition: .3s ease-out;
+		}
 
 	</style>
 
 </head>
+<?php
+session_start();
+include "koneksi.php";
+?>
 <body>
 	
 	<!-- form -->
     <div class="contact-from-section">
+	<form action="submit_login.php" method="post" class="needs-validation" novalidate>
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="warna">
                             <!-- <div class="logo-form"><img src="assets/img/logoWmindKuning.png" alt=""></div> -->
-                            <div class="vektor-form"><img src="assets/img/vektor-formDaftar.svg" alt=""></div>
+                            <div class="ilustrasi"><img src="assets/img/vektor-login.svg" alt=""></div>
                         </div>
                     </div>
 
@@ -93,35 +107,51 @@
                         <div class="form-judul">
                             <h2>Login</h2>
                             <p>Belum punya akun? 
-                                <a href="index.php">Daftar</a>
+                                <a href="register.php">Daftar</a>
                             </p>
                         </div>
                      
-						<div class="inputBox">
-							<input type="password" name="" placeholder="Enter Password" id="password">
-							<div id="toggle" onclick="showHide();"></div>
-						</div>
-						<script type="text/javascript">
-							const password = document.getElementById('password');
-							const toggle = document.getElementById('toggle');
+						<!-- form -->
+						<div class="coba jarak-form">
+								<input type="email" placeholder="Email" id="email" name="email" data-val="true" required="The nama lengkap field is required."> 
+							</div>
+							<div class="coba jarak-form">
+								<input type="password" placeholder="Password" id="pass">
+								<!-- <i class="fas fa-eye-slash" id="hide" onclick="myFunction()"></i> -->
+								<span id="mybutton" onclick="change()"><i class="fas fa-eye" id="show"></i></span>
+								<div id="toggle" onclick="showHide();"></div>
+							</div>
+							<div>
+								<button name="submit" value="submit" class="btn btn-warning">Login</button>
+							</div>
 							
-							function showHide(){
-								if(password.type === 'password'){
-									password.setAttribute('type', 'text');
-									toggle.classList.add('hide')
-								} else{
-									password.setAttribute('type', 'password');
-									toggle.classList.remove('hide')
+						<!-- end form -->
+        				
+						<script type="text/javascript">
+							function change()
+							{
+								var x = document.getElementById('pass').type;
+					
+								if (x == 'password')
+								{
+								document.getElementById('pass').type = 'text';
+								document.getElementById('mybutton').innerHTML = '<i class="fas fa-eye-slash"></i>';
+								}
+								else
+								{
+								document.getElementById('pass').type = 'password';
+								document.getElementById('mybutton').innerHTML = '<i class="fas fa-eye"></i>';
 								}
 							}
-        				</script>
+
+						</script>
 
                            
                         
                     </div>
                 </div>
         </div>
-		<i class="fas fa-key"></i>
+		
         <!-- end form -->
 	
 	<!-- jquery -->
