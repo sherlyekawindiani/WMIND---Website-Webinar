@@ -48,40 +48,40 @@
         </div>
         <!--PreLoader Ends-->
 
+        <!-- header -->
+        <nav class="navbar navBarEo">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.php">
+                    <img src="assets/img/logo_transparan.png" style="width: 70%" alt="">
+                </a>
+                <div class="navBarUsername">
+                    <p class="panggilUsername">Sherly eka windiani</p>
+                    <a class="txtLogout" href="#">Logout</a>
+                </div>
+            </div>
+        </nav>
+        <!-- end header -->
+
         <!-- isi admin -->
             <div class="row no-gutters">
-                <div class="col-md-2 pr-3 pt-4 pl-2 menu-samping position-fixed">
+                <div class="col-md-2 pr-3 pt-4 pl-2 menu-samping">
                     <ul class="nav flex-column">
-                        <li><img src="assets/img/logoWmindKuning.png" alt=""></li>
-                        <li class="nav-item mt-5 active">
-                            <a class="nav-link link-menu" href="admin_dashboard.php"><i class="fas fa-home mr-2"></i>Dasboard</a>
+                        <li class="nav-item active">
+                            <a class="nav-link link-menu" href="admin-dashboard.php"><i class="fas fa-home mr-2"></i>Dasboard</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link link-menu mt-2 mb-2" href="admin_user.php"><i class="fas fa-user mr-2"></i>Data User</a>
+                            <a class="nav-link link-menu mt-2 mb-2" href="admin-user.php"><i class="fas fa-user mr-2"></i>Data User</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link link-menu mt-2 mb-2" href="admin_peserta.php"><i class="fas fa-users mr-2"></i>Data Peserta</a>
+                            <a class="nav-link link-menu mt-2 mb-2" href="admin-peserta.php"><i class="fas fa-users mr-2"></i>Data Peserta</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link link-menu mt-2 mb-2" href="admin_webinar.php"><i class="fas fa-laptop mr-2"></i>Data Webinar</a>
+                            <a class="nav-link link-menu mt-2 mb-2" href="admin-webinar.php"><i class="fas fa-laptop mr-2"></i>Data Webinar</a>
                         </li>
                     </ul>
                 </div>
                 
                 <div class="col-md-10 ml-auto">
-                    <!-- header -->
-                        <nav class="navbar navBarEo" style="background-color:white;">
-                            <div class="container">
-                                <span class="navbar-brand" href="">
-                                    DASHBOARD
-                                </span>
-                                <div class="navBarUsername">
-                                    <p class="panggilUsername text-dark">Sherly eka windiani</p>
-                                    <a class="txtLogout text-dark" href="#">Logout</a>
-                                </div>
-                            </div>
-                        </nav>
-                    <!-- end header -->
                     <div class="isi-admin mt-4 ml-3 mr-3">
                         <div class="row">
                             <div class="col-md-4">
@@ -134,6 +134,19 @@
                 </div>
             </div>
         <!-- end isi admin -->
+
+        <!-- copyright -->
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-12">
+                        <p>Copyrights &copy; 2021 - <a href="https://imransdesign.com/">Wmind</a>,  All Rights Reserved.</p>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <!-- end copyright -->
     </div>
 
 

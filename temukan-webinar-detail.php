@@ -61,8 +61,8 @@
 
 	<?php
     include "koneksi.php"; //panggil file koneksi
-    $id = $_GET['id'];
-    $query = "SELECT * FROM detail_webinar WHERE id='$id'"; //buat query sql
+    $id_webinar = $_GET['id_webinar'];
+    $query = "SELECT * FROM tb_buat_webinar WHERE id_webinar='$id_webinar'"; //buat query sql
     $hasil = mysqli_query($koneksi, $query); //jalankan query sql
     $data = mysqli_fetch_array($hasil);
     ?>
@@ -73,26 +73,26 @@
 			<div class="row">
 				<div class="col-md-6">
 					<div class="single-product-img">
-						<img src="assets/img/<?php echo $data['gambar']; ?>" alt="">
+						<img src="assets/img/gambar-poster/<?php echo $data['gambar_poster']; ?>" alt="">
 					</div>
 				</div>
 				<div class="col-lg-6">
-                    <h3><?php echo $data['judul']; ?></h3>
+                    <h3><?php echo $data['judul_webinar']; ?></h3>
 					<div class="contact-form-wrap">
 						<div class="contact-form-box">
-							<h4><i class="fas fa-clock"></i> Tanggal & Waktu</h4>
-							<p><?php echo $data['tanggal']; ?> <br> <?php echo $data['jam']; ?> WIB</p>
+							<h4><i class="fas fa-clock" style="color: #FFC224;"></i> Tanggal & Waktu</h4>
+							<p><?php echo $data['tanggal_mulai']; ?> <br> <?php echo $data['waktu_mulai']; ?> WIB</p>
 						</div>
 						<div class="contact-form-box">
-							<h4><i class="fas fa-map-marker-alt"></i> Lokasi</h4>
+							<h4><i class="fas fa-map-marker-alt" style="color: #FFC224;"></i> Lokasi</h4>
 							<p>1, Kangean <br> Klojen, Malang. <br> Indonesia</p>
 						</div>
 						<div class="contact-form-box">
-							<h4><i class="fas fa-user-friends"></i> Diselenggarakan oleh</h4>
-							<p><img src="assets/img/<?php echo $data['']; ?>" alt=""> <?php echo $data['penyelenggara']; ?></p>
+							<h4><i class="fas fa-user-friends" style="color: #FFC224;"></i> Diselenggarakan oleh</h4>
+							<p><?php echo $data['nama_eo']; ?></p>
 						</div>
 						<div class="tombol-daftar">
-							<a href="form_daftar_webinar.php">Daftar</a>
+							<a href="form-daftar-webinar.php?id_webinar=<?php echo $data['id_webinar']?>">Daftar</a>
 						</div>
 					</div>
 				</div>
@@ -102,20 +102,20 @@
 	<!-- end detail webinar -->
 
 	<!-- description -->
-	<div class="container">
+	<div class="container mb-150">
 		<div class="bungkus-deskripsi">
 			<div class="bagian-judul text-center mt-5">
 				<h3>Deskripsi</h3>
 			</div>
 			<div class="bagian-deskripsi">
-				<p><?php echo $data['deskripsi']; ?></p>
+				<p><?php echo $data['deskripsi_webinar']; ?></p>
 			</div>
 		</div>
 	</div>
 	<!-- end description -->
 
 	<!-- copyright -->
-	<div class="copyright mt-150">
+	<div class="copyright" style="background-color: #0E1B3A;">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6 col-md-12">

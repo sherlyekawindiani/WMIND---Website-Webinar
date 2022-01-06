@@ -52,8 +52,8 @@ body .wadah {
     font-weight: 700;
     font-size: 15px;
     margin: 15px;
-    border: 2px solid #051922;
-    color: #323232;
+    border: 2px solid #0E1B3A;
+    color: black;
     cursor: pointer;
     padding: 8px 20px;
     border-radius: 25px;
@@ -83,17 +83,17 @@ body .wadah {
     height: 212px;
 }
 
-.single-product-item h5 {
+.single-product-item .max h5 {
     font-weight: 600;
     margin: 10px;
     margin-bottom: 10px;
 }
 
-.single-product-item h5:hover {
+.single-product-item .max h5:hover {
     color: #FFC224;
 }
 
-.single-product-item span {
+.single-product-item .max span {
     margin: 15px;
     margin-bottom: 10px;
 }
@@ -103,7 +103,7 @@ body .wadah {
     font-weight: 700;
     font-size: 10px;
     background-color: #FFC224;
-    color: #323232;
+    color: black;
     border-radius: 5px;
     padding: 2px 2px;
     margin: 10px;
@@ -114,7 +114,7 @@ body .wadah {
     font-weight: 700;
     font-size: 10px;
     background-color: #FFC224;
-    color: #323232;
+    color: black;
     border-radius: 5px;
     padding: 2px 2px;
     margin: 10px;
@@ -138,20 +138,8 @@ body .wadah {
 }
 
 .tombol-daftar a:hover {
-    background-color: #eeb421;
+    background-color: #FFC224;
     color: white;
-}
-
-.logo-tiket {
-    font-size: 30px;
-}
-
-.judul-tiket {
-    margin-right: 500px;
-}
-
-.judul-tiket p {
-    margin-top: -20px;
 }
 
 .contact-form-box img {
@@ -189,7 +177,7 @@ body .wadah {
     font-size: 15px;
     width: 530px;
     margin: 0 auto;
-    color: #555;
+    color: black;
     margin-top: 10px;
     line-height: 1.8;
 }
@@ -201,6 +189,10 @@ body .wadah {
 .bagian-deskripsi {
     margin: 30px;
     margin-top: -50px;
+}
+
+.bagian-deskripsi p {
+    font-size: 18px;
 }
 
 /* ------------------------------------------------------------------- 
@@ -230,7 +222,7 @@ body .wadah {
 .kontak-form-box h4 i {
     position: absolute;
     left: -13%;
-    color: #F28123;
+    color: #FFC224;
     top: 2px;
 }
 
@@ -284,34 +276,26 @@ body .wadah {
 # Dashboard Admin Page
 
 ----------------------------------------------------------------------*/
-.menu-samping {
-    background-color: #0E1B3A;
-    height: 577px;
-}
 
 .menu-samping ul li a {
     font-size: 16px;
 }
 
-.menu-samping ul img {
-    width: 50%;
-    margin-left: 45px;
-}
-
 .menu-samping ul li.active {
-    background-color: #1f3c80;
+    background-color: #FFC224;
     border-radius: 10px;
-    color: white;
+
 }
 
 .link-menu {
     margin-right: 20px;
-    color: white;
+    color: black;
+
 }
 
-.link-menu:hover {
-    background-color: #1f3c80;
-    color: white;
+.menu-samping ul li:hover {
+    background-color: #FFC224;
+    color: black;
     border-radius: 10px;
 }
 

@@ -12,7 +12,7 @@
     <title>Dashborad Admin</title>
 
     <!-- favicon -->
-    <link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
+    <link rel="shortcut icon" type="image/png" href="">
     <!-- google font -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
@@ -48,58 +48,76 @@
         </div>
         <!--PreLoader Ends-->
 
+        <!-- header -->
+        <nav class="navbar navBarEo">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.php">
+                    <img src="assets/img/logo_transparan.png" style="width: 70%" alt="">
+                </a>
+                <div class="navBarUsername">
+                    <p class="panggilUsername">Sherly eka windiani</p>
+                    <a class="txtLogout" href="#">Logout</a>
+                </div>
+            </div>
+        </nav>
+        <!-- end header -->
+
         <!-- isi admin -->
             <div class="row no-gutters">
-                <div class="col-md-2 pr-3 pt-4 menu-samping position-fixed">
-                    <ul class="nav flex-column ml-3 mb-5">
-                        <li><img src="assets/img/logoWmindKuning.png" alt=""></li>
-                        <li class="nav-item mt-5">
-                            <a class="nav-link link-menu" href="admin_dashboard.php"><i class="fas fa-home mr-2"></i>Dasboard</a>
-                        </li>
+                <div class="col-md-2 pr-3 pt-4 pl-2 menu-samping">
+                    <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link link-menu mt-2 mb-2" href="admin_user.php"><i class="fas fa-user mr-2"></i>Data User</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link link-menu mt-2 mb-2" href="admin_peserta.php"><i class="fas fa-users mr-2"></i>Data Peserta</a>
+                            <a class="nav-link link-menu mt-2 mb-2" href="admin-dashboard.php"><i class="fas fa-home mr-2"></i>Dasboard</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link link-menu" href="admin_webinar.php"><i class="fas fa-laptop mr-2"></i>Data Webinar</a>
+                            <a class="nav-link link-menu" href="admin-user.php"><i class="fas fa-user mr-2"></i>Data User</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link link-menu mt-2 mb-2" href="admin-peserta.php"><i class="fas fa-users mr-2"></i>Data Peserta</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link link-menu mt-2 mb-2" href="admin-webinar.php"><i class="fas fa-laptop mr-2"></i>Data Webinar</a>
                         </li>
                     </ul>
                 </div>
                 
                 <div class="col-md-10 ml-auto">
-                    <!-- header -->
-                        <nav class="navbar navBarEo position-fixed" style="background-color:white; width:84%;">
-                            <div class="container">
-                                <span class="navbar-brand ket-halaman" href="">
-                                    DATA WEBINAR
-                                </span>
-                                <div class="navBarUsername mr-3">
-                                    <p class="panggilUsername text-dark">Sherly eka windiani</p>
-                                    <a class="txtLogout text-dark" href="#">Logout</a>
-                                </div>
+                    <div class="isi-admin mt-4 ml-3 mr-3">
+                        <div class="card border-light" style="box-shadow: 1px 0px 10px rgba(112, 112, 112, 0.75);">
+                            <div class="card-body">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                        <th scope="col">Id</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Username</th>
+                                        <th scope="col">Level</th>
+                                        <th colspan="3">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        
+                                    </tbody>
+                                </table>
                             </div>
-                        </nav>
-                    <!-- end header -->
-                    <div class="isi-admin mt-80 ml-3 mr-3">
-                        <div id="DataBarang" class="tabcontent jartab">
-                            <table class="table table-striped">
-                                <thead class="">
-                                    <tr>
-                                    <th scope="col">No</th>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">Username</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                </tbody>
-                            </table>
                         </div>
                     </div>
                 </div>
             </div>
         <!-- end isi admin -->
+
+        <!-- copyright -->
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-12">
+                        <p>Copyrights &copy; 2021 - <a href="https://imransdesign.com/">Wmind</a>,  All Rights Reserved.</p>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <!-- end copyright -->
     </div>
 
 

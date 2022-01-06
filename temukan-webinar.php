@@ -83,38 +83,59 @@
 
             <!-- products -->
             <div class="col-md-10">
-                <div class="product-section mb-150">
+                <div class="product-section">
                     <div class="container">
                         <div class="row product-lists">
                             <?php
                             include "koneksi.php";
-                            $sql = "SELECT * FROM tb_temukan_webinar";
+                            $sql = "SELECT * FROM tb_buat_webinar";
                             $datas = mysqli_query($koneksi, $sql);
                             $i = 1;
-                            foreach ($datas as $data) :
+                            foreach ($datas as $data) : $i++;
                             ?>
-                                <div class="col-lg-3 col-md-6 <?php echo $data['kategori']; ?>">
+                                <div class="col-lg-3 col-md-6 <?php echo $data['kategori_webinar']; ?>">
                                     <div class="single-product-item">
                                         <div class="produk-gambar">
-                                            <a href="temukan_webinar_detail.php"><img src="assets/img/<?php echo $data['gambar']; ?>" alt=""></a>
-                                        </div>
-                                        <a href="temukan_webinar_detail.php">
-                                            <h5><?php echo $data['judul']; ?></h5>
+                                            <a href="temukan-webinar-detail.php?id_webinar=<?php echo $data['id_webinar']?>"><img src="assets/img/gambar-poster/<?php echo $data['gambar_poster']; ?>" alt=""></a>
+                                        </div> 
+                                        <a href="temukan-webinar-detail.php?id_webinar=<?php echo $data['id_webinar']?>">
+                                            <h5>
+                                            <?php
+                                                $title = $data['judul_webinar'];
+                                                $arr = explode(" ", $title);
+                                                $limit = 4;
+                                                $new = [];
+
+                                                if (count($arr) > $limit) {
+                                                    for($i = 0; $i < $limit; $i++) {
+                                                        array_push($new, $arr[$i]);
+                                                    }
+                                                }
+
+                                                if($new) {
+                                                    $new = implode(" ", $new);
+                                                    print_r($new); echo '...';
+                                                }
+                                                else {
+                                                    print_r($title);  // Output : Rasang Beam Steal Valve
+                                                }
+                                            ?>
+                                            </h5>
                                         </a>
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="kotak-kategori">
-                                                    <p><?php echo $data['kategori']; ?></p>
+                                                    <p><?php echo $data['kategori_webinar']; ?></p>
                                                 </div>
                                             </div>
-                                            <div class="col-md-6">
+                                            <!-- <div class="col-md-6">
                                                 <div class="kotak-lokasi">
-                                                    <p><?php echo $data['lokasi']; ?></p>
+                                                    <p><?php echo $data['']; ?></p>
                                                 </div>
-                                            </div>
+                                            </div> -->
                                         </div>
-                                        <span><?php echo $data['tanggal']; ?></span><br>
-                                        <span><?php echo $data['jam']; ?></span>
+                                        <span><?php echo $data['tanggal_mulai']; ?></span><br>
+                                        <span><?php echo $data['waktu_mulai']; ?></span>
                                     </div>
                                 </div>
                             <?php $i++;
@@ -139,20 +160,20 @@
             </div>
             <!-- end products -->
         </div>
+        
+        <!-- copyright -->
+        <div class="copyright mt-150" style="background-color: #0E1B3A;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-12">
+                        <p>Copyrights &copy; 2021 - <a href="https://imransdesign.com/">Wmind</a>,  All Rights Reserved.</p>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <!-- end copyright -->
     </div>
-
-    <!-- copyright -->
-	<div class="copyright mt-5">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-6 col-md-12">
-					<p>Copyrights &copy; 2021 - <a href="https://imransdesign.com/">Wmind</a>,  All Rights Reserved.</p>
-				</div>
-				
-			</div>
-		</div>
-	</div>
-	<!-- end copyright -->
 
 
     <!-- jquery -->
