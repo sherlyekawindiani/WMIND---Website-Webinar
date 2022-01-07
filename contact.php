@@ -10,10 +10,11 @@
 	<title>Contact</title>
 
 	<!-- favicon -->
-	<link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
+	<link rel="shortcut icon" type="image/png" href="assets/img/logo2.png">
 	<!-- google font -->
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap" rel="stylesheet">
 	<!-- fontawesome -->
 	<link rel="stylesheet" href="assets/css/all.min.css">
 	<!-- bootstrap -->
@@ -35,7 +36,7 @@
 
 </head>
 <body>
-		
+	<div class="wadah">	
 	<!-- header -->
 	<nav class="navbar navBarEo">
 			<div class="container-fluid navBarEo">
@@ -182,7 +183,7 @@
 		</div>
 	</div>
 	<!-- end copyright -->
-	
+	</div>
 	<!-- jquery -->
 	<script src="assets/js/jquery-1.11.3.min.js"></script>
 	<!-- bootstrap -->
