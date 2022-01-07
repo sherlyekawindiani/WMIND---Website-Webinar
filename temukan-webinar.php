@@ -87,11 +87,11 @@
                     <div class="container">
                         <div class="row product-lists">
                             <?php
-                            include "koneksi.php";
-                            $sql = "SELECT * FROM tb_buat_webinar";
-                            $datas = mysqli_query($koneksi, $sql);
-                            $i = 1;
-                            foreach ($datas as $data) : $i++;
+                                include "koneksi.php";
+                                $sql = "SELECT * FROM tb_buat_webinar";
+                                $datas = mysqli_query($koneksi, $sql);
+                                $i = 1;
+                                foreach ($datas as $data) : $i++;
                             ?>
                                 <div class="col-lg-3 col-md-6 <?php echo $data['kategori_webinar']; ?>">
                                     <div class="single-product-item">
@@ -147,9 +147,9 @@
                                 <div class="pagination-wrap">
                                     <ul>
                                         <li><a href="#">Prev</a></li>
-                                        <li><a class="active" href="#">1</a></li>
-                                        <li><a href="#">2</a></li>
-                                        <li><a href="#">3</a></li>
+                                        
+                                        <li><a class="active" href="#" style="background-color:#FFC224">1</a></li>
+                                        
                                         <li><a href="#">Next</a></li>
                                     </ul>
                                 </div>
@@ -168,7 +168,17 @@
                     <div class="col-lg-6 col-md-12">
                         <p>Copyrights &copy; 2021 - <a href="https://imransdesign.com/">Wmind</a>,  All Rights Reserved.</p>
                     </div>
-                    
+                    <div class="col-lg-6 text-right col-md-12">
+					<div class="social-icons">
+						<ul>
+							<li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+							<li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+							<li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+							<li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+							<li><a href="#" target="_blank"><i class="fab fa-dribbble"></i></a></li>
+						</ul>
+					</div>
+				</div>
                 </div>
             </div>
         </div>
