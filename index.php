@@ -116,7 +116,7 @@
 						</div>
 						<div class="content">
 							<h3>Registrasi Event</h3>
-							<p>Daftar Event dengan Mudah/p>
+							<p>Daftar Event Dengan Mudah/p>
 						</div>
 					</div>
 				</div>
