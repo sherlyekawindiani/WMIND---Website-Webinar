@@ -38,7 +38,33 @@
 </head>
 
 <?php
-error_reporting(0);
+	include "koneksi.php" ;
+	session_start();
+	error_reporting(0);
+	// cek apakah yang mengakses halaman ini sudah login
+	if($_SESSION['level']==""){
+		header("location:login.php?pesan=gagal");
+	}
+	// membuat session Username
+	$email = $_SESSION['email'];
+	$query = "SELECT * FROM tb_user WHERE email='$email'";
+	$hasil = mysqli_query($koneksi,$query);
+
+	// // tb buat webinar
+	// $id_webinar=$_GET['id_webinar'];
+    // $query="SELECT*FROM tb_buat_webinar WHERE id_webinar ='$id_webinar'"; //buat query sql
+    // $hasilDetail=mysqli_query($koneksi,$query); //jalankan query sql
+    // $dataDetail=mysqli_fetch_array($hasilDetail);
+
+?>
+<?php
+if(mysqli_num_rows($hasil)>0){
+    $data_user = mysqli_fetch_array($hasil);
+    $_SESSION["id_user"] = $data_user["id_user"];
+    $_SESSION["email"] = $data_user["email"];
+    $_SESSION["username"] = $data_user["username"];
+    $_SESSION["level"] = $data_user["level"];
+}
 ?>
 
 
@@ -60,8 +86,8 @@ error_reporting(0);
                 <img src="assets/img/logo_transparan.png" style="width: 70%" alt="">
             </a>
             <div class="navBarUsername">
-				<p class="panggilUsername">Sherly eka windiani</p>
-				<a class="txtLogout" href="#">Logout</a> 
+				<p class="panggilUsername"><?php echo "<b>".$_SESSION['username']."</b><br>"; ?></p>
+				<a class="txtLogout" href="logout.php">Logout</a> 
 				
 			</div>
         </div>
@@ -121,12 +147,13 @@ error_reporting(0);
 								</thead>
 									<?php
 										include "koneksi.php"; //panggil file koneksi
+										$id_author=$_SESSION['id_user'];
 										$no=1;
 										$cari = $_POST['inputCari'];
 										if($cari != ''){
-											$select= mysqli_query($koneksi, "SELECT * FROM tb_buat_webinar WHERE id_webinar AND judul_webinar LIKE '%".$cari."%' OR kategori_webinar LIKE '%".$cari."%' ");
+											$select= mysqli_query($koneksi, "SELECT * FROM tb_buat_webinar WHERE id_author='$id_author' AND judul_webinar LIKE '%".$cari."%' OR kategori_webinar LIKE '%".$cari."%' ");
 										}else{
-											$select= mysqli_query($koneksi, "SELECT * FROM tb_buat_webinar WHERE id_webinar ");
+											$select= mysqli_query($koneksi, "SELECT * FROM tb_buat_webinar WHERE id_author='$id_author' ");
 										}
 										if(mysqli_num_rows($select)){
 											// perulangan untuk nampilkan data dari database
@@ -142,7 +169,7 @@ error_reporting(0);
 														<?php
 														$title = $data['judul_webinar'];
 														$arr = explode(" ", $title);
-														$limit = 4;
+														$limit = 7;
 														$new = [];
 
 														if (count($arr) > $limit) {
@@ -195,19 +222,9 @@ error_reporting(0);
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6 col-md-12">
-					<p>Copyrights &copy; 2019 - <a href="https://imransdesign.com/">Imran Hossain</a>,  All Rights Reserved.</p>
+					<p>Copyrights &copy; 2021 - <a href="https://imransdesign.com/">Wmind</a>,  All Rights Reserved.</p>
 				</div>
-				<div class="col-lg-6 text-right col-md-12">
-					<div class="social-icons">
-						<ul>
-							<li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-							<li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
-							<li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
-							<li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-							<li><a href="#" target="_blank"><i class="fab fa-dribbble"></i></a></li>
-						</ul>
-					</div>
-				</div>
+				
 			</div>
 		</div>
 	</div>

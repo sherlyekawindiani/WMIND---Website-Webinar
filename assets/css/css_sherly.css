@@ -100,6 +100,8 @@
 
 .cardTitleUsername{
     font-weight: 200;
+    color: #0E1B3A;
+    text-transform: capitalize;
 }
 .cardJumlahData{
     width: 300px;
@@ -227,6 +229,8 @@
 .btnAksi {
     background-color: #0E1B3A;
     color: white;
+    border: none;
+    text-transform: capitalize;
 }
 .btnAksi:hover{
     background-color: #FFC224;
@@ -343,7 +347,7 @@
         border-radius: 10px;
         width: auto;
         font-size: 15px;
-        text-transform: uppercase;
+        text-transform: upperase;
         border: none;
         padding: 10px;
     }

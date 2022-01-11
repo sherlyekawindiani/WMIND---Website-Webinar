@@ -31,18 +31,18 @@ if ($passmd == $data['password']) {
 		header("location:admin.php");
 
 	// cek jika user login sebagai pegawai
-	}else if($data['level']=="peserta webinar"){
+	}else if($data['level']=="Peserta"){
 		// buat session login dan username
 		$_SESSION['email'] = $email;
-		$_SESSION['level'] = "peserta webinar";
+		$_SESSION['level'] = "Peserta";
 		// alihkan ke halaman dashboard pegawai
-		header("location:temukan_webinar.php");
+		header("location:temukan-webinar.php");
 
 	// cek jika user login sebagai pengurus
-	}else if($data['level']=="upload webinar"){
+	}else if($data['level']=="Penyelenggara Acara"){
 		// buat session login dan username
 		$_SESSION['email'] = $email;
-		$_SESSION['level'] = "upload webinar";
+		$_SESSION['level'] = "Penyelenggara Acara";
 		// alihkan ke halaman dashboard pengurus
 		header("location:dashboard-eo.php");
 
