@@ -37,6 +37,27 @@
     <link rel="stylesheet" href="assets/css/css_tirja.css">
 
 </head>
+<?php
+	include "koneksi.php" ;
+	session_start();
+	// cek apakah yang mengakses halaman ini sudah login
+	if($_SESSION['level']==""){
+		header("location:login.php?pesan=gagal");
+	}
+	// membuat session Username
+	$email = $_SESSION['email'];
+	$query = "SELECT * FROM tb_user WHERE email='$email'";
+	$hasil = mysqli_query($koneksi,$query);
+?>
+<?php
+if(mysqli_num_rows($hasil)>0){
+    $data_user = mysqli_fetch_array($hasil);
+    $_SESSION["id_user"] = $data_user["id_user"];
+    $_SESSION["email"] = $data_user["email"];
+    $_SESSION["username"] = $data_user["username"];
+    $_SESSION["level"] = $data_user["level"];
+}
+?>
 
 <body>
     <div class="wadah">
@@ -55,8 +76,8 @@
                     <img src="assets/img/logo_transparan.png" style="width: 70%" alt="">
                 </a>
                 <div class="navBarUsername">
-                    <p class="panggilUsername">Sherly eka windiani</p>
-                    <a class="txtLogout" href="#">Logout</a>
+                    <p class="panggilUsername"><?php echo "<b>".$_SESSION['username']."</b><br>"; ?></p>
+                    <a class="txtLogout" href="logout.php">Logout</a>
                 </div>
             </div>
         </nav>

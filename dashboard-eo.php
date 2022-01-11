@@ -36,6 +36,49 @@
 	<link href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@200;400&display=swap" rel="stylesheet">
 </head>
+<?php
+	include "koneksi.php" ;
+	session_start();
+	// cek apakah yang mengakses halaman ini sudah login
+	if($_SESSION['level']==""){
+		header("location:login.php?pesan=gagal");
+	}
+	// membuat session Username
+	$email = $_SESSION['email'];
+	$query = "SELECT * FROM tb_user WHERE email='$email'";
+	$hasil = mysqli_query($koneksi,$query);
+	
+	// tb peserta
+    $query="SELECT*FROM tb_daftar_peserta WHERE id_peserta"; //buat query sql
+    $hasilDetail=mysqli_query($koneksi,$query); //jalankan query sql
+
+?>
+
+<?php
+if(mysqli_num_rows($hasil)>0){
+    $data_user = mysqli_fetch_array($hasil);
+    $_SESSION["id_user"] = $data_user["id_user"];
+	$_SESSION["nama"] = $data_user["nama"];
+    $_SESSION["email"] = $data_user["email"];
+    $_SESSION["username"] = $data_user["username"];
+    $_SESSION["level"] = $data_user["level"];
+}
+?>
+<?php
+if(mysqli_num_rows($hasil)>0){
+    $data_peserta_webinar = mysqli_fetch_array($hasilDetail);
+    $_SESSION["id_peserta"] = $data_peserta_webinar["id_peserta"];
+	$_SESSION["id_webinar_session"] = $data_peserta_webinar["id_webinar_session"];
+    $_SESSION["id_author"] = $data_peserta_webinar["id_author"];
+    $_SESSION["id_author_eo"] = $data_peserta_webinar["id_author_eo"];
+    $_SESSION["tgl_daftar"] = $data_peserta_webinar["tgl_daftar"];
+	$_SESSION["nama_peserta"] = $data_peserta_webinar["nama_peserta"];
+	$_SESSION["email_peserta"] = $data_peserta_webinar["email_peserta"];
+	$_SESSION["notelp_peserta"] = $data_peserta_webinar["notelp_peserta"];
+	$_SESSION["profesi_peserta"] = $data_peserta_webinar["profesi_peserta"];
+	
+}
+?>
 <body>
 	
 	<!--PreLoader-->
@@ -53,8 +96,8 @@
                 <img src="assets/img/logo_transparan.png" style="width: 70%" alt="">
             </a>
             <div class="navBarUsername">
-				<p class="panggilUsername">Sherly eka windiani</p>
-				<a class="txtLogout" href="#">Logout</a> 
+				<p class="panggilUsername"> <?php echo "<b>".$_SESSION['username']."</b><br>"; ?></p>
+				<a class="txtLogout" href="logout.php">Logout</a> 
 				
 			</div>
         </div>
@@ -85,7 +128,7 @@
 					<div class="card cardSelamatDtng">
 						<div class="card-body">
 							<h2 class="card-title">Selamat Datang </h2>
-							<h4 class="card-title cardTitleUsername">Sherly Eka Windiani</h4>
+							<h4 class="card-title cardTitleUsername"><?php echo "<b>".$_SESSION['nama']."</b><br>"; ?></h4>
 							<p class="card-text">Uplond webinar mu dan dapatkan partisipan sebanyak mungkin </p>
 						</div>
 					</div>
@@ -107,11 +150,12 @@
 												<h3 class="card-text">
 													<?php
 														include "koneksi.php"; //panggil file koneksi
-														$query="SELECT*FROM tb_buat_webinar WHERE id_webinar"; //buat query sql
+														$id_author_eo=$_SESSION['id_user'];
+														$query="SELECT*FROM tb_daftar_peserta WHERE id_author_eo='$id_author_eo'"; //buat query sql
 														$hasil=mysqli_query($koneksi,$query); //jalankan query sql
 														$jum=mysqli_num_rows($hasil) ; //menghasilkan banyak rows/baris data
 														echo " ".$jum."<br>";
-													?> 	
+													?> 		
 												</h3>
 											</div>
 											
@@ -136,8 +180,8 @@
 												<h5 class="card-title titleOverview">Riwayat webinar</h5>
 												<h3 class="card-text">
 													<?php
-														include "koneksi.php"; //panggil file koneksi
-														$query="SELECT*FROM tb_buat_webinar WHERE id_webinar"; //buat query sql
+														$id_author=$_SESSION['id_user'];
+														$query="SELECT*FROM tb_buat_webinar WHERE id_author='$id_author'"; //buat query sql
 														$hasil=mysqli_query($koneksi,$query); //jalankan query sql
 														$jum=mysqli_num_rows($hasil) ; //menghasilkan banyak rows/baris data
 														echo " ".$jum."<br>";
@@ -166,19 +210,9 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6 col-md-12">
-					<p>Copyrights &copy; 2019 - <a href="https://imransdesign.com/">Imran Hossain</a>,  All Rights Reserved.</p>
+					<p>Copyrights &copy; 2021 - <a href="https://imransdesign.com/">Wmind</a>,  All Rights Reserved.</p>
 				</div>
-				<div class="col-lg-6 text-right col-md-12">
-					<div class="social-icons">
-						<ul>
-							<li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-							<li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
-							<li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
-							<li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-							<li><a href="#" target="_blank"><i class="fab fa-dribbble"></i></a></li>
-						</ul>
-					</div>
-				</div>
+				
 			</div>
 		</div>
 	</div>
