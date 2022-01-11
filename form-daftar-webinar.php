@@ -119,7 +119,6 @@ if(mysqli_num_rows($hasil)>0){
                 <div class="col-lg-8 mb-lg-0 mt-5">
                     <div class="form-title">
                         <h2>Form Daftar</h2>
-                        <p>Flutter</p>
                     </div>
                     <div class="daftar-form">
                         <form action="submit-daftar-webinar.php" method="post">

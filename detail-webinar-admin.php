@@ -73,13 +73,13 @@ error_reporting(0);
                             <li class="nav-item ml-4">
                                 <a class="nav-link link-menu" href="admin-dashboard.php"><i class="fas fa-home mr-2"></i>Dashboard</a>
                             </li>
-                            <li class="nav-item active mt-3 ml-4">
+                            <li class="nav-item mt-3 ml-4">
                                 <a class="nav-link link-menu" href="admin-user.php"><i class="fas fa-user mr-2"></i>Data User</a>
                             </li>
                             <li class="nav-item mt-3 ml-4">
                                 <a class="nav-link link-menu" href="admin-peserta.php"><i class="fas fa-users mr-2"></i>Data Peserta</a>
                             </li>
-                            <li class="nav-item mt-3 ml-4">
+                            <li class="nav-item active mt-3 ml-4">
                                 <a class="nav-link link-menu" href="admin-webinar.php"><i class="fas fa-laptop mr-2"></i>Data Webinar</a>
                             </li>
                         </ul>
@@ -89,66 +89,78 @@ error_reporting(0);
                     <div class="isi-admin">
                         <div class="card judul-tabel">
                             <div class="card-body">
-                                <h2 class="card-title">Data User</h2>
-                                <p class="card-text" style="font-size: 18px;">Menampilkan data user yang login</p>
+                                <h2 class="card-title">Detail Webinar</h2>
                             </div>
                         </div>
+                        <?php
+                            include "koneksi.php";
+                            $id_webinar = $_GET['id_webinar'];
+                            $query = "SELECT * FROM tb_buat_webinar WHERE id_webinar='$id_webinar'";
+                            $hasil = mysqli_query($koneksi, $query);
+                            $data = mysqli_fetch_array($hasil);
+                        ?>
                         <div class="card shadow p-3 mb-5 bg-white rounded" style="width: 100%; border: none; border-radius: 6px; ">
                             <div class="card-body">
-                                <!-- Search -->
-                                <div class="navbar">
-                                    <div class="container d-flex justify-content-end mb-3 ">
-                                        <form class="d-flex" action="" method="post" style=" ">
-                                            <input class="form-control" style="width: 300px;" name="inputCari" type="search" placeholder="Cari username atau email" aria-label="Search">
-                                            <button class="btn" name="cari" type="submit" style="background-color: #0E1B3A; color: white;"><i class="fas fa-search"></i></button>
-                                        </form>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="cardGambarPoster">
+                                            <div style="width:320px;">
+                                                <img  class="gambarPoster" src="assets/img/gambar-poster/<?php echo $data['gambar_poster']; ?>" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-6" style="margin-left:-100px;">
+                                        <h5 class="card-title mb-3">Informasi Umum</h5>
+                                        <div class="form-group">
+                                            <label for="judul_webinar"><b>Judul Webinar</b></label>
+                                            <p id="judul_webinar"><?php echo $data['judul_webinar']; ?></p>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6 ">
+                                                <label for="pilihKategori"><b>Kategori Webinar</b></label>
+                                                <p id="pilihKategori"><?php echo $data['kategori_webinar']; ?></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label for="namaEo"><b>Nama Organizer</b></label>
+                                                <p id="namaEo"><?php echo $data['nama_eo']; ?></p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="emailEo"><b>Email Organizer</b></label>
+                                                <p id="emailEo"><?php echo $data['email_eo']; ?></p>
+                                            </div>
+                                        </div>
+                                        <hr style="width: 530px;">
+                                        <h5 class="card-title mt-4 mb-3">Jadwal</h5>	
+                                        <div class="row">
+                                            <div class="col-md-6 ">
+                                                <label for="tanggal mulai"><b>Tanggal dimulai</b></label>
+                                                <p id="tanggal mulai"><?php echo $data['tanggal_mulai']; ?></p>
+                                            </div>
+                                            <div class="col-md-6 ">
+                                                <label for="waktuMulai"><b>Waktu dimulai</b></label>
+                                                <p id="waktuMulai"><?php echo $data['waktu_mulai']; ?></p>
+                                            </div>
+                                        </div>
+                                        <hr style="width: 530px;">
+                                        <h5 class="card-title  mt-4 mb-3 ">Lokasi</h5>
+                                        <div id="input_online">
+                                            <label for="link"><b>Link Streaming</b></label>
+                                            <p id="link"><?php echo $data['link_streaming']; ?></p>
+                                        </div>
+                                        <!-- <div class="form-group" id="input_offline" >
+                                            <label for="offline" style="margin-top: 10px;">Alamat Offline</label>
+                                            <input type="text" name="offline_alamat" style="height: 53px; width: 350px; border-radius: 10px;"  class="form-control" required="The field is required.">
+                                        </div> -->
+                                        <hr style="width: 530px;">
+                                        <h5 class="card-title" style="margin-top: 20px;">Detail Webinar</h5>
+                                        <div class="form-group ">
+                                            <label for="deskripsiEvent">Deskripsi Webinar</label>
+                                            <textarea type="text" style="height: 270px; width: 460px; border-radius: 10px;" class="form-control" id="deskripsiEvent"><?php echo $data['deskripsi_webinar']; ?></textarea>
+                                        </div>
                                     </div>
                                 </div>
-                                <!-- Akhir Search -->
-                                <table class="table table-bordered" style="border:none;">
-                                    <thead>
-                                        <tr style="background-color: #FFC224;border: none;">
-                                            <th scope="col" style="border-top-left-radius: 10px; border: none;">No</th>
-                                            <th scope="col" style="border: none;">Tanggal Pembuatan</th>
-                                            <th scope="col" style="border: none;">Nama Webinar</th>
-                                            <th scope="col" style="border: none;">Kategori</th>
-                                            <th scope="col" style="border-top-right-radius: 10px; border: none;">Aksi</th>
-                                        </tr>
-                                    </thead>
-                                    <?php
-										include "koneksi.php"; //panggil file koneksi
-										$no=1;
-										$cari = $_POST['inputCari'];
-										if($cari != ''){
-											$select= mysqli_query($koneksi, "SELECT * FROM tb_user WHERE id_user AND username LIKE '%".$cari."%' OR email LIKE '%".$cari."%' ");
-										}else{
-											$select= mysqli_query($koneksi, "SELECT * FROM tb_user WHERE id_user ");
-										}
-										if(mysqli_num_rows($select)){
-											// perulangan untuk nampilkan data dari database
-											while ($data=mysqli_fetch_array ($select)){ 
-									?> 
-                                    <tbody>
-                                        <tr>
-                                            <td><?php echo $no++;?></td>
-                                            <td><?php echo $data['email']; ?></td>
-                                            <td><?php echo $data['username']; ?></td>
-                                            <td><?php echo $data['level']; ?></td>
-                                            <td>
-                                                <a href="delete-user-admin.php?id_user=<?php echo $data['id_user'];?>"
-                                                    onclick="return confirm ('Apakah anda yakin?')" >
-                                                    <button type="button" class="btn btn-dark btn-admin">Hapus</button>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                    <?php
-                                    }
-                                    ?> 			
-                                    </tbody>
-                                    <?php } else{
-										echo '<tr class="text-center"><td colspan="5">Tidak ada data</td></tr>';
-									}?>
-                                </table>
                             </div>
                         </div>
                     </div>
