@@ -128,18 +128,19 @@ body .wadah {
 
 .tombol-daftar a {
     background-color: #0E1B3A;
-    margin-left: 400px;
-    font-size: 20px;
-    font-weight: 700;
     color: white;
-    cursor: pointer;
-    padding: 10px 20px;
-    border-radius: 50px;
+    margin-left: 400px;
+    border-radius: 10px;
+    width: auto;
+    font-size: 15px;
+    text-transform: uppercase;
+    border: none;
+    padding: 10px;
 }
 
 .tombol-daftar a:hover {
     background-color: #FFC224;
-    color: white;
+    color: #0E1B3A;
 }
 
 .contact-form-box img {
@@ -254,17 +255,21 @@ body .wadah {
     margin-left: -55px;
 }
 
-.daftar-form form button {
+.daftar-form form button h4 {
     background-color: #0E1B3A;
-    border-radius: 20px;
-    width: 15%;
-    cursor: pointer;
     color: white;
+    border-radius: 10px;
+    width: auto;
+    font-size: 15px;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
 }
 
-.daftar-form form button:hover {
+.daftar-form form button h4:hover {
     background-color: #FFC224;
-    color: white;
+    color: #0E1B3A;
 }
 
 .daftar-form button h4 {
@@ -276,32 +281,52 @@ body .wadah {
 # Dashboard Admin Page
 
 ----------------------------------------------------------------------*/
+.samping-kiri {
+    height: 800px;
+    background-color: white;
+    width: 300px;
+}
 
-.menu-samping ul li a {
-    font-size: 16px;
+.menu-samping {
+    padding-top: 40px;
+    margin-left: -20px;
+    width: 400px;
 }
 
 .menu-samping ul li.active {
     background-color: #FFC224;
-    border-radius: 10px;
-
 }
 
-.link-menu {
-    margin-right: 20px;
+.menu-samping ul li a {
     color: black;
-
 }
 
 .menu-samping ul li:hover {
     background-color: #FFC224;
     color: black;
-    border-radius: 10px;
+}
+
+.link-menu {
+    color: black;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 5px;
+    padding-left: 20px;
+    width: 200px;
+    height: 50px;
+    font-family: 'Lexend Deca', sans-serif;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.isi-admin {
+    margin: 40px;
 }
 
 .kotak-data {
-    border: 2px solid rgb(219, 218, 218);
-    border-radius: 15px;
+    background-color: white;
+    border: 1px solid rgb(219, 218, 218);
+    border-radius: 10px;
     padding: 5px;
     padding-left: 20px;
     padding-right: 20px;
@@ -318,6 +343,24 @@ body .wadah {
 
 .kotak-teks {
     text-align: right;
+}
+
+.judul-tabel {
+    margin-bottom: 20px;
+    margin-top: -20px;
+    background: transparent;
+    border: none;
+
+}
+
+.btn-admin {
+    background-color: #0E1B3A;
+    color: white;
+}
+
+.btn-admin:hover {
+    background-color: #FFC224;
+    color: #0E1B3A;
 }
 
 /* ------------------------------------------------------------------- 
