@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 06, 2022 at 07:00 AM
--- Server version: 10.4.13-MariaDB
--- PHP Version: 7.4.8
+-- Waktu pembuatan: 11 Jan 2022 pada 22.33
+-- Versi server: 10.4.13-MariaDB
+-- Versi PHP: 7.4.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,11 +24,12 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_user`
+-- Struktur dari tabel `tb_user`
 --
 
 CREATE TABLE `tb_user` (
   `id_user` int(11) NOT NULL,
+  `nama` varchar(225) NOT NULL,
   `email` varchar(225) NOT NULL,
   `username` varchar(225) NOT NULL,
   `level` varchar(20) NOT NULL,
@@ -36,34 +37,34 @@ CREATE TABLE `tb_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tb_user`
+-- Dumping data untuk tabel `tb_user`
 --
 
-INSERT INTO `tb_user` (`id_user`, `email`, `username`, `level`, `password`) VALUES
-(9, 'faidatulelaa@gmail.com', 'ela', 'peserta webinar', 'ecce5320263d7004f404de7888c0f9e6'),
-(10, 'agustus@utter.academy', 'elaela', 'upload webinar', 'ecce5320263d7004f404de7888c0f9e6'),
-(11, 'utter@agustus2com', 'serlieka', 'peserta webinar', 'ecce5320263d7004f404de7888c0f9e6'),
-(12, 'serliserli@gmail.com', 'fdtlll', 'peserta webinar', 'e9af23dd5a45126ff689eba7bb2146bb');
+INSERT INTO `tb_user` (`id_user`, `nama`, `email`, `username`, `level`, `password`) VALUES
+(20, 'sherly eka windiani', 'sherlyuplondwebinar@gmail.com', 'sherlyup', 'Penyelenggara Acara', 'e9af23dd5a45126ff689eba7bb2146bb'),
+(21, 'Faidatul Ela', 'faidatulupload@gmail.com', 'faidatulup', 'Penyelenggara Acara', 'e9af23dd5a45126ff689eba7bb2146bb'),
+(22, 'sherly eka peserta', 'sherlypesertawebinar@gmail.com', 'sherlypeserta', 'Peserta', 'e9af23dd5a45126ff689eba7bb2146bb'),
+(23, 'faidatul peserta', 'faidatulpeserta@gmail.com', 'faidatullpeserta', 'Peserta', 'e9af23dd5a45126ff689eba7bb2146bb');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `tb_user`
+-- Indeks untuk tabel `tb_user`
 --
 ALTER TABLE `tb_user`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `tb_user`
+-- AUTO_INCREMENT untuk tabel `tb_user`
 --
 ALTER TABLE `tb_user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

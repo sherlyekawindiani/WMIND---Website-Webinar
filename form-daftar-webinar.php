@@ -35,6 +35,54 @@
     <link rel="stylesheet" href="assets/css/css_tirja.css">
 
 </head>
+<?php
+	include "koneksi.php" ;
+	session_start();
+	// cek apakah yang mengakses halaman ini sudah login
+	if($_SESSION['level']==""){
+		header("location:login.php?pesan=gagal");
+	}
+	// membuat session Username
+	$email = $_SESSION['email'];
+	$query = "SELECT * FROM tb_user WHERE email='$email'";
+	$hasil = mysqli_query($koneksi,$query);
+
+    // tb buat webinar
+	$id_webinar=$_GET['id_webinar'];
+    $query="SELECT*FROM tb_buat_webinar WHERE id_webinar ='$id_webinar'"; //buat query sql
+    $hasilDetail=mysqli_query($koneksi,$query); //jalankan query sql
+    
+?>
+<?php
+if(mysqli_num_rows($hasil)>0){
+    $data_user = mysqli_fetch_array($hasil);
+    $_SESSION["id_user"] = $data_user["id_user"];
+	$_SESSION["nama"] = $data_user["nama"];
+    $_SESSION["email"] = $data_user["email"];
+    $_SESSION["username"] = $data_user["username"];
+    $_SESSION["level"] = $data_user["level"];
+}
+?> 
+<?php
+if(mysqli_num_rows($hasil)>0){
+    $data_webinar = mysqli_fetch_array($hasilDetail);
+    $_SESSION["id_webinar"] = $data_webinar["id_webinar"];
+    $_SESSION["id_author"] = $data_webinar["id_author"];
+	$_SESSION["gambar_poster"] = $data_webinar["gambar_poster"];
+    $_SESSION["tgl_buat"] = $data_webinar["tgl_buat"];
+    $_SESSION["judul_webinar"] = $data_webinar["judul_webinar"];
+    $_SESSION["kategori_webinar"] = $data_webinar["kategori_webinar"];
+    $_SESSION["nama_eo"] = $data_webinar["nama_eo"];
+    $_SESSION["email_eo"] = $data_webinar["email_eo"];
+    $_SESSION["tanggal_mulai"] = $data_webinar["tanggal_mulai"];
+    $_SESSION["waktu_mulai"] = $data_webinar["waktu_mulai"];
+    $_SESSION["link_streaming"] = $data_webinar["link_streaming"];
+    $_SESSION["deskripsi_webinar"] = $data_webinar["deskripsi_webinar"];
+
+}
+?>
+
+
 <body>
 	
 	<!--PreLoader-->
@@ -53,8 +101,8 @@
                     <img src="assets/img/logo_transparan.png" style="width: 70%" alt="">
                 </a>
                 <div class="navBarUsername">
-                    <p class="panggilUsername">Sherly eka windiani</p>
-                    <a class="txtLogout" href="#">Logout</a>
+                    <p class="panggilUsername"><?php echo "<b>".$_SESSION['username']."</b><br>"; ?></p>
+                    <a class="txtLogout" href="logout.php">Logout</a>
                 </div>
             </div>
         </nav>
@@ -75,10 +123,14 @@
                     </div>
                     <div class="daftar-form">
                         <form action="submit-daftar-webinar.php" method="post">
-                            <input type="text" name="nama_peserta" placeholder="Nama" required>
+                            <input type="hidden" name="id_webinar_session"  value=" <?php echo $_SESSION['id_webinar']; ?>">
+                            <input type="hidden" name="id_author"  value=" <?php echo $_SESSION['id_user']; ?>">
+                            <input type="hidden" name="id_author_eo"  value=" <?php echo $_SESSION['id_author']; ?>">
+                            <input type="hidden" name="tgl_daftar" value="<?php echo date("l-d-m-Y"); ?>">
+                            <input type="text" name="nama_peserta" style="text-transform: capitalize;" placeholder="Nama Lengkap" required>
                             <div class="form-row">
                                 <div class="col-md-8">
-                                    <input type="text" name="email_peserta" placeholder="Email">
+                                    <input type="email" name="email_peserta" placeholder="Email">
                                 </div>
                                 <div class="col-md-4 kotak-telepon">
                                     <div class="form-group">
@@ -96,7 +148,6 @@
                                     <option value="Umum">Umum</option>
                                 </select>
                             </div>
-                            <input type="hidden" name="tgl_daftar" value="<?php echo date("l-d-m-Y"); ?>">
                             <button type="submit" name="kirim" value="kirim" class="btn"><h4>Daftar</h4></button>
                         </form>
                     </div>

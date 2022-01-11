@@ -14,6 +14,7 @@
 	<!-- google font -->
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap" rel="stylesheet">
 	<!-- fontawesome -->
 	<link rel="stylesheet" href="assets/css/all.min.css">
 	<!-- bootstrap -->
@@ -38,26 +39,19 @@
 		.fas{
     		margin-right: 100px;
 		}
+
 		.coba{
 			margin-left: 50px;
 			border: 1px grey;
 			width: 60%;
 			height: 50px;
 			border-radius: 13px;
-			padding: 10px;
 			box-shadow: 0 2px 6px rgba(0,0,0,0.3);
 			transition: .3s ease-out;
 		}
 		.coba:hover{
 			box-shadow: 0 6px 5px rgba(0,0,0,0.3);
 
-		}
-		.coba input{
-			border: none;
-			outline: none;
-			font-size: 15px;
-			background: transparent;
-			padding: 3px;
 		}
 
 		i{
@@ -66,15 +60,13 @@
 			margin: 4px 2px;
 			font-size: 15px;
 		}
-		#hide{
-			display: none;
-		}
 		.jarak-form{
 			margin-bottom: 20px;
 		}
 		.btn{
 			width: 60%;
 			height: 50px;
+			margin-bottom: 20px;
 			margin-left: 50px;
 			border-radius: 13px;
 			box-shadow: 0 6px 5px rgba(0,0,0,0.3);
@@ -91,83 +83,94 @@ session_start();
 include "koneksi.php";
 ?>
 <body>
-	
-	<!-- form -->
-    <div class="contact-from-section">
-	<form action="submit_register.php" method="post" class="needs-validation" novalidate>
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="warna">
-                            <!-- <div class="logo-form"><img src="assets/img/logoWmindKuning.png" alt=""></div> -->
-                            <div class="ilustrasi"><img src="assets/img/vektor-daftar.svg" alt=""></div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 mb-lg-0">
-                        <div class="form-judul">
-                            <h2>Get Started</h2>
-                            <p>Apakah kamu sudah punya akun? 
-                                <a href="login.php">Log in</a>
-                            </p>
-                        </div>
-                      
-
-						<!-- form -->
-							<div class="coba jarak-form">
-								<input type="text" placeholder="Username" id="username" name="username" data-val="true" required="The nama lengkap field is required."> 
-							</div>
-							<div class="coba jarak-form">
-								<input type="email" placeholder="Email" id="email" name="email" data-val="true" required="The nama lengkap field is required."> 
-							</div>
-							<div class="form-group coba">
-                                        <label class="sr-only" for="daftarSebagai">Daftar Sebagai</label>
-                                        <div class="input-group">
-                                            <select  data-val="true" required="The daftar sebagai field is required." class="form-select"  name="level"  aria-label="Default select example">
-                                                <option value="">Daftar sebagai</option>
-                                                <option value="peserta webinar">Peserta Webinar</option>
-                                                <option value="upload webinar">upl Webinar</option>
-                                            </select>
-                                        </div>
-                            </div>
-							<div class="coba jarak-form">
-								<input type="password" placeholder="Password" id="pass" name="password1" autocomplete="off" data-val="true" required="The Password field is required.">
-								<!-- <i class="fas fa-eye-slash" id="hide" onclick="myFunction()"></i> -->
-								<span id="mybutton" onclick="change()"><i class="fas fa-eye" id="show"></i></span>
+	<div class="wadah">
+		<!-- form -->
+		<div class="contact-from-section">
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="warna">
+						<!-- <div class="logo-form"><img src="assets/img/logoWmindKuning.png" alt=""></div> -->
+						<div class="ilustrasi"><img src="assets/img/vektor-daftar.svg" alt=""></div>
+					</div>
+				</div>
+				<div class="col-lg-6 mb-lg-0">
+					<div class="form-judul">
+						<h2>Get Started</h2>
+						<p>Apakah kamu sudah punya akun? 
+							<a href="login.php">Log in</a>
+						</p>
+					</div>
+					<!-- form -->
+					<form action="submit_register.php" method="post" class="needs-validation" novalidate>
+						<div class="form-group coba jarak-form">
+							<input type="text" name="nama" style="text-transform: capitalize;" class="form-control"  placeholder="Nama Lengkap" required="The nama field is required." data-val="true">
+						</div>
+						<div class="form-group coba jarak-form">
+							<input type="email" name="email" class="form-control"  placeholder="Email" required="The Email field is required." data-val="true">
+						</div>
+						<div class="form-group coba jarak-form">
+							<input type="text" name="username" class="form-control"  placeholder="Username" required="The Username field is required." data-val="true">
+						</div>
+						<div class="form-group coba jarak-form">
+							<select class="form-control"  name="level" required="The Daftar sebagai field is required." data-val="true">
+								<option value="">Daftar sebagai</option>
+								<option value="Peserta">Peserta </option>
+								<option value="Penyelenggara Acara">Penyelenggara Acara</option>
+							</select>
+						</div>
+						<div class="input-group mb-3 coba jarak-form" >
+							<div class="input-group-prepend" style=" width: 50px;">
+								<span class="input-group-text" id="mybutton" onclick="change()"><i class="fas fa-eye" id="show"></i></span>
 								<div id="toggle" onclick="showHide();"></div>
 							</div>
-							<div class="coba jarak-form">
-								<input type="password" placeholder="Konfirmasi Password" id="pass" name="password2" autocomplete="off" data-val="true" required="The Password field is required.">
-								<!-- <i class="fas fa-eye-slash" id="hide" onclick="myFunction()"></i> -->
-								<span id="mybutton" onclick="change2()"><i class="fas fa-eye" id="show"></i></span>
+							<input type="password" name="password1" id="pass1" class="form-control" placeholder="Password" required="The Password field is required."  autocomplete="off" data-val="true">
+						</div>
+						<div class="input-group mb-3 coba jarak-form" >
+							<div class="input-group-prepend" style=" width: 50px;">
+								<span class="input-group-text" id="mybutton2" onclick="ubah()"><i class="fas fa-eye" id="show"></i></span>
 								<div id="toggle" onclick="showHide();"></div>
 							</div>
-							<div>
-								<button name="submit" value="submit" class="btn btn-warning">Daftar</button>
-							</div>
-							
-						<!-- end form -->
-                    </div>
-                </div>
+							<input type="password" name="password2" id="pass2" class="form-control" placeholder="Konfirmasi password" required="The Password field is required." autocomplete="off" data-val="true">
+						</div>
+							<button name="submit" value="submit" class="btn btn-warning mt-3">Daftar</button>
+						</div>
+					</form>	
+					<!-- end form -->
+				</div>
+			</div>
         </div>
-
-				<script type="text/javascript">
+			<script type="text/javascript">
 				function change()
 				{
-					var x = document.getElementById('pass').type;
-		
+					var x = document.getElementById('pass1').type;
 					if (x == 'password') 
 					{
-					document.getElementById('pass').type = 'text';
+					document.getElementById('pass1').type = 'text';
 					document.getElementById('mybutton').innerHTML = '<i class="fas fa-eye-slash"></i>';
 					}
 					else
 					{
-					document.getElementById('pass').type = 'password';
+					document.getElementById('pass1').type = 'password';
 					document.getElementById('mybutton').innerHTML = '<i class="fas fa-eye"></i>';
 					}
 				}
-
-				</script>
-
+			</script>
+			<script type="text/javascript">
+				function ubah()
+				{
+					var x = document.getElementById('pass2').type;
+					if (x == 'password') 
+					{
+					document.getElementById('pass2').type = 'text';
+					document.getElementById('mybutton2').innerHTML = '<i class="fas fa-eye-slash"></i>';
+					}
+					else
+					{
+					document.getElementById('pass2').type = 'password';
+					document.getElementById('mybutton2').innerHTML = '<i class="fas fa-eye"></i>';
+					}
+				}
+			</script>
 
 				<!-- VALIDASI REGISTER -->
 				<script>
@@ -191,6 +194,6 @@ include "koneksi.php";
 					})();
 				</script>
 				<!-- AKHIR VALIDASI REGISTER -->
-	
+	</div>
 </body>
 </html>

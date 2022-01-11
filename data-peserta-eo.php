@@ -36,19 +36,57 @@
 	<link href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@200;400&display=swap" rel="stylesheet">
 </head>
-
 <?php
+	include "koneksi.php" ;
+	error_reporting(0);
+	session_start();
+	// cek apakah yang mengakses halaman ini sudah login
+	if($_SESSION['level']==""){
+		header("location:login.php?pesan=gagal");
+	}
+	// membuat session Username
+	$email = $_SESSION['email'];
+	$query = "SELECT * FROM tb_user WHERE email='$email'";
+	$hasil = mysqli_query($koneksi,$query);
 
-
-?>
-
-<?php
-    error_reporting(0);
-    include "koneksi.php"; //panggil file koneksi
-    $id_peserta=$_GET['id_peserta'];
+	//Data peserta
+	$id_peserta=$_GET['id_peserta'];
     $query="SELECT*FROM tb_daftar_peserta WHERE id_peserta ='$id_peserta'"; //buat query sql
     $hasilDetail=mysqli_query($koneksi,$query); //jalankan query sql
     $dataDetail=mysqli_fetch_array($hasilDetail);
+
+	// tb buat webinar
+	$id_webinar=$_GET['id_webinar'];
+    $query="SELECT*FROM tb_buat_webinar WHERE id_webinar ='$id_webinar'"; //buat query sql
+    $hasilDetail=mysqli_query($koneksi,$query); //jalankan query sql
+
+?>
+<?php
+if(mysqli_num_rows($hasil)>0){
+    $data_user = mysqli_fetch_array($hasil);
+    $_SESSION["id_user"] = $data_user["id_user"];
+    $_SESSION["email"] = $data_user["email"];
+    $_SESSION["username"] = $data_user["username"];
+    $_SESSION["level"] = $data_user["level"];
+}
+?>
+<?php
+if(mysqli_num_rows($hasil)>0){
+    $data_webinar = mysqli_fetch_array($hasilDetail);
+    $_SESSION["id_webinar"] = $data_webinar["id_webinar"];
+    $_SESSION["id_author"] = $data_webinar["id_author"];
+	$_SESSION["gambar_poster"] = $data_webinar["gambar_poster"];
+    $_SESSION["tgl_buat"] = $data_webinar["tgl_buat"];
+    $_SESSION["judul_webinar"] = $data_webinar["judul_webinar"];
+    $_SESSION["kategori_webinar"] = $data_webinar["kategori_webinar"];
+    $_SESSION["nama_eo"] = $data_webinar["nama_eo"];
+    $_SESSION["email_eo"] = $data_webinar["email_eo"];
+    $_SESSION["tanggal_mulai"] = $data_webinar["tanggal_mulai"];
+    $_SESSION["waktu_mulai"] = $data_webinar["waktu_mulai"];
+    $_SESSION["link_streaming"] = $data_webinar["link_streaming"];
+    $_SESSION["deskripsi_webinar"] = $data_webinar["deskripsi_webinar"];
+
+}
 ?>
 
 <body>
@@ -66,8 +104,8 @@
                 <img src="assets/img/logo_transparan.png" style="width: 70%" alt="">
             </a>
             <div class="navBarUsername">
-				<p class="panggilUsername">Sherly eka windiani</p>
-				<a class="txtLogout" href="#">Logout</a> 
+				<p class="panggilUsername"><?php echo "<b>".$_SESSION['username']."</b><br>"; ?></p>
+				<a class="txtLogout" href="logout.php">Logout</a> 
 				
 			</div>
         </div>
@@ -99,7 +137,28 @@
 					<div class="card detailRiwayat">
 						<div class="card-body row petunjukDetail">
 							<h6 class="card-title"><a href="riwayat-webinar-eo.php">Riwayat Webinar </a><i class="fas fa-angle-right ikonAngleRight" ></i></h6>
-                            <h6 class="card-title judulDetail"><?php echo $dataDetail['judul_webinar'];?> </h6>
+							<h6 class="card-title active">
+								<?php
+									$title = $_SESSION['judul_webinar'];
+									$arr = explode(" ", $title);
+									$limit = 4;
+									$new = [];
+
+									if (count($arr) > $limit) {
+										for($i = 0; $i < $limit; $i++) {
+											array_push($new, $arr[$i]);
+										}
+									}
+
+									if($new) {
+										$new = implode(" ", $new);
+										print_r($new); echo '...';
+									}
+									else {
+										print_r($title);  // Output : Rasang Beam Steal Valve
+									}
+								?>
+							</h6>
 						</div>
 					</div>
 					<div class="card shadow p-3 mb-5 bg-white rounded" style="width: 100%; border: none; border-radius: 6px; ">
@@ -109,8 +168,8 @@
 									<nav class="navbar navbar-expand-lg">
 										<div class="collapse navbar-collapse" >
 											<div class="navbar-nav">
-												<a class="nav-item nav-link navLinkDetail mr-2" href="detail-webinar-eo.php?id_peserta=<?php echo $data['id_peserta'];?>" ><i class="fas fa-info-circle mr-2"></i>Informasi Webinar</a>
-												<a class="nav-item nav-link navLinkDetail ml-3 active" href="data-peserta-eo.php"><i class="fas fa-users mr-2"></i>Data Peserta</a>
+												<a class="nav-item nav-link navLinkDetail mr-2 " href="detail-webinar-eo.php?id_webinar=<?php echo $_SESSION['id_webinar']; ?>" ><i class="fas fa-info-circle mr-2"></i>Informasi Webinar</a>
+												<a class="nav-item nav-link navLinkDetail ml-3 active" href="data-peserta-eo.php?id_webinar=<?php echo $_SESSION['id_webinar']; ?>"><i class="fas fa-users mr-2"></i>Data Peserta</a>
 											</div>
 										</div>
 									</nav>
@@ -136,12 +195,13 @@
 								</thead>
 									<?php
 										include "koneksi.php"; //panggil file koneksi
+										$id_webinar_session=$_SESSION['id_webinar'];
 										$no=1;
 										$cari = $_POST['inputCari'];
 										if($cari != ''){
-											$select= mysqli_query($koneksi, "SELECT * FROM tb_daftar_peserta WHERE id_peserta AND nama_peserta LIKE '%".$cari."%' OR profesi_peserta LIKE '%".$cari."%' ");
+											$select= mysqli_query($koneksi, "SELECT * FROM tb_daftar_peserta WHERE id_webinar_session='$id_webinar_session' AND nama_peserta LIKE '%".$cari."%' OR profesi_peserta LIKE '%".$cari."%' ");
 										}else{
-											$select= mysqli_query($koneksi, "SELECT * FROM tb_daftar_peserta WHERE id_peserta ");
+											$select= mysqli_query($koneksi, "SELECT * FROM tb_daftar_peserta WHERE id_webinar_session='$id_webinar_session' ");
 										}
 										if(mysqli_num_rows($select)){
 											// perulangan untuk nampilkan data dari database
@@ -182,19 +242,9 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6 col-md-12">
-					<p>Copyrights &copy; 2019 - <a href="https://imransdesign.com/">Imran Hossain</a>,  All Rights Reserved.</p>
+					<p>Copyrights &copy; 2021 - <a href="https://imransdesign.com/">Wmind</a>,  All Rights Reserved.</p>
 				</div>
-				<div class="col-lg-6 text-right col-md-12">
-					<div class="social-icons">
-						<ul>
-							<li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-							<li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
-							<li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
-							<li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-							<li><a href="#" target="_blank"><i class="fab fa-dribbble"></i></a></li>
-						</ul>
-					</div>
-				</div>
+				
 			</div>
 		</div>
 	</div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 06 Jan 2022 pada 05.36
+-- Waktu pembuatan: 11 Jan 2022 pada 22.32
 -- Versi server: 10.4.13-MariaDB
 -- Versi PHP: 7.4.8
 
@@ -29,6 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `tb_buat_webinar` (
   `id_webinar` int(11) NOT NULL,
+  `id_author` int(11) NOT NULL,
   `gambar_poster` varchar(20) NOT NULL,
   `tgl_buat` varchar(100) NOT NULL,
   `judul_webinar` varchar(225) NOT NULL,
@@ -45,10 +46,10 @@ CREATE TABLE `tb_buat_webinar` (
 -- Dumping data untuk tabel `tb_buat_webinar`
 --
 
-INSERT INTO `tb_buat_webinar` (`id_webinar`, `gambar_poster`, `tgl_buat`, `judul_webinar`, `kategori_webinar`, `nama_eo`, `email_eo`, `tanggal_mulai`, `waktu_mulai`, `link_streaming`, `deskripsi_webinar`) VALUES
-(11, '61c1e0f8bc82f.jpg', 'Tuesday-21-12-2021', 'digitalisasi dan menciptakan bisnis yang tahan terhadap situasi pandemi kkkkk', 'Desain', 'utter academy', 'utteracademy@gmail.com', '2021-12-22', '00:15:00', 'https://meet.google.com/cdq-bfqx-khs', 'detailll'),
-(16, '61cacebe8ddb1.jpg', 'Tuesday-28-12-2021', 'Webinar flutter iniii oooo', 'Lifestyle', 'utter academy', 'utteracademy@gmail.com', '2021-12-28', '18:48', 'https://meet.google.com/cdq-bfqx-khs', 'jjjjjjjj'),
-(19, '61d51ce7783e8.png', 'Wednesday-05-01-2022', 'tips dan tricks pemasaran digital lllllllll', 'Bisnis', 'utter academy', 'utteracademy@gmail.com', '2022-01-05', '15:24', 'https://meet.google.com/cdq-bfqx-khs', 'iiii');
+INSERT INTO `tb_buat_webinar` (`id_webinar`, `id_author`, `gambar_poster`, `tgl_buat`, `judul_webinar`, `kategori_webinar`, `nama_eo`, `email_eo`, `tanggal_mulai`, `waktu_mulai`, `link_streaming`, `deskripsi_webinar`) VALUES
+(22, 20, '61dc013daba44.png', 'Monday-10-01-2022', 'tips dan tricks pemasaran digital', 'Bisnis', 'utter academy', 'utteracademy@gmail.com', '2022-01-10', '20:53', 'https://meet.google.com/cdq-bfqx-khs', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, quisquam molestiae cumque repudiandae sint beatae accusantium amet, at quas, voluptatum sapiente unde laudantium nesciunt. Quas harum ab corrupti saepe accusamus.'),
+(23, 21, '61dc01b474a96.jpg', 'Monday-10-01-2022', 'digitalisasi dan menciptakan bisnis yang tahan terhadap situasi pandemi', 'IT', 'utter academy', 'utteracademy@gmail.com', '2022-01-10', '16:54', 'https://meet.google.com/cdq-bfqx-khs', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, quisquam molestiae cumque repudiandae sint beatae accusantium amet, at quas, voluptatum sapiente unde laudantium nesciunt. Quas harum ab corrupti saepe accusamus.'),
+(24, 20, '61ddd21822623.jpg', 'Tuesday-11-01-2022', 'flutter App Development', 'IT', 'utter academy', 'utteracademy@gmail.com', '2022-01-12', '05:56', 'https://meet.google.com/cdq-bfqx-khs', 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias necessitatibus, et illo laboriosam, soluta ratione quae saepe corrupti, a atque similique accusamus. Ipsum vitae distinctio delectus cupiditate ipsa consectetur inventore?');
 
 --
 -- Indexes for dumped tables
@@ -68,7 +69,7 @@ ALTER TABLE `tb_buat_webinar`
 -- AUTO_INCREMENT untuk tabel `tb_buat_webinar`
 --
 ALTER TABLE `tb_buat_webinar`
-  MODIFY `id_webinar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_webinar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

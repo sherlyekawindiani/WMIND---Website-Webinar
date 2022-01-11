@@ -1,6 +1,6 @@
     <?php
             include "koneksi.php";
-            // @$id_author         = $_POST['id_author'];
+            @$id_author           = $_POST['id_author'];
             @$gambar_poster       = $_POST['gambar_poster'];
             @$tgl_buat            = $_POST['tgl_buat'];
             @$judul_webinar       = $_POST['judul_webinar'];
@@ -31,7 +31,7 @@
                         move_uploaded_file($tmp_name, 'assets/img/gambar-poster/' . $nama_baru);
                         
                         // Memasukkan data (Insert) 
-                        @$query = "INSERT INTO tb_buat_webinar VALUES ('','$nama_baru','$tgl_buat','$judul_webinar','$kategori_webinar','$nama_eo','$email_eo',
+                        @$query = "INSERT INTO tb_buat_webinar VALUES ('','$id_author','$nama_baru','$tgl_buat','$judul_webinar','$kategori_webinar','$nama_eo','$email_eo',
                         '$tanggal_mulai','$waktu_mulai','$link_streaming','$deskripsi_webinar')";
                         $hasil = mysqli_query($koneksi, $query);
                         if($hasil){
