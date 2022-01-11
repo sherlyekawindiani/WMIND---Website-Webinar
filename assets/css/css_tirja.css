@@ -87,13 +87,15 @@ body .wadah {
     font-weight: 600;
     margin: 10px;
     margin-bottom: 10px;
+    text-transform: capitalize;
 }
 
 .single-product-item h5:hover {
-    color: #FFC224;
+    color: #41AEA9;
 }
 
 .single-product-item span {
+    color: #0E1B3A;
     margin: 10px;
     margin-bottom: 10px;
 }

@@ -128,21 +128,16 @@
                                                     <p><?php echo $data['kategori_webinar']; ?></p>
                                                 </div>
                                             </div>
-                                            <!-- <div class="col-md-6">
-                                                <div class="kotak-lokasi">
-                                                    <p><?php echo $data['']; ?></p>
-                                                </div>
-                                            </div> -->
                                         </div>
-                                        <span><?php echo $data['tanggal_mulai']; ?></span><br>
-                                        <span><?php echo $data['waktu_mulai']; ?></span>
+                                        <span><i class="fas fa-calendar-alt"></i> <?php echo $data['tanggal_mulai']; ?></span><br>
+                                        <span><i class="fas fa-clock"></i> <?php echo $data['waktu_mulai']; ?></span>
                                     </div>
                                 </div>
                             <?php $i++;
                             endforeach; ?>
                         </div>
 
-                        <div class="row">
+                        <!-- <div class="row">
                             <div class="col-lg-12 text-center">
                                 <div class="pagination-wrap">
                                     <ul>
@@ -154,7 +149,7 @@
                                     </ul>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
