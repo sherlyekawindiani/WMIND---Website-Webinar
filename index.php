@@ -66,7 +66,7 @@
 								</li>
 								<li><a href="temukan-webinar.php">Temukan Webinar</a></li>
 								<li><a href="contact.php">Tentang Kami</a></li>
-								<a class="buttonIndex btn" href="register.php">Login</a>
+								<a class="buttonIndex btn" href="login.php">Login</a>
 								<li>
 									<div class="header-icons">
 										<!-- <a class="shopping-cart" href="cart.html"><i class="fas fa-user-circle"></i></a> -->

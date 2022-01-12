@@ -1,3 +1,21 @@
+<?php
+    include "koneksi.php";
+    function total($perintah)
+    {
+        global $koneksi;
+        $query = mysqli_query($koneksi, $perintah);
+        $data = [];
+        $jumlah = 0;
+        while ($hasil = mysqli_fetch_assoc($query)) {
+        $data[] = $hasil;
+        $jumlah++;
+    }
+    return $jumlah;
+    }
+    $user = total("SELECT * FROM tb_user");
+    $webinar = total("SELECT * FROM tb_buat_webinar");
+    $peserta = total("SELECT * FROM tb_daftar_peserta");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -50,7 +68,7 @@
 
         <!-- header -->
         <nav class="navbar navBarEo">
-            <div class="container-fluid">
+            <div class="container-fluid navBarEo">
                 <a class="navbar-brand" href="index.php">
                     <img src="assets/img/logo_transparan.png" style="width: 70%" alt="">
                 </a>
@@ -63,26 +81,33 @@
         <!-- end header -->
 
         <!-- isi admin -->
-            <div class="row no-gutters">
-                <div class="col-md-2 pr-3 pt-4 pl-2 menu-samping">
-                    <ul class="nav flex-column">
-                        <li class="nav-item active">
-                            <a class="nav-link link-menu" href="admin-dashboard.php"><i class="fas fa-home mr-2"></i>Dasboard</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link link-menu mt-2 mb-2" href="admin-user.php"><i class="fas fa-user mr-2"></i>Data User</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link link-menu mt-2 mb-2" href="admin-peserta.php"><i class="fas fa-users mr-2"></i>Data Peserta</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link link-menu mt-2 mb-2" href="admin-webinar.php"><i class="fas fa-laptop mr-2"></i>Data Webinar</a>
-                        </li>
-                    </ul>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-2 samping-kiri">
+                    <div class="menu-samping">
+                        <ul class="nav flex-column">
+                            <li class="nav-item active ml-4">
+                                <a class="nav-link link-menu" href="admin-dashboard.php"><i class="fas fa-home mr-2"></i>Dashboard</a>
+                            </li>
+                            <li class="nav-item mt-3 ml-4">
+                                <a class="nav-link link-menu" href="admin-user.php"><i class="fas fa-user mr-2"></i>Data User</a>
+                            </li>
+                            <li class="nav-item mt-3 ml-4">
+                                <a class="nav-link link-menu" href="admin-peserta.php"><i class="fas fa-users mr-2"></i>Data Peserta</a>
+                            </li>
+                            <li class="nav-item mt-3 ml-4">
+                                <a class="nav-link link-menu" href="admin-webinar.php"><i class="fas fa-laptop mr-2"></i>Data Webinar</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                
-                <div class="col-md-10 ml-auto">
-                    <div class="isi-admin mt-4 ml-3 mr-3">
+                <div class="col-md-10" style="background-color: #F0F2F5;">
+                    <div class="isi-admin">
+                        <div class="card judul-tabel">
+                            <div class="card-body">
+                                <h2 class="card-title">Selamat Datang Admin</h2>
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="kotak-data">
@@ -94,7 +119,7 @@
                                         </div>
                                         <div class="col-md-9 kotak-teks">
                                             <span>User</span>
-                                            <h2 class="mt-3">123</h2>
+                                            <h2 class="mt-3"><?php echo $user; ?></h2>
                                         </div>
                                     </div>
                                 </div>
@@ -108,8 +133,8 @@
                                             </div>
                                         </div>
                                         <div class="col-md-9 kotak-teks">
-                                            <span>Semua Peserta</span>
-                                            <h2 class="mt-3">123</h2>
+                                            <span>Peserta</span>
+                                            <h2 class="mt-3"><?php echo $peserta; ?></h2>
                                         </div>
                                     </div>
                                 </div>
@@ -124,7 +149,7 @@
                                         </div>
                                         <div class="col-md-9 kotak-teks">
                                             <span>Webinar</span>
-                                            <h2 class="mt-3">123</h2>
+                                            <h2 class="mt-3"><?php echo $webinar; ?></h2>
                                         </div>
                                     </div>
                                 </div>
@@ -133,16 +158,27 @@
                     </div>
                 </div>
             </div>
+        </div>
         <!-- end isi admin -->
-
+        
         <!-- copyright -->
-        <div class="copyright">
+        <div class="copyright" style="background-color: #0E1B3A;">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6 col-md-12">
                         <p>Copyrights &copy; 2021 - <a href="https://imransdesign.com/">Wmind</a>,  All Rights Reserved.</p>
                     </div>
-                    
+                    <div class="col-lg-6 text-right col-md-12">
+                        <div class="social-icons">
+                            <ul>
+                                <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                                <li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+                                <li><a href="#" target="_blank"><i class="fab fa-dribbble"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

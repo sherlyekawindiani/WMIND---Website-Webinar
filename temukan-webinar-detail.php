@@ -35,6 +35,34 @@
     <link rel="stylesheet" href="assets/css/css_tirja.css">
 
 </head>
+<?php
+	include "koneksi.php" ;
+	session_start();
+	// cek apakah yang mengakses halaman ini sudah login
+	if($_SESSION['level']==""){
+		header("location:login.php?pesan=gagal");
+	}
+	// membuat session Username
+	$email = $_SESSION['email'];
+	$query = "SELECT * FROM tb_user WHERE email='$email'";
+	$hasil = mysqli_query($koneksi,$query);
+
+	// tb buat webinar
+	$id_webinar=$_GET['id_webinar'];
+    $query="SELECT*FROM tb_buat_webinar WHERE id_webinar ='$id_webinar'"; //buat query sql
+    $hasilDetail=mysqli_query($koneksi,$query); //jalankan query sql
+    $dataDetail=mysqli_fetch_array($hasilDetail);
+
+?>
+<?php
+if(mysqli_num_rows($hasil)>0){
+    $data_user = mysqli_fetch_array($hasil);
+    $_SESSION["id_user"] = $data_user["id_user"];
+    $_SESSION["email"] = $data_user["email"];
+    $_SESSION["username"] = $data_user["username"];
+    $_SESSION["level"] = $data_user["level"];
+}
+?>
 <body>
 	
 	<!--PreLoader-->
@@ -52,8 +80,8 @@
 				<img src="assets/img/logo_transparan.png" style="width: 70%" alt="">
 			</a>
 			<div class="navBarUsername">
-				<p class="panggilUsername">Sherly eka windiani</p>
-				<a class="txtLogout" href="#">Logout</a>
+				<p class="panggilUsername"><?php echo "<b>".$_SESSION['username']."</b><br>"; ?> </p>
+				<a class="txtLogout" href="logout.php">Logout</a>
 			</div>
 		</div>
 	</nav>
@@ -77,7 +105,7 @@
 					</div>
 				</div>
 				<div class="col-lg-6">
-                    <h3><?php echo $data['judul_webinar']; ?></h3>
+                    <h3 style="text-transform: capitalize;"><?php echo $data['judul_webinar']; ?></h3>
 					<div class="contact-form-wrap">
 						<div class="contact-form-box">
 							<h4><i class="fas fa-clock" style="color: #FFC224;"></i> Tanggal & Waktu</h4>
@@ -85,13 +113,13 @@
 						</div>
 						<div class="contact-form-box">
 							<h4><i class="fas fa-map-marker-alt" style="color: #FFC224;"></i> Lokasi</h4>
-							<p>1, Kangean <br> Klojen, Malang. <br> Indonesia</p>
+							<p>Online</p>
 						</div>
 						<div class="contact-form-box">
 							<h4><i class="fas fa-user-friends" style="color: #FFC224;"></i> Diselenggarakan oleh</h4>
 							<p><?php echo $data['nama_eo']; ?></p>
 						</div>
-						<div class="tombol-daftar">
+						<div class="tombol-daftar ">
 							<a href="form-daftar-webinar.php?id_webinar=<?php echo $data['id_webinar']?>">Daftar</a>
 						</div>
 					</div>

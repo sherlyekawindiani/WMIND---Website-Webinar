@@ -1,9 +1,9 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 02 Jan 2022 pada 04.44
+-- Waktu pembuatan: 11 Jan 2022 pada 22.33
 -- Versi server: 10.4.13-MariaDB
 -- Versi PHP: 7.4.8
 
@@ -29,25 +29,25 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `tb_daftar_peserta` (
   `id_peserta` int(11) NOT NULL,
+  `id_webinar_session` int(11) NOT NULL,
+  `id_author` int(11) NOT NULL,
+  `id_author_eo` int(11) NOT NULL,
+  `tgl_daftar` varchar(225) DEFAULT NULL,
   `nama_peserta` varchar(225) NOT NULL,
   `email_peserta` varchar(225) NOT NULL,
   `notelp_peserta` bigint(100) NOT NULL,
-  `profesi_peserta` varchar(50) NOT NULL,
-  `tgl_daftar` varchar(225) NOT NULL
+  `profesi_peserta` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `tb_daftar_peserta`
 --
 
-INSERT INTO `tb_daftar_peserta` (`id_peserta`, `nama_peserta`, `email_peserta`, `notelp_peserta`, `profesi_peserta`, `tgl_daftar`) VALUES
-(25, 'sarah', 'sarah@gmail.com', 6283835940328, 'Umum', 'Thursday-30-12-21'),
-(26, 'febbi', 'feb@gmail.com', 86534781211, 'Mahasiswa', 'Thursday-30-12-21'),
-(27, 'shevi', 'vivi@gmail.com', 876, 'Mahasiswa', 'Thursday-30-12-21'),
-(28, 'sepia', 'kasai@gmail.com', 5676, 'Umum', 'Thursday-30-12-21'),
-(29, 'yuni', 'werty@gmail.com', 86534781211, 'Siswa', 'Thursday-30-12-21'),
-(30, 'faradina', 'fara@gmail.com', 62876543, 'Siswa', 'Friday-31-12-2021'),
-(31, 'noya', 'noya@gmail.com', 123456789, 'Siswa', 'Friday-31-12-2021');
+INSERT INTO `tb_daftar_peserta` (`id_peserta`, `id_webinar_session`, `id_author`, `id_author_eo`, `tgl_daftar`, `nama_peserta`, `email_peserta`, `notelp_peserta`, `profesi_peserta`) VALUES
+(38, 23, 22, 21, 'Tuesday-11-01-2022', 'sherly eka windiani', 'sherlyeka@gmail.com', 81230248625, 'Mahasiswa'),
+(39, 22, 23, 20, 'Tuesday-11-01-2022', 'llaaaa', 'lala@gmail.com', 81230248625, 'Mahasiswa'),
+(40, 24, 23, 20, 'Tuesday-11-01-2022', 'tirsana', 'tirsana@gmail.com', 81230248625, 'Siswa'),
+(41, 24, 23, 20, 'Tuesday-11-01-2022', 'faidatul lala', 'faidatullalaa@gmail.com', 81230248625, 'Siswa');
 
 --
 -- Indexes for dumped tables
@@ -67,7 +67,7 @@ ALTER TABLE `tb_daftar_peserta`
 -- AUTO_INCREMENT untuk tabel `tb_daftar_peserta`
 --
 ALTER TABLE `tb_daftar_peserta`
-  MODIFY `id_peserta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id_peserta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

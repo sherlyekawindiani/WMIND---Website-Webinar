@@ -37,6 +37,27 @@
     <link rel="stylesheet" href="assets/css/css_tirja.css">
 
 </head>
+<?php
+	include "koneksi.php" ;
+	session_start();
+	// cek apakah yang mengakses halaman ini sudah login
+	if($_SESSION['level']==""){
+		header("location:login.php?pesan=gagal");
+	}
+	// membuat session Username
+	$email = $_SESSION['email'];
+	$query = "SELECT * FROM tb_user WHERE email='$email'";
+	$hasil = mysqli_query($koneksi,$query);
+?>
+<?php
+if(mysqli_num_rows($hasil)>0){
+    $data_user = mysqli_fetch_array($hasil);
+    $_SESSION["id_user"] = $data_user["id_user"];
+    $_SESSION["email"] = $data_user["email"];
+    $_SESSION["username"] = $data_user["username"];
+    $_SESSION["level"] = $data_user["level"];
+}
+?>
 
 <body>
     <div class="wadah">
@@ -55,8 +76,8 @@
                     <img src="assets/img/logo_transparan.png" style="width: 70%" alt="">
                 </a>
                 <div class="navBarUsername">
-                    <p class="panggilUsername">Sherly eka windiani</p>
-                    <a class="txtLogout" href="#">Logout</a>
+                    <p class="panggilUsername"><?php echo "<b>".$_SESSION['username']."</b><br>"; ?></p>
+                    <a class="txtLogout" href="logout.php">Logout</a>
                 </div>
             </div>
         </nav>
@@ -128,21 +149,16 @@
                                                     <p><?php echo $data['kategori_webinar']; ?></p>
                                                 </div>
                                             </div>
-                                            <!-- <div class="col-md-6">
-                                                <div class="kotak-lokasi">
-                                                    <p><?php echo $data['']; ?></p>
-                                                </div>
-                                            </div> -->
                                         </div>
-                                        <span><?php echo $data['tanggal_mulai']; ?></span><br>
-                                        <span><?php echo $data['waktu_mulai']; ?></span>
+                                        <span><i class="fas fa-calendar-alt"></i> <?php echo $data['tanggal_mulai']; ?></span><br>
+                                        <span><i class="fas fa-clock"></i> <?php echo $data['waktu_mulai']; ?></span>
                                     </div>
                                 </div>
                             <?php $i++;
                             endforeach; ?>
                         </div>
 
-                        <div class="row">
+                        <!-- <div class="row">
                             <div class="col-lg-12 text-center">
                                 <div class="pagination-wrap">
                                     <ul>
@@ -154,7 +170,7 @@
                                     </ul>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
