@@ -43,10 +43,7 @@
 				<a class="navbar-brand" href="index.php">
 					<img src="assets/img/logo_transparan.png" style="width: 70%" alt="">
 				</a>
-				<div class="navBarUsername">
-					<p class="panggilUsername">Sherly eka windiani</p>
-					<a class="txtLogout" href="#">Logout</a> 
-				</div>
+				
 			</div>
 	</nav>
 	<!-- end header -->
