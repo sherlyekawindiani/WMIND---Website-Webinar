@@ -163,7 +163,7 @@ if(mysqli_num_rows($hasil)>0){
 									<nav class="navbar navbar-expand-lg">
 										<div class="collapse navbar-collapse" >
 											<div class="navbar-nav">
-												<a class="nav-item nav-link navLinkDetail mr-2 active" href="detail-webinar-eo.php?id_webinar=<?php echo $_SESSION['id_webinar']; ?> ><i class="fas fa-info-circle mr-2"></i>Informasi Webinar</a>
+												<a class="nav-item nav-link navLinkDetail mr-2 active" href="detail-webinar-eo.php?id_webinar=<?php echo $_SESSION['id_webinar'];?>" ><i class="fas fa-info-circle mr-2"></i>Informasi Webinar</a>
 												<a class="nav-item nav-link navLinkDetail ml-3" href="data-peserta-eo.php?id_webinar=<?php echo $_SESSION['id_webinar']; ?>"><i class="fas fa-users mr-2"></i>Data Peserta</a>
 											</div>
 										</div>

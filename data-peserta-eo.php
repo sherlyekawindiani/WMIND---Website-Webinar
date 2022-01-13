@@ -167,9 +167,9 @@ if(mysqli_num_rows($hasil)>0){
 								<div class="card cardPilihanDetail">
 									<nav class="navbar navbar-expand-lg">
 										<div class="collapse navbar-collapse" >
-											<div class="navbar-nav">
-												<a class="nav-item nav-link navLinkDetail mr-2 " href="detail-webinar-eo.php?id_webinar=<?php echo $_SESSION['id_webinar']; ?>" ><i class="fas fa-info-circle mr-2"></i>Informasi Webinar</a>
-												<a class="nav-item nav-link navLinkDetail ml-3 active" href="data-peserta-eo.php?id_webinar=<?php echo $_SESSION['id_webinar']; ?>"><i class="fas fa-users mr-2"></i>Data Peserta</a>
+										`	<div class="navbar-nav">
+												<a class="nav-item nav-link navLinkDetail mr-2 active" href="detail-webinar-eo.php?id_webinar=<?php echo $_SESSION['id_webinar'];?>" ><i class="fas fa-info-circle mr-2"></i>Informasi Webinar</a>
+												<a class="nav-item nav-link navLinkDetail ml-3" href="data-peserta-eo.php?id_webinar=<?php echo $_SESSION['id_webinar']; ?>"><i class="fas fa-users mr-2"></i>Data Peserta</a>
 											</div>
 										</div>
 									</nav>
@@ -178,7 +178,7 @@ if(mysqli_num_rows($hasil)>0){
                             <!-- Download data peserta -->
 							<div class="navbar">
 								<div class="container d-flex justify-content-end mb-3 ">
-                                    <a href="#" class="btn btn-dark unduhDataPeserta"><i class="fas fa-download"></i> Unduh data peserta</a>
+                                    <a href="unduh-data-peserta.php?id_webinar=<?php echo $_SESSION['id_webinar']; ?>" class="btn btn-dark unduhDataPeserta"><i class="fas fa-download"></i> Unduh data peserta</a>
                                 </div>
 							</div>
 							<!-- Akhir Download data peserta  -->
