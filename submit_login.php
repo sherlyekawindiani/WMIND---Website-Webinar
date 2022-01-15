@@ -28,7 +28,7 @@ if ($passmd == $data['password']) {
 		$_SESSION['email'] = $email;
 		$_SESSION['level'] = "admin";
 		// alihkan ke halaman dashboard admin
-		header("location:admin.php");
+		header("location:admin-dashboard.php");
 
 	// cek jika user login sebagai pegawai
 	}else if($data['level']=="Peserta"){

@@ -37,9 +37,32 @@
     <link rel="stylesheet" href="assets/css/css_tirja.css">
 
 </head>
+
 <?php
-error_reporting(0);
+    error_reporting(0);
+	include "koneksi.php" ;
+	session_start();
+	// cek apakah yang mengakses halaman ini sudah login
+	if($_SESSION['level']==""){
+		header("location:login.php?pesan=gagal");
+	}
+	// membuat session Username
+	$email = $_SESSION['email'];
+	$query = "SELECT * FROM tb_user WHERE email='$email'";
+	$hasil = mysqli_query($koneksi,$query);
+	
 ?>
+<?php
+if(mysqli_num_rows($hasil)>0){
+    $data_user = mysqli_fetch_array($hasil);
+    $_SESSION["id_user"] = $data_user["id_user"];
+	$_SESSION["nama"] = $data_user["nama"];
+    $_SESSION["email"] = $data_user["email"];
+    $_SESSION["username"] = $data_user["username"];
+    $_SESSION["level"] = $data_user["level"];
+}
+?>
+
 <body>
     <div class="wadah">
         <!--PreLoader-->
@@ -57,8 +80,8 @@ error_reporting(0);
                     <img src="assets/img/logo_transparan.png" style="width: 70%" alt="">
                 </a>
                 <div class="navBarUsername">
-                    <p class="panggilUsername">Sherly eka windiani</p>
-                    <a class="txtLogout" href="#">Logout</a>
+                    <p class="panggilUsername"><?php echo "<b>".$_SESSION['username']."</b><br>"; ?></p>
+                    <a class="txtLogout" href="logout.php">Logout</a>
                 </div>
             </div>
         </nav>
@@ -122,7 +145,7 @@ error_reporting(0);
                                             $no=1;
                                             $cari = $_POST['inputCari'];
                                             if($cari != ''){
-                                                $select= mysqli_query($koneksi, "SELECT * FROM tb_daftar_peserta WHERE id_peserta AND nama_peserta LIKE '%".$cari."%' ");
+                                                $select= mysqli_query($koneksi, "SELECT * FROM tb_daftar_peserta WHERE id_peserta AND nama_peserta LIKE '%".$cari."%'");
                                             }else{
                                                 $select= mysqli_query($koneksi, "SELECT * FROM tb_daftar_peserta WHERE id_peserta ");
                                             }
@@ -140,7 +163,7 @@ error_reporting(0);
                                             <td><?php echo $data['notelp_peserta']; ?></td>
                                             <td><?php echo $data['profesi_peserta']; ?></td>
                                             <td>
-                                                <a href="delete-peserta-admin.php?id_peserta=<?php echo $data['id_peserta'];?>"
+                                                <a href="admin-delete-peserta.php?id_peserta=<?php echo $data['id_peserta'];?>"
                                                     onclick="return confirm ('Apakah anda yakin?')" >
                                                     <button type="button" class="btn btn-dark btn-admin">Hapus</button>
                                                 </a>
@@ -151,7 +174,7 @@ error_reporting(0);
                                         ?>
                                     </tbody>
                                     <?php } else{
-										echo '<tr class="text-center"><td colspan="5">Tidak ada data</td></tr>';
+										echo '<tr class="text-center"><td colspan="7">Tidak ada data</td></tr>';
 									}?>
                                 </table>
                             </div>
@@ -161,29 +184,19 @@ error_reporting(0);
             </div>
         </div>
         <!-- end isi admin -->
-
         <!-- copyright -->
-        <div class="copyright" style="background-color: #0E1B3A;">
+        <div class="copyright" style="background-color: #0E1B3A">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6 col-md-12">
                         <p>Copyrights &copy; 2021 - <a href="https://imransdesign.com/">Wmind</a>,  All Rights Reserved.</p>
                     </div>
-                    <div class="col-lg-6 text-right col-md-12">
-                        <div class="social-icons">
-                            <ul>
-                                <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
-                                <li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-                                <li><a href="#" target="_blank"><i class="fab fa-dribbble"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         </div>
         <!-- end copyright -->
+
     </div>
 
 
