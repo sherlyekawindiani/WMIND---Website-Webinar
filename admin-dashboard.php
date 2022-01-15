@@ -12,7 +12,7 @@
     }
     return $jumlah;
     }
-    $user = total("SELECT * FROM tb_user");
+    $jumlahuser = total("SELECT * FROM tb_user");
     $webinar = total("SELECT * FROM tb_buat_webinar");
     $peserta = total("SELECT * FROM tb_daftar_peserta");
 ?>
@@ -55,6 +55,29 @@
     <link rel="stylesheet" href="assets/css/css_tirja.css">
 
 </head>
+<?php
+	include "koneksi.php" ;
+	session_start();
+	// cek apakah yang mengakses halaman ini sudah login
+	if($_SESSION['level']==""){
+		header("location:login.php?pesan=gagal");
+	}
+	// membuat session Username
+	$email = $_SESSION['email'];
+	$query = "SELECT * FROM tb_user WHERE email='$email'";
+	$hasil = mysqli_query($koneksi,$query);
+	
+?>
+<?php
+if(mysqli_num_rows($hasil)>0){
+    $data_user = mysqli_fetch_array($hasil);
+    $_SESSION["id_user"] = $data_user["id_user"];
+	$_SESSION["nama"] = $data_user["nama"];
+    $_SESSION["email"] = $data_user["email"];
+    $_SESSION["username"] = $data_user["username"];
+    $_SESSION["level"] = $data_user["level"];
+}
+?>
 
 <body>
     <div class="wadah">
@@ -73,9 +96,9 @@
                     <img src="assets/img/logo_transparan.png" style="width: 70%" alt="">
                 </a>
                 <div class="navBarUsername">
-                    <p class="panggilUsername">Sherly eka windiani</p>
-                    <a class="txtLogout" href="#">Logout</a>
-                </div>
+                    <p class="panggilUsername"> <?php echo "<b>".$_SESSION['username']."</b><br>"; ?></p>
+                    <a class="txtLogout" href="logout.php">Logout</a> 
+			    </div>
             </div>
         </nav>
         <!-- end header -->
@@ -119,7 +142,7 @@
                                         </div>
                                         <div class="col-md-9 kotak-teks">
                                             <span>User</span>
-                                            <h2 class="mt-3"><?php echo $user; ?></h2>
+                                            <h2 class="mt-3"><?php echo $jumlahuser; ?></h2>
                                         </div>
                                     </div>
                                 </div>
@@ -162,27 +185,17 @@
         <!-- end isi admin -->
         
         <!-- copyright -->
-        <div class="copyright" style="background-color: #0E1B3A;">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 col-md-12">
-                        <p>Copyrights &copy; 2021 - <a href="https://imransdesign.com/">Wmind</a>,  All Rights Reserved.</p>
-                    </div>
-                    <div class="col-lg-6 text-right col-md-12">
-                        <div class="social-icons">
-                            <ul>
-                                <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
-                                <li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-                                <li><a href="#" target="_blank"><i class="fab fa-dribbble"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- end copyright -->
+	<div class="copyright" style="background-color: #0E1B3A">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 col-md-12">
+					<p>Copyrights &copy; 2021 - <a href="https://imransdesign.com/">Wmind</a>,  All Rights Reserved.</p>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	<!-- end copyright -->
     </div>
 
 

@@ -38,8 +38,35 @@
 
 </head>
 <?php
-error_reporting(0);
+	include "koneksi.php" ;
+	session_start();
+	error_reporting(0);
+	// cek apakah yang mengakses halaman ini sudah login
+	if($_SESSION['level']==""){
+		header("location:login.php?pesan=gagal");
+	}
+	// membuat session Username
+	$email = $_SESSION['email'];
+	$query = "SELECT * FROM tb_user WHERE email='$email'";
+	$hasil = mysqli_query($koneksi,$query);
+
+	// // tb buat webinar
+	// $id_webinar=$_GET['id_webinar'];
+    // $query="SELECT*FROM tb_buat_webinar WHERE id_webinar ='$id_webinar'"; //buat query sql
+    // $hasilDetail=mysqli_query($koneksi,$query); //jalankan query sql
+    // $dataDetail=mysqli_fetch_array($hasilDetail);
+
 ?>
+<?php
+if(mysqli_num_rows($hasil)>0){
+    $data_user = mysqli_fetch_array($hasil);
+    $_SESSION["id_user"] = $data_user["id_user"];
+    $_SESSION["email"] = $data_user["email"];
+    $_SESSION["username"] = $data_user["username"];
+    $_SESSION["level"] = $data_user["level"];
+}
+?>
+
 <body>
     <div class="wadah">
         <!--PreLoader-->
@@ -57,8 +84,8 @@ error_reporting(0);
                     <img src="assets/img/logo_transparan.png" style="width: 70%" alt="">
                 </a>
                 <div class="navBarUsername">
-                    <p class="panggilUsername">Sherly eka windiani</p>
-                    <a class="txtLogout" href="#">Logout</a>
+                    <p class="panggilUsername"><?php echo "<b>".$_SESSION['username']."</b><br>"; ?></p>
+                    <a class="txtLogout" href="logout.php">Logout</a>
                 </div>
             </div>
         </nav>
@@ -99,7 +126,7 @@ error_reporting(0);
                                 <div class="navbar">
                                     <div class="container d-flex justify-content-end mb-3 ">
                                         <form class="d-flex" action="" method="post" style=" ">
-                                            <input class="form-control" style="width: 300px;" name="inputCari" type="search" placeholder="Cari judul webinar, kategori atau nama eo" aria-label="Search">
+                                            <input class="form-control" style="width: 300px;" name="inputCari" type="search" placeholder="Cari judul webinar atau nama EO" aria-label="Search">
                                             <button class="btn" name="cari" type="submit" style="background-color: #0E1B3A; color: white;"><i class="fas fa-search"></i></button>
                                         </form>
                                     </div>
@@ -109,7 +136,7 @@ error_reporting(0);
                                     <thead>
                                         <tr style="background-color: #FFC224;border: none;">
                                             <th scope="col" style="border-top-left-radius: 10px; border: none;">No</th>
-                                            <th scope="col" style="border: none;">Judul</th>
+                                            <th scope="col" style="border: none; width:350px;">Judul</th>
                                             <th scope="col" style="border: none;">Kategori</th>
                                             <th scope="col" style="border: none;">Nama EO</th>
                                             <th colspan="3" style="border-top-right-radius: 10px; border: none;">Aksi</th>
@@ -120,27 +147,48 @@ error_reporting(0);
                                             $no=1;
                                             $cari = $_POST['inputCari'];
                                             if($cari != ''){
-                                                $select= mysqli_query($koneksi, "SELECT * FROM tb_buat_webinar WHERE id_webinar AND judul_webinar LIKE '%".$cari."%' OR kategori_webinar LIKE '%".$cari."%' OR nama_eo LIKE '%".$cari."%' ");
+                                                $select= mysqli_query($koneksi, "SELECT * FROM tb_buat_webinar WHERE id_webinar AND judul_webinar LIKE '%".$cari."%' OR nama_eo LIKE '%".$cari."%'");
                                             }else{
-                                                $select= mysqli_query($koneksi, "SELECT * FROM tb_buat_webinar WHERE id_webinar ");
+                                                $select= mysqli_query($koneksi, "SELECT * FROM tb_buat_webinar WHERE id_webinar");
                                             }
                                             if(mysqli_num_rows($select)){
                                                 // perulangan untuk nampilkan data dari database
                                                 while ($data=mysqli_fetch_array ($select)){ 
-                                        ?>
+                                        ?> 
                                     <tbody>
                                         <tr>
                                             <td><?php echo $no++; ?></td>
-                                            <td><?php echo $data['judul_webinar']; ?></td>
+                                            <td>
+                                                <?php
+                                                    $title = $data['judul_webinar'];
+                                                    $arr = explode(" ", $title);
+                                                    $limit = 4;
+                                                    $new = [];
+
+                                                    if (count($arr) > $limit) {
+                                                        for($i = 0; $i < $limit; $i++) {
+                                                            array_push($new, $arr[$i]);
+                                                        }
+                                                    }
+
+                                                    if($new) {
+                                                        $new = implode(" ", $new);
+                                                        print_r($new); echo '...';
+                                                    }
+                                                    else {
+                                                        print_r($title);  // Output : Rasang Beam Steal Valve
+                                                    }
+                                                ?>
+                                            </td>
                                             <td><?php echo $data['kategori_webinar']; ?></td>
                                             <td><?php echo $data['nama_eo']; ?></td>
                                             <td>
-                                                <a href="detail-webinar-admin.php?id_webinar=<?php echo $data['id_webinar'];?>">
+                                                <a href="admin-detail-webinar.php?id_webinar=<?php echo $data['id_webinar'];?>">
                                                     <button type="button" class="btn btn-dark btn-admin">Detail</button>
                                                 </a>
                                             </td>
                                             <td>
-                                                <a href="delete-webinar-admin.php?id_webinar=<?php echo $data['id_webinar'];?>"
+                                                <a href="admin-delete-webinar.php?id_webinar=<?php echo $data['id_webinar'];?>"
                                                     onclick="return confirm ('Apakah anda yakin?')" >
                                                     <button type="button" class="btn btn-dark btn-admin">Hapus</button>
                                                 </a>
@@ -161,25 +209,14 @@ error_reporting(0);
             </div>
         </div>
         <!-- end isi admin -->
-
         <!-- copyright -->
-        <div class="copyright" style="background-color: #0E1B3A;">
+        <div class="copyright" style="background-color: #0E1B3A">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6 col-md-12">
                         <p>Copyrights &copy; 2021 - <a href="https://imransdesign.com/">Wmind</a>,  All Rights Reserved.</p>
                     </div>
-                    <div class="col-lg-6 text-right col-md-12">
-                        <div class="social-icons">
-                            <ul>
-                                <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
-                                <li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-                                <li><a href="#" target="_blank"><i class="fab fa-dribbble"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         </div>
