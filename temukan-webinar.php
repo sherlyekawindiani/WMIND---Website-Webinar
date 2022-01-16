@@ -51,6 +51,11 @@
 	$query = "SELECT * FROM tb_user WHERE email='$email'";
 	$hasil = mysqli_query($koneksi,$query);
 
+    // tb buat webinar
+	// $id_webinar=$_GET['id_webinar'];
+    // $query="SELECT*FROM tb_buat_webinar WHERE id_webinar ='$id_webinar'"; //buat query sql
+    // $hasilDetail=mysqli_query($koneksi,$query); //jalankan query sql
+
     if($_SESSION['level']=="Penyelenggara Acara"){
 		// buat session login dan username
 		$_SESSION['email'] = $email;
@@ -58,6 +63,8 @@
 		// alihkan ke halaman dashboard admin
 		header("location:dashboard-eo.php");
 	}
+
+    
 ?>
 <?php
 if(mysqli_num_rows($hasil)>0){
@@ -69,6 +76,7 @@ if(mysqli_num_rows($hasil)>0){
     $_SESSION["level"] = $data_user["level"];
 }
 ?>
+
 
 <body>
     <div class="wadah">
@@ -126,8 +134,12 @@ if(mysqli_num_rows($hasil)>0){
                             </div>
                         </div>
                         <div class="row product-lists">
-                            
-                            
+                            <?php 
+                                $sql = "SELECT * FROM tb_buat_webinar WHERE id_webinar";
+                                $datas = mysqli_query($koneksi, $sql);
+                                $i = 1;
+                                foreach ($datas as $data) :
+                            ?>
                                 <div class="col-lg-3 col-md-6 <?php echo $data['kategori_webinar']; ?>">
                                     <div class="single-product-item ">
                                         <div class="produk-gambar">
@@ -168,7 +180,8 @@ if(mysqli_num_rows($hasil)>0){
                                         <span><i class="fas fa-clock"></i> <?php echo $data['waktu_mulai']; ?> WIB</span>
                                     </div>
                                 </div>
-                            
+                            <?php $i++;
+                            endforeach; ?>
                         </div>
 
                         <!-- <div class="row">

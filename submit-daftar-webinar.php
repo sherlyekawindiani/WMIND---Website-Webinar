@@ -192,15 +192,15 @@
 
         $send = $mail->send();
 
-        if($send){
-            echo "<h2>Daftar webinar berhasil cek email anda </h2><br>
-            <a href='temukan-webinar-detail.php?id_webinar=$id_webinar'>Kembali ke detail webinar </a>";
+        // if($send){
+        //     echo "<h2>Daftar webinar berhasil cek email anda </h2><br>
+        //     <a href='temukan-webinar-detail.php?id_webinar=$id_webinar'>Kembali ke detail webinar </a>";
 
-        }
-        else{
-            echo "<h2>Daftar webinar gagal  </h2><br>
-            <a href='form-daftar-webinar.php?id_webinar=$id_webinar'>Kembali ke form daftar webinar </a>";
-        }
+        // }
+        // else{
+        //     echo "<h2>Daftar webinar gagal  </h2><br>
+        //     <a href='form-daftar-webinar.php?id_webinar=$id_webinar'>Kembali ke form daftar webinar </a>";
+        // }
 
     echo "<script>alert('Selamat kamu sudah terdaftar');
         document.location='temukan-webinar-detail.php?id_webinar=$id_webinar'

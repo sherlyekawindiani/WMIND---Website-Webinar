@@ -111,7 +111,7 @@ include "koneksi.php";
 							</div>
 							<input type="password" name="password" id="pass1" class="form-control" placeholder="Password" required="The Password field is required."  autocomplete="off" data-val="true">
 						</div>
-							<button name="submit" value="submit" class="btn btn-warning mt-3">Daftar</button>
+							<button name="submit" value="submit" class="btn btn-warning mt-3">Masuk</button>
 						</div>
 					</form>	
 					<!-- end form -->
