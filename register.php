@@ -33,6 +33,10 @@
 	<link rel="stylesheet" href="assets/css/responsive.css">
     <!-- responsive -->
 	<link rel="stylesheet" href="assets/css/css_ela.css">
+	<!-- jquary -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha512-DUC8yqWf7ez3JD1jszxCWSVB0DMP78eOyBpMa5aJki1bIRARykviOuImIczkxlj1KhVSyS16w2FSQetkD4UU2w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<!-- end jquary -->
 	
 
 	<style type="text/css">
@@ -109,7 +113,8 @@ include "koneksi.php";
 							<input type="email" name="email" class="form-control"  placeholder="Email" required="The Email field is required." data-val="true">
 						</div>
 						<div class="form-group coba jarak-form">
-							<input type="text" name="username" class="form-control"  placeholder="Username" required="The Username field is required." data-val="true">
+							<input type="text" name="username" id="form-input" class="form-control"  placeholder="Username" required="The Username field is required." data-val="true"
+							required pattern="[a-zA-Z0-9]+" oninvalid="this.setCustomValidity('Input hanya boleh huruf a-z tanpa spasi!')">
 						</div>
 						<div class="form-group coba jarak-form">
 							<select class="form-control"  name="level" required="The Daftar sebagai field is required." data-val="true">
@@ -194,6 +199,25 @@ include "koneksi.php";
 					})();
 				</script>
 				<!-- AKHIR VALIDASI REGISTER -->
+
+				<!-- validasi username -->
+				<script>
+									$("#form-input").on({
+					keydown: function(e) {
+					if (e.which === 32)
+						return false;
+				},
+				keyup: function(){
+					this.value = this.value.toLowerCase();
+				},
+				change: function() {
+					this.value = this.value.replace(/\s/g, "");
+					
+				}
+				});
+				</script>
+				<!-- end validasi username -->
 	</div>
+	
 </body>
 </html>
