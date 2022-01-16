@@ -134,7 +134,7 @@ if(mysqli_num_rows($hasil)>0){
 											</div>
 										</div>
 										<div class="form-group " style="width: 200px; margin: 20px;	">
-											<input name="id_author" type="text" class="form-control" value=" <?php echo $_SESSION['id_user']; ?>" >
+											<input name="id_author" type="hidden" class="form-control" value=" <?php echo $_SESSION['id_user']; ?>" >
 										</div>
 										<div class="form-group batasPilihFile">
 											<label for="tombolUnggah">Unggah gambar/poster/benner</label>
