@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 11 Jan 2022 pada 22.33
+-- Waktu pembuatan: 16 Jan 2022 pada 14.31
 -- Versi server: 10.4.13-MariaDB
 -- Versi PHP: 7.4.8
 
@@ -32,6 +32,9 @@ CREATE TABLE `tb_daftar_peserta` (
   `id_webinar_session` int(11) NOT NULL,
   `id_author` int(11) NOT NULL,
   `id_author_eo` int(11) NOT NULL,
+  `judul_webinar_session` varchar(225) NOT NULL,
+  `tgl_mulai_session` varchar(30) NOT NULL,
+  `waktu_mulai_session` varchar(11) NOT NULL,
   `tgl_daftar` varchar(225) DEFAULT NULL,
   `nama_peserta` varchar(225) NOT NULL,
   `email_peserta` varchar(225) NOT NULL,
@@ -43,11 +46,10 @@ CREATE TABLE `tb_daftar_peserta` (
 -- Dumping data untuk tabel `tb_daftar_peserta`
 --
 
-INSERT INTO `tb_daftar_peserta` (`id_peserta`, `id_webinar_session`, `id_author`, `id_author_eo`, `tgl_daftar`, `nama_peserta`, `email_peserta`, `notelp_peserta`, `profesi_peserta`) VALUES
-(38, 23, 22, 21, 'Tuesday-11-01-2022', 'sherly eka windiani', 'sherlyeka@gmail.com', 81230248625, 'Mahasiswa'),
-(39, 22, 23, 20, 'Tuesday-11-01-2022', 'llaaaa', 'lala@gmail.com', 81230248625, 'Mahasiswa'),
-(40, 24, 23, 20, 'Tuesday-11-01-2022', 'tirsana', 'tirsana@gmail.com', 81230248625, 'Siswa'),
-(41, 24, 23, 20, 'Tuesday-11-01-2022', 'faidatul lala', 'faidatullalaa@gmail.com', 81230248625, 'Siswa');
+INSERT INTO `tb_daftar_peserta` (`id_peserta`, `id_webinar_session`, `id_author`, `id_author_eo`, `judul_webinar_session`, `tgl_mulai_session`, `waktu_mulai_session`, `tgl_daftar`, `nama_peserta`, `email_peserta`, `notelp_peserta`, `profesi_peserta`) VALUES
+(61, 22, 22, 20, ' tips dan tricks pemasaran digital', ' 2022-01-10', ' 20:53', 'Sunday-16-01-2022', 'sherly eka windiani', 'sherlyekaw8229@gmail.com', 81230248625, 'Siswa'),
+(62, 23, 22, 21, ' digitalisasi dan menciptakan bisnis yang tahan terhadap situasi pandemi', ' 2022-01-10', ' 16:54', 'Sunday-16-01-2022', 'sherly eka windiani', 'sherlyekaw8229@gmail.com', 81230248625, 'Mahasiswa'),
+(63, 24, 22, 20, ' flutter App Development', ' 2022-01-12', ' 05:56', 'Sunday-16-01-2022', 'sherly eka windiani', 'sherlyekaw8229@gmail.com', 81230248625, 'Mahasiswa');
 
 --
 -- Indexes for dumped tables
@@ -67,7 +69,7 @@ ALTER TABLE `tb_daftar_peserta`
 -- AUTO_INCREMENT untuk tabel `tb_daftar_peserta`
 --
 ALTER TABLE `tb_daftar_peserta`
-  MODIFY `id_peserta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id_peserta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
