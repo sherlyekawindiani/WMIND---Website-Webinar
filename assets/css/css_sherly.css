@@ -110,9 +110,22 @@
 } */
 
 .cardTitleUsername {
-    font-weight: 200;
+    font-weight: 500;
     color: #0E1B3A;
     text-transform: capitalize;
+    font-size: 25px;
+}
+.btnLoginSebagai{
+    background-color: #0E1B3A;
+    color: white;
+    border: none;
+    cursor: auto;
+    font-weight: 500;
+    font-size: 13px;
+}
+.btnLoginSebagai:hover {
+    background-color: #0E1B3A;
+    color: white;
 }
 
 .cardJumlahData {
@@ -334,7 +347,7 @@ h6 {
 .kategoriWebinar {
     color: #0E1B3A;
     background-color: #FFC224;
-    border-radius: 20px;
+    border-radius: 8px;
     border: none;
     width: auto;
     padding-left: 20px;
@@ -459,20 +472,7 @@ h6 {
         text-transform: capitalize;
         text-align: left;
     }
-    .kategoriWebinar{
-        color: #0E1B3A;
-        background-color: #FFC224;
-        border-radius: 20px;
-        border: none;
-        width: auto;
-        padding-left: 20px;
-        padding-right: 20px;
-        cursor: auto;    
-    }
-    .kategoriWebinar:hover{
-        background-color: #FFC224;
-        color: #0E1B3A;
-    }
+    
 
     .judulDetailWebinar { 
         font-size: 17px;
