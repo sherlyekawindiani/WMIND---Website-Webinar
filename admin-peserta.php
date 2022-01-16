@@ -122,7 +122,7 @@ if(mysqli_num_rows($hasil)>0){
                                 <div class="navbar">
                                     <div class="container d-flex justify-content-end mb-3 ">
                                         <form class="d-flex" action="" method="post" style=" ">
-                                            <input class="form-control" style="width: 300px;" name="inputCari" type="search" placeholder="Cari nama peserta" aria-label="Search">
+                                            <input class="form-control" style="width: 300px;" name="inputCari" type="search" placeholder="Cari nama peserta atau profesi" aria-label="Search">
                                             <button class="btn" name="cari" type="submit" style="background-color: #0E1B3A; color: white;"><i class="fas fa-search"></i></button>
                                         </form>
                                     </div>
@@ -145,7 +145,7 @@ if(mysqli_num_rows($hasil)>0){
                                             $no=1;
                                             $cari = $_POST['inputCari'];
                                             if($cari != ''){
-                                                $select= mysqli_query($koneksi, "SELECT * FROM tb_daftar_peserta WHERE id_peserta AND nama_peserta LIKE '%".$cari."%'");
+                                                $select= mysqli_query($koneksi, "SELECT * FROM tb_daftar_peserta WHERE id_peserta AND nama_peserta LIKE '%".$cari."%' OR profesi_peserta LIKE '%".$cari."%'");
                                             }else{
                                                 $select= mysqli_query($koneksi, "SELECT * FROM tb_daftar_peserta WHERE id_peserta ");
                                             }

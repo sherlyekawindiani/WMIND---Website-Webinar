@@ -126,13 +126,8 @@ if(mysqli_num_rows($hasil)>0){
                             </div>
                         </div>
                         <div class="row product-lists">
-                            <?php
-                                include "koneksi.php";
-                                $sql = "SELECT * FROM tb_buat_webinar";
-                                $datas = mysqli_query($koneksi, $sql);
-                                $i = 1;
-                                foreach ($datas as $data) : $i++;
-                            ?>
+                            
+                            
                                 <div class="col-lg-3 col-md-6 <?php echo $data['kategori_webinar']; ?>">
                                     <div class="single-product-item ">
                                         <div class="produk-gambar">
@@ -173,8 +168,7 @@ if(mysqli_num_rows($hasil)>0){
                                         <span><i class="fas fa-clock"></i> <?php echo $data['waktu_mulai']; ?> WIB</span>
                                     </div>
                                 </div>
-                            <?php $i++;
-                            endforeach; ?>
+                            
                         </div>
 
                         <!-- <div class="row">
