@@ -116,7 +116,7 @@
 						</div>
 						<div class="content">
 							<h3>Registrasi Event</h3>
-							<p>Daftar Event Dengan Mudah/p>
+							<p>Daftar Event Dengan Mudah</p>
 						</div>
 					</div>
 				</div>
@@ -166,7 +166,8 @@
 							<a href="single-product.html"><img src="assets/img/poster-1.jpeg" alt=""></a>
 						</div>
 						<h3>Digitalisasi dan Menciptakan Bisnis</h3>
-						<p class="product-price"><span>2021-12-22</span></p>
+						<span class="product-price"><i class="fas fa-calendar-alt"></i>2021-12-22</span><br>
+						<span class="product-price"><i class="fas fa-clock"></i>20.53</span>
 						<div class="kotak-kategori">
 							<p>Desain</p>
 						</div>
@@ -178,7 +179,8 @@
 							<a href="single-product.html"><img src="assets/img/poster.png" alt=""></a>
 						</div>
 						<h3>Flutter App Development Fecth</h3>
-						<p class="product-price"><span>2021-12-22</span></p>
+						<span class="product-price"><i class="fas fa-calendar-alt"></i>2021-12-22</span><br>
+						<span class="product-price"><i class="fas fa-clock"></i>20.53</span>
 						<div class="kotak-kategori">
 							<p>Desain</p>
 						</div>
@@ -190,7 +192,8 @@
 							<a href="single-product.html"><img src="assets/img/poster-3.jpeg" alt=""></a>
 						</div>
 						<h3>Tips Trick Pemasaran Digital</h3>
-						<p class="product-price"><span>2021-12-22</span></p>
+						<span class="product-price"><i class="fas fa-calendar-alt"></i>2021-12-22</span><br>
+						<span class="product-price"><i class="fas fa-clock"></i>20.53</span>
 						<div class="kotak-kategori">
 							<p>Desain</p>
 						</div>
@@ -202,7 +205,8 @@
 							<a href="single-product.html"><img src="assets/img/poster-1.jpeg" alt=""></a>
 						</div>
 						<h3>Digitalisasi dan Menciptakan Bisnis</h3>
-						<p class="product-price"><span>2021-12-22</span></p>
+						<span class="product-price"><i class="fas fa-calendar-alt"></i>2021-12-22</span><br>
+						<span class="product-price"><i class="fas fa-clock"></i>20.53</span>
 						<div class="kotak-kategori">
 							<p>Desain</p>
 						</div>
@@ -213,6 +217,8 @@
 		</div>
 	</div>
 	<!-- end product section -->
+
+	
 	
 	<!-- advertisement section -->
 	<div class="abt-section mb-150">
@@ -283,7 +289,45 @@
 		</div>
 	</div>
 	<!-- end advertisement section -->
-	
+
+	<!-- tahapan upload -->
+	<div class="product-section mt-150 mb-150">
+		<div class="container">
+			<h2 style="font-size: 32px; margin-bottom: 30px;">Tahapan Upload</h2>
+			<div class="row">
+			<div class="col-sm-6">
+					<div class="card card-upload">
+						<div class="row">
+							<div class="col-sm-3">
+								<img src="assets/img/one.png" style="width: 75%; margin-left: 30px; margin-top: 18px; " alt="">
+							</div>
+							<div class="card-body col-sm-9" style="">
+								<h4 class="card-title">Daftar dan login sebagai penyelenggara acara</h4>
+								<p class="card-text" style="font-size: 15px;">Buat akun sebagai penyelenggara acara. Setelah berhasil membuat akun, masuk dengan akun tersebut.</p>
+							</div>
+						</div>
+					
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="card card-upload">
+						<div class="row">
+							<div class="col-sm-3">
+								<img src="assets/img/two.png" style="width: 75%; margin-left: 20px; margin-top: 18px; " alt="">
+							</div>
+							<div class="card-body col-sm-9">
+								<h4 class="card-title">Upload event melalui halaman penyelenggara acara</h4>
+								<p class="card-text" style="font-size: 15px;">Isi form event di halaman penyelenggara acara dengan lengkap</p>
+							</div>
+						</div>
+					
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- tahapan upload -->
+
 	<!-- shop banner -->
 	<section class="shop-banner">
     	<div class="container font">
@@ -314,7 +358,6 @@
 						<ul>
 							
 							<li><a href="temukan_webinar.php">Temukan Webinar</a></li>
-							<li><a href="news.html">Artikel</a></li>
 							<li><a href="services.html">Tentang Kami</a></li>
 						</ul>
 					</div>
