@@ -85,7 +85,7 @@
                                                                                                         <hr>
                                                                                                         Webinar ini <b>diselenggarakan</b> secara online pada :<br>
                                                                                                         Tanggal 		: <b>'.$tgl_mulai_session.'</b> <br>
-                                                                                                        Waktu			: <b>'.$waktu_mulai_session.'</b> <br>
+                                                                                                        Waktu			: <b>'.$waktu_mulai_session.' WIB</b> <br>
                                                                                                         Via				: <b>Online</b> 
                                                                                                         <hr>
                                                                                                         Silahkan tunggu email link join akan dikirim melalui email <br>

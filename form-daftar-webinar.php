@@ -103,7 +103,7 @@ if(mysqli_num_rows($hasil)>0){
                     <img src="assets/img/logo_transparan.png" style="width: 70%" alt="">
                 </a>
                 <div class="navBarUsername">
-                    <p class="panggilUsername"><?php echo "<b>".$_SESSION['username']."</b><br>"; ?></p>
+                    <p class="panggilUsername"> <?php echo $_SESSION['username']; ?></p>    
                     <a class="txtLogout" href="logout.php">Logout</a>
                 </div>
             </div>

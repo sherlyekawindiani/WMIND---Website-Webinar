@@ -93,9 +93,9 @@
 						<div class="judul" >
 							<p class="subtitle" style="font-color: #FFC224">find your webinar</p>
 							<h1>Aplikasi Event<br> Webinar</h1>
-							<!-- <div class="hero-btns">
+							<div class="hero-btns">
 								<a href="dashboard-eo.php" class="btn buttonIndex">Buat Webinar Baru</a>
-							</div> -->
+							</div>
 						</div>
 					</div>
 				</div>

@@ -35,6 +35,7 @@
     <link rel="stylesheet" href="assets/css/responsive.css">
     <!-- css saya -->
     <link rel="stylesheet" href="assets/css/css_tirja.css">
+    <link rel="stylesheet" href="assets/css/css_sherly.css">
 
 </head>
 <?php
@@ -44,15 +45,25 @@
 	if($_SESSION['level']==""){
 		header("location:login.php?pesan=gagal");
 	}
+
 	// membuat session Username
 	$email = $_SESSION['email'];
 	$query = "SELECT * FROM tb_user WHERE email='$email'";
 	$hasil = mysqli_query($koneksi,$query);
+
+    if($_SESSION['level']=="Penyelenggara Acara"){
+		// buat session login dan username
+		$_SESSION['email'] = $email;
+		$_SESSION['level'] = "Penyelenggara Acara";
+		// alihkan ke halaman dashboard admin
+		header("location:dashboard-eo.php");
+	}
 ?>
 <?php
 if(mysqli_num_rows($hasil)>0){
     $data_user = mysqli_fetch_array($hasil);
     $_SESSION["id_user"] = $data_user["id_user"];
+	$_SESSION["nama"] = $data_user["nama"];
     $_SESSION["email"] = $data_user["email"];
     $_SESSION["username"] = $data_user["username"];
     $_SESSION["level"] = $data_user["level"];
@@ -76,7 +87,7 @@ if(mysqli_num_rows($hasil)>0){
                     <img src="assets/img/logo_transparan.png" style="width: 70%" alt="">
                 </a>
                 <div class="navBarUsername">
-                    <p class="panggilUsername"><?php echo "<b>".$_SESSION['username']."</b><br>"; ?></p>
+                    <p class="panggilUsername"> <?php echo $_SESSION['username']; ?></p>
                     <a class="txtLogout" href="logout.php">Logout</a>
                 </div>
             </div>
@@ -106,6 +117,14 @@ if(mysqli_num_rows($hasil)>0){
             <div class="col-md-10">
                 <div class="product-section">
                     <div class="container">
+                        <div class="card cardSelamatDtng">
+                            <div class="card-body">
+                                <h2 class="card-title">Selamat Datang </h2>
+                                <h4 class="card-title cardTitleUsername"><?php echo $_SESSION['nama']; ?></h4>
+                                <span class="btn btn-info btnLoginSebagai ">Anda login sebagai <?php echo $_SESSION['level']; ?></span>
+                                <p class="card-text mt-2" style="font-size: 20px; ">Temukan dan daftarkan webinar sesuai dengan minatmu</p>
+                            </div>
+                        </div>
                         <div class="row product-lists">
                             <?php
                                 include "koneksi.php";
@@ -115,7 +134,7 @@ if(mysqli_num_rows($hasil)>0){
                                 foreach ($datas as $data) : $i++;
                             ?>
                                 <div class="col-lg-3 col-md-6 <?php echo $data['kategori_webinar']; ?>">
-                                    <div class="single-product-item">
+                                    <div class="single-product-item ">
                                         <div class="produk-gambar">
                                             <a href="temukan-webinar-detail.php?id_webinar=<?php echo $data['id_webinar']?>"><img src="assets/img/gambar-poster/<?php echo $data['gambar_poster']; ?>" alt=""></a>
                                         </div> 
@@ -151,7 +170,7 @@ if(mysqli_num_rows($hasil)>0){
                                             </div>
                                         </div>
                                         <span><i class="fas fa-calendar-alt"></i> <?php echo $data['tanggal_mulai']; ?></span><br>
-                                        <span><i class="fas fa-clock"></i> <?php echo $data['waktu_mulai']; ?></span>
+                                        <span><i class="fas fa-clock"></i> <?php echo $data['waktu_mulai']; ?> WIB</span>
                                     </div>
                                 </div>
                             <?php $i++;

@@ -47,6 +47,14 @@
 	$email = $_SESSION['email'];
 	$query = "SELECT * FROM tb_user WHERE email='$email'";
 	$hasil = mysqli_query($koneksi,$query);
+
+	if($_SESSION['level']=="Peserta"){
+		// buat session login dan username
+		$_SESSION['email'] = $email;
+		$_SESSION['level'] = "Peserta";
+		// alihkan ke halaman dashboard admin
+		header("location:temukan-webinar.php");
+	}
 	
 	// tb peserta
     $query="SELECT*FROM tb_daftar_peserta WHERE id_peserta"; //buat query sql
@@ -96,9 +104,8 @@ if(mysqli_num_rows($hasil)>0){
                 <img src="assets/img/logo_transparan.png" style="width: 70%" alt="">
             </a>
             <div class="navBarUsername">
-				<p class="panggilUsername"> <?php echo "<b>".$_SESSION['username']."</b><br>"; ?></p>
+				<p class="panggilUsername"> <?php echo $_SESSION['username']; ?></p>
 				<a class="txtLogout" href="logout.php">Logout</a> 
-				
 			</div>
         </div>
     </nav>
@@ -128,8 +135,9 @@ if(mysqli_num_rows($hasil)>0){
 					<div class="card cardSelamatDtng">
 						<div class="card-body">
 							<h2 class="card-title">Selamat Datang </h2>
-							<h4 class="card-title cardTitleUsername"><?php echo "<b>".$_SESSION['nama']."</b><br>"; ?></h4>
-							<p class="card-text">Uplond webinar mu dan dapatkan partisipan sebanyak mungkin </p>
+							<h4 class="card-title cardTitleUsername"><?php echo $_SESSION['nama']; ?></h4>
+							<span class="btn btn-info btnLoginSebagai ">Anda login sebagai <?php echo $_SESSION['level']; ?></span>
+							<p class="card-text mt-2" style="font-size: 20px; ">Uplond webinar mu dan dapatkan partisipan sebanyak mungkin </p>
 						</div>
 					</div>
 					<div class="row cardOverview">
