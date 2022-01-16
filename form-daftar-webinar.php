@@ -133,7 +133,7 @@ if(mysqli_num_rows($hasil)>0){
                                 </div>
                                 <div class="col-md-4 kotak-telepon">
                                     <div class="form-group">
-                                        <input type="text" name="notelp_peserta" placeholder="No Telepon" id="notelp" onkeyup="checkPass(); return false;">
+                                        <input type="text" name="notelp_peserta" placeholder="No Telepon ex:62xxxxxxxxxxx" id="notelp" onkeyup="checkPass(); return false;">
                                         <small id="notelp-error" class="form-text" style="margin-top:-25px;"></small>
                                     </div>
                                     
