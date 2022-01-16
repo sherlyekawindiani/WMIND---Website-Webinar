@@ -33,6 +33,8 @@
 	<link rel="stylesheet" href="assets/css/responsive.css">
     <!-- css saya -->
     <link rel="stylesheet" href="assets/css/css_tirja.css">
+    <!-- Css kita  -->
+	<link rel="stylesheet" href="assets/css/css_sherly.css">
 
 </head>
 <?php
@@ -125,6 +127,9 @@ if(mysqli_num_rows($hasil)>0){
                             <input type="hidden" name="id_webinar_session"  value=" <?php echo $_SESSION['id_webinar']; ?>">
                             <input type="hidden" name="id_author"  value=" <?php echo $_SESSION['id_user']; ?>">
                             <input type="hidden" name="id_author_eo"  value=" <?php echo $_SESSION['id_author']; ?>">
+                            <input type="hidden" name="judul_webinar_session" style="text-transform: capitalize;" value=" <?php echo $_SESSION['judul_webinar']; ?>">
+                            <input type="hidden" name="tgl_mulai_session"  value=" <?php echo $_SESSION['tanggal_mulai']; ?>">
+                            <input type="hidden" name="waktu_mulai_session"  value=" <?php echo $_SESSION['waktu_mulai']; ?>">
                             <input type="hidden" name="tgl_daftar" value="<?php echo date("l-d-m-Y"); ?>">
                             <input type="text" name="nama_peserta" style="text-transform: capitalize;" placeholder="Nama Lengkap" required>
                             <div class="form-row">
@@ -147,7 +152,7 @@ if(mysqli_num_rows($hasil)>0){
                                     <option value="Umum">Umum</option>
                                 </select>
                             </div>
-                            <button type="submit" name="kirim" value="kirim" class="btn"><h4>Daftar</h4></button>
+                            <button type="submit" name="kirim" value="kirim" class="btn buttonSemua">Daftar</button>
                         </form>
                     </div>
                 </div>
